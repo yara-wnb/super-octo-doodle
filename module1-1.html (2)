@@ -1,30 +1,83 @@
 <!DOCTYPE html>
+
 <html>
 <head>
 <title>MDM4U - Module 1.1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display">
 
 <style>
+
 body {
   font-family: "Roboto", sans-serif;
+  background-color: #fff5f8;
+  color: #4a3a40;
 }
 
+/* Navigation */
 .w3-bar-block .w3-bar-item {
   padding: 16px;
   font-weight: bold;
 }
+
+/* Main headings */
+h1 {
+  color: #c05a7d;
+  font-family: "Playfair Display", serif;
+  margin-top: 40px;
+}
+
+h3 {
+  color: #d47798;
+  margin-top: 30px;
+}
+
+/* Main content */
+.w3-container {
+  line-height: 1.7;
+}
+
+/* White sections */
+.content-box {
+  background-color: white;
+  padding: 25px;
+  margin-bottom: 25px;
+  border-radius: 15px;
+  box-shadow: 0 3px 12px rgba(192, 90, 125, 0.12);
+}
+
+/* Pink header */
+.pink-header {
+  background-color: #e8a0b8;
+  color: white;
+}
+
+/* Reference box */
+.reference-box {
+  background-color: #fff0f4;
+  padding: 20px;
+  border-left: 5px solid #d47798;
+  border-radius: 10px;
+}
+
+/* Links */
+a {
+  color: #c05a7d;
+}
+
 </style>
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
 </head>
 
 <body>
 
 <!-- Navigation bar -->
+
 <div id="nav-placeholder"></div>
 
 <script>
@@ -32,6 +85,7 @@ $(function(){
   $("#nav-placeholder").load("nav.html");
 });
 </script>
+
 <!-- End of Navigation bar -->
 
 <div class="w3-overlay w3-hide-large w3-animate-opacity"
@@ -39,210 +93,300 @@ onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
 
 <div class="w3-main" style="margin-left:250px;">
 
-<div id="myTop" class="w3-container w3-top w3-theme w3-large">
+<!-- Top bar -->
+
+<div id="myTop" class="w3-container w3-top" 
+style="background-color:#d47798; color:white;">
+
   <p>
-    <i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge"
+    <i class="fa fa-bars w3-button w3-hide-large w3-xlarge"
     onclick="w3_open()"></i>
-    <span id="myIntro" class="w3-hide">MDM4U</span>
+
+```
+<span id="myIntro" class="w3-hide">
+  MDM4U
+</span>
+```
+
   </p>
+
 </div>
 
-<header class="w3-container w3-theme" style="padding:64px 32px">
-  <h1 class="w3-xxxlarge">Module 1.1 : Les types de données et les diagrammes</h1>
+<!-- Page header -->
+
+<header class="w3-container pink-header" 
+style="padding:64px 32px;">
+
+  <h1 style="color:white;">
+    Module 1.1 : Les types de données
+  </h1>
+
 </header>
 
-<div class="w3-container" style="padding:32px">
+<div class="w3-container" style="padding:32px;">
+
+<!-- ================================= -->
 
 <!-- LES DIFFÉRENTS TYPES DE DONNÉES -->
 
+<!-- ================================= -->
+
+<div class="content-box">
+
 <h1>Les différents types de données</h1>
 
-<h3>Variable quantitative (continue et discrète)</h3>
+<h3>Variable quantitative</h3>
 
 <p>
-Une variable quantitative est une variable qui représente une quantité numérique. Elle peut être mesurée ou dénombrée.
+Une <strong>variable quantitative</strong> est une variable qui représente une quantité numérique. 
+Elle permet de mesurer ou de compter une caractéristique d'un individu ou d'une population.
+</p>
+
+<h3>Variable quantitative discrète</h3>
+
+<p>
+Une <strong>variable quantitative discrète</strong> est une variable qui peut prendre seulement certaines valeurs numériques distinctes. 
+Elle est généralement obtenue en faisant un dénombrement et ses valeurs sont souvent des nombres entiers.
 </p>
 
 <p>
-Une variable quantitative discrète prend des valeurs distinctes, généralement des nombres entiers. Elle est obtenue en comptant.
+<strong>Exemples :</strong> le nombre de frères et sœurs d'une personne, 
+le nombre d'élèves dans une classe ou le nombre de voitures dans un stationnement.
+</p>
+
+<h3>Variable quantitative continue</h3>
+
+<p>
+Une <strong>variable quantitative continue</strong> est une variable qui peut prendre n'importe quelle valeur dans un intervalle. 
+Elle est généralement obtenue par une mesure et peut donc prendre des valeurs décimales.
 </p>
 
 <p>
-<strong>Exemple :</strong> Le nombre de frères et sœurs d'une personne, le nombre d'élèves dans une classe ou le nombre de voitures dans un stationnement.
+<strong>Exemples :</strong> la taille d'une personne, son poids, 
+la température ou le temps nécessaire pour courir une certaine distance.
+</p>
+
+<h3>Variable qualitative</h3>
+
+<p>
+Une <strong>variable qualitative</strong> décrit une caractéristique ou une catégorie plutôt qu'une quantité numérique.
+Elle permet de classer les individus selon une qualité ou une caractéristique particulière.
+</p>
+
+<h3>Variable qualitative nominale</h3>
+
+<p>
+Une <strong>variable qualitative nominale</strong> est une variable dont les catégories n'ont pas d'ordre ou de classement particulier.
+Les catégories servent simplement à identifier ou à différencier les individus.
 </p>
 
 <p>
-Une variable quantitative continue peut prendre n'importe quelle valeur dans un intervalle. Elle est généralement obtenue par une mesure.
+<strong>Exemples :</strong> la couleur préférée, le pays d'origine, 
+le type de musique préféré ou la marque de téléphone utilisée.
+</p>
+
+<h3>Variable qualitative ordinale</h3>
+
+<p>
+Une <strong>variable qualitative ordinale</strong> est une variable dont les catégories peuvent être placées dans un ordre logique.
+Cependant, la différence entre les catégories ne peut pas nécessairement être mesurée numériquement.
 </p>
 
 <p>
-<strong>Exemple :</strong> La taille d'une personne, son poids ou la température. Ces valeurs peuvent inclure des nombres décimaux.
+<strong>Exemples :</strong> le niveau de satisfaction 
+(insatisfait, neutre, satisfait), le niveau de difficulté 
+(facile, moyen, difficile) ou le niveau de douleur 
+(faible, modéré, élevé).
 </p>
 
+</div>
 
-<h3>Variable qualitative (nominale et ordinale)</h3>
+<!-- =========================== -->
 
-<p>
-Une variable qualitative décrit une caractéristique ou une catégorie. Elle ne représente pas une quantité numérique mesurable.
-</p>
+<!-- TYPES DE DIAGRAMMES -->
 
-<p>
-Une variable qualitative nominale regroupe les données dans des catégories qui n'ont pas d'ordre particulier.
-</p>
+<!-- =========================== -->
 
-<p>
-<strong>Exemple :</strong> La couleur préférée d'une personne, son pays d'origine ou son type de musique préféré.
-</p>
-
-<p>
-Une variable qualitative ordinale regroupe les données dans des catégories qui peuvent être classées selon un ordre.
-</p>
-
-<p>
-<strong>Exemple :</strong> Le niveau de satisfaction (insatisfait, neutre, satisfait) ou le niveau de difficulté (facile, moyen, difficile).
-</p>
-
-
-<!-- CERTAINS TYPES DE DIAGRAMMES -->
+<div class="content-box">
 
 <h1>Certains types de diagrammes</h1>
 
 <h3>Diagramme à bandes</h3>
 
 <p>
-Un diagramme à bandes représente des données à l'aide de bandes rectangulaires. Chaque bande correspond à une catégorie et sa hauteur ou sa longueur indique la fréquence ou la quantité associée.
+Un <strong>diagramme à bandes</strong> représente des données à l'aide de bandes rectangulaires.
+Chaque bande représente une catégorie et sa longueur ou sa hauteur indique la fréquence ou la quantité associée à cette catégorie.
 </p>
 
 <p>
-On utilise un diagramme à bandes pour comparer différentes catégories de données qualitatives ou quantitatives discrètes.
+Les bandes sont séparées les unes des autres, car elles représentent des catégories distinctes.
 </p>
 
 <p>
-<strong>Exemple :</strong> Comparer le nombre d'élèves qui préfèrent différents sports.
+<strong>Contexte :</strong> On utilise principalement un diagramme à bandes pour comparer différentes catégories.
+Par exemple, on pourrait comparer le nombre d'élèves qui préfèrent différents sports.
 </p>
-
 
 <h3>Histogramme</h3>
 
 <p>
-Un histogramme représente la distribution d'une variable quantitative continue ou regroupée en intervalles. Les données sont organisées en classes et les bandes se touchent.
+Un <strong>histogramme</strong> représente la distribution d'une variable quantitative en regroupant les données dans des intervalles appelés classes.
+Les bandes se touchent puisqu'elles représentent des intervalles continus.
 </p>
 
 <p>
-On utilise un histogramme pour observer la distribution des données, leur concentration et leur dispersion.
+Un histogramme permet de voir comment les données sont distribuées et de repérer leur concentration, leur dispersion et leur forme générale.
 </p>
 
 <p>
-<strong>Exemple :</strong> Représenter la distribution des tailles des élèves d'une école.
+<strong>Contexte :</strong> On peut utiliser un histogramme pour représenter la distribution des tailles des élèves d'une école ou les résultats d'un examen.
 </p>
-
 
 <h3>Diagramme circulaire</h3>
 
 <p>
-Un diagramme circulaire représente des données sous forme de cercle divisé en secteurs. Chaque secteur représente une catégorie et sa taille correspond à sa proportion du total.
+Un <strong>diagramme circulaire</strong> représente un ensemble de données sous la forme d'un cercle divisé en plusieurs secteurs.
+Chaque secteur représente une catégorie et sa taille correspond à la proportion de cette catégorie par rapport au total.
 </p>
 
 <p>
-On utilise un diagramme circulaire pour montrer la répartition d'un ensemble de données en pourcentages ou en proportions.
+Les secteurs sont généralement présentés en pourcentages afin de montrer clairement la répartition des données.
 </p>
 
 <p>
-<strong>Exemple :</strong> Représenter les moyens de transport utilisés par les élèves pour se rendre à l'école.
+<strong>Contexte :</strong> On peut utiliser un diagramme circulaire pour représenter les moyens de transport utilisés par les élèves pour se rendre à l'école.
 </p>
-
 
 <h3>Diagramme à ligne brisée</h3>
 
 <p>
-Un diagramme à ligne brisée représente des données à l'aide de points reliés par des lignes. Il permet de visualiser les changements et les tendances au fil du temps.
+Un <strong>diagramme à ligne brisée</strong> représente des données à l'aide de points reliés par des segments de droite.
+Il permet de montrer les changements et les tendances d'une variable.
 </p>
 
 <p>
-On utilise un diagramme à ligne brisée pour représenter l'évolution d'une variable, particulièrement lorsqu'il existe un ordre chronologique.
+Ce type de diagramme est particulièrement utile lorsque les données sont recueillies au fil du temps.
 </p>
 
 <p>
-<strong>Exemple :</strong> Représenter l'évolution de la température au cours d'une semaine.
+<strong>Contexte :</strong> On peut utiliser un diagramme à ligne brisée pour représenter l'évolution de la température pendant une semaine ou l'évolution des ventes d'une entreprise au cours de plusieurs mois.
 </p>
 
+</div>
 
-<!-- EXEMPLES DE GRAPHIQUES -->
+<!-- ====================================== -->
+
+<!-- GRAPHIQUES GOOGLE SHEETS -->
+
+<!-- ====================================== -->
+
+<div class="content-box">
 
 <h1>Exemples de graphiques créés avec Google Sheets</h1>
 
 <h3>Diagramme à bandes</h3>
 
 <p>
-Ce diagramme à bandes présente les résultats du sondage réalisé en classe. Il permet de comparer les différentes catégories de réponses.
+Ce diagramme à bandes présente des données provenant des résultats du sondage réalisé en classe.
+Il permet de comparer visuellement les différentes catégories de réponses.
 </p>
 
-<!-- Colle ici le code iframe de ton diagramme à bandes Google Sheets -->
-
-
+<!-- COLLE ICI LE CODE IFRAME DE TON DIAGRAMME À BANDES GOOGLE SHEETS -->
 
 <h3>Histogramme</h3>
 
 <p>
-Cet histogramme présente les résultats du sondage réalisé en classe. Il permet d'observer la distribution des données quantitatives.
+Cet histogramme présente des données provenant des résultats du sondage réalisé en classe.
+Il permet d'observer la distribution d'une variable quantitative.
 </p>
 
-<!-- Colle ici le code iframe de ton histogramme Google Sheets -->
-
-
+<!-- COLLE ICI LE CODE IFRAME DE TON HISTOGRAMME GOOGLE SHEETS -->
 
 <h3>Diagramme circulaire</h3>
 
 <p>
-Ce diagramme circulaire présente les résultats du sondage réalisé en classe. Il permet de visualiser la proportion de chaque catégorie.
+Ce diagramme circulaire présente des données provenant des résultats du sondage réalisé en classe.
+Il permet de visualiser la proportion de chaque catégorie par rapport au total.
 </p>
 
-<!-- Colle ici le code iframe de ton diagramme circulaire Google Sheets -->
+<!-- COLLE ICI LE CODE IFRAME DE TON DIAGRAMME CIRCULAIRE GOOGLE SHEETS -->
 
+</div>
 
+<!-- ================= -->
 
 <!-- RÉFÉRENCES -->
+
+<!-- ================= -->
+
+<div class="content-box">
+
+<div class="reference-box">
 
 <h1>Références</h1>
 
 <p>
-Les sources utilisées pour les définitions et les explications de cette page sont présentées ci-dessous.
+Les sources utilisées pour les définitions et les explications présentées sur cette page sont indiquées ci-dessous.
 </p>
 
-<!-- Remplace ce lien par le code de ton propre fichier MyBib pour le 1.1 -->
+<!-- 
+REMPLACE LES DEUX LIGNES CI-DESSOUS
+PAR LE CODE DE TON PROPRE FICHIER MYBIB POUR LE 1.1
+-->
 
 <a href="https://www.mybib.com/b/y9P9b2" target="_blank">
-  Voir la bibliographie
+Voir la bibliographie
 </a>
 
-<script src="https://www.mybib.com/e/script" bibliography="y9P9b2"></script>
+<script 
+src="https://www.mybib.com/e/script" 
+bibliography="y9P9b2">
+</script>
 
+</div>
+
+</div>
 
 </div>
 
 <!-- FOOTER -->
 
-<footer class="w3-container w3-theme" style="padding:32px">
-  <p>Contenu de cette page web par M. Gore (prénom: Pytha)</p>
+<footer class="w3-container" 
+style="padding:32px; background-color:#d47798; color:white;">
+
+<p>
+Contenu de cette page web par M. Gore (prénom: Pytha)
+</p>
+
 </footer>
 
 </div>
 
+<!-- ================= -->
 
-<!-- SCRIPTS -->
+<!-- JAVASCRIPT -->
+
+<!-- ================= -->
 
 <script>
 
 // Open and close the sidebar on medium and small screens
 
 function w3_open() {
+
   document.getElementById("mySidebar").style.display = "block";
+
   document.getElementById("myOverlay").style.display = "block";
+
 }
 
+
 function w3_close() {
+
   document.getElementById("mySidebar").style.display = "none";
+
   document.getElementById("myOverlay").style.display = "none";
+
 }
 
 
@@ -252,10 +396,13 @@ window.onscroll = function() {
   myFunction()
 };
 
+
 function myFunction() {
 
-  if (document.body.scrollTop > 80 ||
-      document.documentElement.scrollTop > 80) {
+  if (
+    document.body.scrollTop > 80 ||
+    document.documentElement.scrollTop > 80
+  ) {
 
     document.getElementById("myTop").classList.add(
       "w3-card-4",
