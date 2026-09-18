@@ -1,431 +1,180 @@
 <!DOCTYPE html>
-
 <html>
 <head>
-<title>MDM4U - Module 1.1</title>
+<title>MDM4U</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display">
-
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-
-body {
-  font-family: "Roboto", sans-serif;
-  background-color: #fff5f8;
-  color: #4a3a40;
-}
-
-/* Navigation */
+body {font-family: "Roboto", sans-serif}
 .w3-bar-block .w3-bar-item {
-  padding: 16px;
-  font-weight: bold;
+padding: 16px;
+font-weight: bold;
 }
-
-/* Main headings */
-h1 {
-  color: #c05a7d;
-  font-family: "Playfair Display", serif;
-  margin-top: 40px;
-}
-
-h3 {
-  color: #d47798;
-  margin-top: 30px;
-}
-
-/* Main content */
-.w3-container {
-  line-height: 1.7;
-}
-
-/* White sections */
-.content-box {
-  background-color: white;
-  padding: 25px;
-  margin-bottom: 25px;
-  border-radius: 15px;
-  box-shadow: 0 3px 12px rgba(192, 90, 125, 0.12);
-}
-
-/* Pink header */
-.pink-header {
-  background-color: #e8a0b8;
-  color: white;
-}
-
-/* Reference box */
-.reference-box {
-  background-color: #fff0f4;
-  padding: 20px;
-  border-left: 5px solid #d47798;
-  border-radius: 10px;
-}
-
-/* Links */
-a {
-  color: #c05a7d;
-}
-
 </style>
-
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-
 </head>
-
 <body>
+<!--Navigation bar-->
+<div id="nav-placeholder">
 
-<!-- Navigation bar -->
-
-<div id="nav-placeholder"></div>
+</div>
 
 <script>
 $(function(){
-  $("#nav-placeholder").load("nav.html");
+$("#nav-placeholder").load("nav.html");
 });
 </script>
+<!--end of Navigation bar-->
 
-<!-- End of Navigation bar -->
-
-<div class="w3-overlay w3-hide-large w3-animate-opacity"
-onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
 
 <div class="w3-main" style="margin-left:250px;">
 
-<!-- Top bar -->
-
-<div id="myTop" class="w3-container w3-top" 
-style="background-color:#d47798; color:white;">
-
-  <p>
-    <i class="fa fa-bars w3-button w3-hide-large w3-xlarge"
-    onclick="w3_open()"></i>
-
-```
-<span id="myIntro" class="w3-hide">
-  MDM4U
-</span>
-```
-
-  </p>
-
+<div id="myTop" class="w3-container w3-top w3-theme w3-large">
+<p><i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge" onclick="w3_open()"></i>
+<span id="myIntro" class="w3-hide">MDM4U</span></p>
 </div>
 
-<!-- Page header -->
-
-<header class="w3-container pink-header" 
-style="padding:64px 32px;">
-
-  <h1 style="color:white;">
-    Module 1.1 : Les types de données
-  </h1>
-
+<header class="w3-container w3-theme" style="padding:64px 32px">
+<h1 class="w3-xxxlarge">Titre du module</h1>
 </header>
 
-<div class="w3-container" style="padding:32px;">
+<div class="w3-container" style="padding:32px">
 
-<!-- ================================= -->
+<!-- Tu peux complètement modifier le contenu ci-dessous -->
 
-<!-- LES DIFFÉRENTS TYPES DE DONNÉES -->
+<h1>Entête 1</h1>
+<h2>Entête 2</h2>
+<p>Ceci est un paragraphe qui contient <a href="https://www.w3schools.com/html/html_links.asp" target="_blank">un lien</a> qui ouvre dans une nouvelle fenêtre.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ui8o6fJjkck" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<!-- ================================= -->
 
-<div class="content-box">
-
-<h1>Les différents types de données</h1>
-
-<h3>Variable quantitative</h3>
-
-<p>
-Une <strong>variable quantitative</strong> est une variable qui représente une quantité numérique. 
-Elle permet de mesurer ou de compter une caractéristique d'un individu ou d'une population.
-</p>
-
-<h3>Variable quantitative discrète</h3>
-
-<p>
-Une <strong>variable quantitative discrète</strong> est une variable qui peut prendre seulement certaines valeurs numériques distinctes. 
-Elle est généralement obtenue en faisant un dénombrement et ses valeurs sont souvent des nombres entiers.
-</p>
-
-<p>
-<strong>Exemples :</strong> le nombre de frères et sœurs d'une personne, 
-le nombre d'élèves dans une classe ou le nombre de voitures dans un stationnement.
-</p>
-
-<h3>Variable quantitative continue</h3>
-
-<p>
-Une <strong>variable quantitative continue</strong> est une variable qui peut prendre n'importe quelle valeur dans un intervalle. 
-Elle est généralement obtenue par une mesure et peut donc prendre des valeurs décimales.
-</p>
-
-<p>
-<strong>Exemples :</strong> la taille d'une personne, son poids, 
-la température ou le temps nécessaire pour courir une certaine distance.
-</p>
-
-<h3>Variable qualitative</h3>
-
-<p>
-Une <strong>variable qualitative</strong> décrit une caractéristique ou une catégorie plutôt qu'une quantité numérique.
-Elle permet de classer les individus selon une qualité ou une caractéristique particulière.
-</p>
-
-<h3>Variable qualitative nominale</h3>
-
-<p>
-Une <strong>variable qualitative nominale</strong> est une variable dont les catégories n'ont pas d'ordre ou de classement particulier.
-Les catégories servent simplement à identifier ou à différencier les individus.
-</p>
-
-<p>
-<strong>Exemples :</strong> la couleur préférée, le pays d'origine, 
-le type de musique préféré ou la marque de téléphone utilisée.
-</p>
-
-<h3>Variable qualitative ordinale</h3>
-
-<p>
-Une <strong>variable qualitative ordinale</strong> est une variable dont les catégories peuvent être placées dans un ordre logique.
-Cependant, la différence entre les catégories ne peut pas nécessairement être mesurée numériquement.
-</p>
-
-<p>
-<strong>Exemples :</strong> le niveau de satisfaction 
-(insatisfait, neutre, satisfait), le niveau de difficulté 
-(facile, moyen, difficile) ou le niveau de douleur 
-(faible, modéré, élevé).
-</p>
+<!-- Tu peux complètement modifier le contenu par dessus cette ligne -->
 
 </div>
 
-<!-- =========================== -->
-
-<!-- TYPES DE DIAGRAMMES -->
-
-<!-- =========================== -->
-
-<div class="content-box">
-
-<h1>Certains types de diagrammes</h1>
-
-<h3>Diagramme à bandes</h3>
-
-<p>
-Un <strong>diagramme à bandes</strong> représente des données à l'aide de bandes rectangulaires.
-Chaque bande représente une catégorie et sa longueur ou sa hauteur indique la fréquence ou la quantité associée à cette catégorie.
-</p>
-
-<p>
-Les bandes sont séparées les unes des autres, car elles représentent des catégories distinctes.
-</p>
-
-<p>
-<strong>Contexte :</strong> On utilise principalement un diagramme à bandes pour comparer différentes catégories.
-Par exemple, on pourrait comparer le nombre d'élèves qui préfèrent différents sports.
-</p>
-
-<h3>Histogramme</h3>
-
-<p>
-Un <strong>histogramme</strong> représente la distribution d'une variable quantitative en regroupant les données dans des intervalles appelés classes.
-Les bandes se touchent puisqu'elles représentent des intervalles continus.
-</p>
-
-<p>
-Un histogramme permet de voir comment les données sont distribuées et de repérer leur concentration, leur dispersion et leur forme générale.
-</p>
-
-<p>
-<strong>Contexte :</strong> On peut utiliser un histogramme pour représenter la distribution des tailles des élèves d'une école ou les résultats d'un examen.
-</p>
-
-<h3>Diagramme circulaire</h3>
-
-<p>
-Un <strong>diagramme circulaire</strong> représente un ensemble de données sous la forme d'un cercle divisé en plusieurs secteurs.
-Chaque secteur représente une catégorie et sa taille correspond à la proportion de cette catégorie par rapport au total.
-</p>
-
-<p>
-Les secteurs sont généralement présentés en pourcentages afin de montrer clairement la répartition des données.
-</p>
-
-<p>
-<strong>Contexte :</strong> On peut utiliser un diagramme circulaire pour représenter les moyens de transport utilisés par les élèves pour se rendre à l'école.
-</p>
-
-<h3>Diagramme à ligne brisée</h3>
-
-<p>
-Un <strong>diagramme à ligne brisée</strong> représente des données à l'aide de points reliés par des segments de droite.
-Il permet de montrer les changements et les tendances d'une variable.
-</p>
-
-<p>
-Ce type de diagramme est particulièrement utile lorsque les données sont recueillies au fil du temps.
-</p>
-
-<p>
-<strong>Contexte :</strong> On peut utiliser un diagramme à ligne brisée pour représenter l'évolution de la température pendant une semaine ou l'évolution des ventes d'une entreprise au cours de plusieurs mois.
-</p>
-
-</div>
-
-<!-- ====================================== -->
-
-<!-- GRAPHIQUES GOOGLE SHEETS -->
-
-<!-- ====================================== -->
-
-<div class="content-box">
-
-<h1>Exemples de graphiques créés avec Google Sheets</h1>
-
-<h3>Diagramme à bandes</h3>
-
-<p>
-Ce diagramme à bandes présente des données provenant des résultats du sondage réalisé en classe.
-Il permet de comparer visuellement les différentes catégories de réponses.
-</p>
-
-<!-- COLLE ICI LE CODE IFRAME DE TON DIAGRAMME À BANDES GOOGLE SHEETS -->
-
-<h3>Histogramme</h3>
-
-<p>
-Cet histogramme présente des données provenant des résultats du sondage réalisé en classe.
-Il permet d'observer la distribution d'une variable quantitative.
-</p>
-
-<!-- COLLE ICI LE CODE IFRAME DE TON HISTOGRAMME GOOGLE SHEETS -->
-
-<h3>Diagramme circulaire</h3>
-
-<p>
-Ce diagramme circulaire présente des données provenant des résultats du sondage réalisé en classe.
-Il permet de visualiser la proportion de chaque catégorie par rapport au total.
-</p>
-
-<!-- COLLE ICI LE CODE IFRAME DE TON DIAGRAMME CIRCULAIRE GOOGLE SHEETS -->
-
-</div>
-
-<!-- ================= -->
-
-<!-- RÉFÉRENCES -->
-
-<!-- ================= -->
-
-<div class="content-box">
-
-<div class="reference-box">
-
-<h1>Références</h1>
-
-<p>
-Les sources utilisées pour les définitions et les explications présentées sur cette page sont indiquées ci-dessous.
-</p>
-
-<!-- 
-REMPLACE LES DEUX LIGNES CI-DESSOUS
-PAR LE CODE DE TON PROPRE FICHIER MYBIB POUR LE 1.1
--->
-
-<a href="https://www.mybib.com/b/y9P9b2" target="_blank">
-Voir la bibliographie
-</a>
-
-<script 
-src="https://www.mybib.com/e/script" 
-bibliography="y9P9b2">
-</script>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- FOOTER -->
-
-<footer class="w3-container" 
-style="padding:32px; background-color:#d47798; color:white;">
-
-<p>
-Contenu de cette page web par M. Gore (prénom: Pytha)
-</p>
-
+<footer class="w3-container w3-theme" style="padding:32px">
+<p>Contenu de cette page web par M. Gore (prénom: Pytha)</p>
 </footer>
 
 </div>
 
-<!-- ================= -->
-
-<!-- JAVASCRIPT -->
-
-<!-- ================= -->
-
 <script>
-
 // Open and close the sidebar on medium and small screens
-
 function w3_open() {
-
-  document.getElementById("mySidebar").style.display = "block";
-
-  document.getElementById("myOverlay").style.display = "block";
-
+document.getElementById("mySidebar").style.display = "block";
+document.getElementById("myOverlay").style.display = "block";
 }
-
 
 function w3_close() {
-
-  document.getElementById("mySidebar").style.display = "none";
-
-  document.getElementById("myOverlay").style.display = "none";
-
+document.getElementById("mySidebar").style.display = "none";
+document.getElementById("myOverlay").style.display = "none";
 }
 
+// Change style of top container on scroll
+window.onscroll = function() {myFunction()};
+function myFunction() {
+if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
+document.getElementById("myIntro").classList.add("w3-show-inline-block");
+} else {
+document.getElementById("myIntro").classList.remove("w3-show-inline-block");
+document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
+}
+}
+
+</script>
+
+</body>
+</html> <!DOCTYPE html>
+<html>
+<head>
+<title>MDM4U</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body {font-family: "Roboto", sans-serif}
+.w3-bar-block .w3-bar-item {
+padding: 16px;
+font-weight: bold;
+}
+</style>
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+<!--Navigation bar-->
+<div id="nav-placeholder">
+
+</div>
+
+<script>
+$(function(){
+$("#nav-placeholder").load("nav.html");
+});
+</script>
+<!--end of Navigation bar-->
+
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+
+<div class="w3-main" style="margin-left:250px;">
+
+<div id="myTop" class="w3-container w3-top w3-theme w3-large">
+<p><i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge" onclick="w3_open()"></i>
+<span id="myIntro" class="w3-hide">MDM4U</span></p>
+</div>
+
+<header class="w3-container w3-theme" style="padding:64px 32px">
+<h1 class="w3-xxxlarge">Titre du module</h1>
+</header>
+
+<div class="w3-container" style="padding:32px">
+
+<!-- Tu peux complètement modifier le contenu ci-dessous -->
+
+<h1>Entête 1</h1>
+<h2>Entête 2</h2>
+<p>Ceci est un paragraphe qui contient <a href="https://www.w3schools.com/html/html_links.asp" target="_blank">un lien</a> qui ouvre dans une nouvelle fenêtre.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Ui8o6fJjkck" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+
+<!-- Tu peux complètement modifier le contenu par dessus cette ligne -->
+
+</div>
+
+<footer class="w3-container w3-theme" style="padding:32px">
+<p>Contenu de cette page web par M. Gore (prénom: Pytha)</p>
+</footer>
+
+</div>
+
+<script>
+// Open and close the sidebar on medium and small screens
+function w3_open() {
+document.getElementById("mySidebar").style.display = "block";
+document.getElementById("myOverlay").style.display = "block";
+}
+
+function w3_close() {
+document.getElementById("mySidebar").style.display = "none";
+document.getElementById("myOverlay").style.display = "none";
+}
 
 // Change style of top container on scroll
-
-window.onscroll = function() {
-  myFunction()
-};
-
-
+window.onscroll = function() {myFunction()};
 function myFunction() {
-
-  if (
-    document.body.scrollTop > 80 ||
-    document.documentElement.scrollTop > 80
-  ) {
-
-    document.getElementById("myTop").classList.add(
-      "w3-card-4",
-      "w3-animate-opacity"
-    );
-
-    document.getElementById("myIntro").classList.add(
-      "w3-show-inline-block"
-    );
-
-  } else {
-
-    document.getElementById("myIntro").classList.remove(
-      "w3-show-inline-block"
-    );
-
-    document.getElementById("myTop").classList.remove(
-      "w3-card-4",
-      "w3-animate-opacity"
-    );
-
-  }
-
+if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
+document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
+document.getElementById("myIntro").classList.add("w3-show-inline-block");
+} else {
+document.getElementById("myIntro").classList.remove("w3-show-inline-block");
+document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
+}
 }
 
 </script>
