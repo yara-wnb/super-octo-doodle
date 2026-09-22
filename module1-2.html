@@ -1,292 +1,455 @@
 <!DOCTYPE html>
+
 <html>
 <head>
-<title>MDM4U - Méthodes d'échantillonnage</title>
+<title>MDM4U - Module 1.2</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-pink.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display">
 
 <style>
+
 body {
-    font-family: "Roboto", sans-serif;
-    background-color: #fff5f8;
-    color: #333;
+font-family: "Roboto", sans-serif;
+background-color: #fff5f8;
+color: #4a3a40;
 }
 
+/* Navigation */
 .w3-bar-block .w3-bar-item {
-    padding: 16px;
-    font-weight: bold;
+padding: 16px;
+font-weight: bold;
 }
 
+/* Main headings */
 h1 {
-    color: #d81b60;
-    font-weight: bold;
+color: #c05a7d;
+font-family: "Playfair Display", serif;
+margin-top: 40px;
 }
 
-h2 {
-    color: #ec407a;
-    margin-top: 30px;
+h3 {
+color: #d47798;
+margin-top: 30px;
 }
 
-p {
-    font-size: 17px;
-    line-height: 1.7;
+/* Main content */
+.w3-container {
+line-height: 1.7;
 }
 
-.sampling-box {
-    background-color: #ffffff;
-    border-left: 6px solid #ec407a;
-    padding: 20px;
-    margin: 20px 0;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+/* White sections */
+.content-box {
+background-color: white;
+padding: 25px;
+margin-bottom: 25px;
+border-radius: 15px;
+box-shadow: 0 3px 12px rgba(192, 90, 125, 0.12);
 }
 
-.example {
-    background-color: #fce4ec;
-    padding: 12px 16px;
-    border-radius: 8px;
-    margin-top: 10px;
+/* Pink header */
+.pink-header {
+background-color: #e8a0b8;
+color: white;
 }
 
-.w3-theme {
-    background-color: #e91e63 !important;
+/* Reference box */
+.reference-box {
+background-color: #fff0f4;
+padding: 20px;
+border-left: 5px solid #d47798;
+border-radius: 10px;
 }
 
-.w3-theme-d1 {
-    background-color: #d81b60 !important;
+/* Examples */
+.example-box {
+background-color: #fff0f4;
+padding: 15px 20px;
+margin-top: 15px;
+border-radius: 10px;
+border-left: 4px solid #d47798;
 }
 
-.w3-theme-l5 {
-    background-color: #fff5f8 !important;
-}
-
+/* Links */
 a {
-    color: #c2185b;
-    font-weight: bold;
+color: #c05a7d;
+font-weight: bold;
 }
 
-a:hover {
-    color: #880e4f;
+/* Exercise link */
+.exercise-link {
+display: inline-block;
+background-color: #fff0f4;
+padding: 15px 20px;
+border-radius: 10px;
+border-left: 5px solid #d47798;
+margin-top: 10px;
 }
+
 </style>
 
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
 </head>
 
 <body>
 
 <!-- Navigation bar -->
-<div id="nav-placeholder">
-</div>
+
+<div id="nav-placeholder"></div>
 
 <script>
 $(function(){
-    $("#nav-placeholder").load("nav.html");
+$("#nav-placeholder").load("nav.html");
 });
 </script>
+
 <!-- End of Navigation bar -->
 
 <div class="w3-overlay w3-hide-large w3-animate-opacity"
-     onclick="w3_close()"
-     style="cursor:pointer"
-     id="myOverlay">
-</div>
+onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
 
 <div class="w3-main" style="margin-left:250px;">
 
-<div id="myTop" class="w3-container w3-theme w3-large">
+<!-- Top bar -->
+
+<div id="myTop" class="w3-container w3-top"
+style="background-color:#d47798; color:white;">
+
 <p>
-<i class="fa fa-bars w3-button w3-pink w3-hide-large w3-xlarge"
-   onclick="w3_open()"></i>
-<span id="myIntro" class="w3-hide">MDM4U</span>
+
+<i class="fa fa-bars w3-button w3-hide-large w3-xlarge"
+onclick="w3_open()"></i>
+
+<span id="myIntro" class="w3-hide">
+MDM4U
+</span>
+
 </p>
+
 </div>
 
-<header class="w3-container w3-theme" style="padding:64px 32px">
-    <h1 class="w3-xxxlarge" style="color:white;">
-        Méthodes d'échantillonnage
-    </h1>
+<!-- Page header -->
+
+<header class="w3-container pink-header"
+style="padding:64px 32px;">
+
+<h1 style="color:white;">
+Module 1.2 : Méthodes d'échantillonnage
+</h1>
+
 </header>
 
-<div class="w3-container" style="padding:32px">
+<div class="w3-container" style="padding:32px;">
 
-<!-- Tu peux complètement modifier le contenu ci-dessous -->
+<!-- ====================================== -->
+
+<!-- MÉTHODES D'ÉCHANTILLONNAGE -->
+
+<!-- ====================================== -->
+
+<div class="content-box">
 
 <h1>Méthodes d'échantillonnage</h1>
 
-<div class="sampling-box">
-<h2>Échantillonnage volontaire</h2>
+<h3>Échantillonnage volontaire</h3>
 
 <p>
-L'échantillonnage volontaire consiste à demander aux personnes de
-participer à une étude de leur propre volonté. Les participants
-choisissent eux-mêmes s'ils veulent répondre ou non.
+L'<strong>échantillonnage volontaire</strong> consiste à sélectionner
+des personnes qui choisissent elles-mêmes de participer à une étude
+ou à un sondage. Les participants décident volontairement s'ils
+veulent répondre.
 </p>
 
-<div class="example">
-<strong>Exemple :</strong> Une école publie un sondage en ligne et demande
-aux élèves qui souhaitent participer de remplir le questionnaire.
-</div>
-</div>
+<div class="example-box">
 
-
-<div class="sampling-box">
-<h2>Échantillonnage aléatoire simple</h2>
+<strong>Exemple :</strong>
 
 <p>
-L'échantillonnage aléatoire simple consiste à choisir les membres d'une
-population au hasard. Chaque membre de la population a la même chance
-d'être sélectionné.
+Une école publie un sondage en ligne et demande aux élèves qui
+souhaitent participer de remplir le questionnaire.
 </p>
 
-<div class="example">
-<strong>Exemple :</strong> Une école compte 500 élèves et choisit
-aléatoirement 50 élèves à l'aide d'un générateur de nombres aléatoires
-pour répondre à un sondage.
-</div>
 </div>
 
 
-<div class="sampling-box">
-<h2>Échantillonnage aléatoire stratifié</h2>
+<h3>Échantillonnage aléatoire simple</h3>
 
 <p>
-L'échantillonnage aléatoire stratifié consiste à diviser la population
-en différents groupes, appelés strates, selon une caractéristique
-commune. Ensuite, on sélectionne aléatoirement des personnes dans
-chaque groupe.
+L'<strong>échantillonnage aléatoire simple</strong> consiste à
+sélectionner des membres d'une population complètement au hasard.
+Chaque membre de la population a une chance égale d'être choisi.
 </p>
 
-<div class="example">
-<strong>Exemple :</strong> Une école divise ses élèves selon leur niveau
-scolaire (9e, 10e, 11e et 12e année), puis choisit aléatoirement des
-élèves dans chaque niveau.
-</div>
-</div>
+<div class="example-box">
 
-
-<div class="sampling-box">
-<h2>Échantillonnage aléatoire en grappes</h2>
+<strong>Exemple :</strong>
 
 <p>
-L'échantillonnage aléatoire en grappes consiste à diviser la population
-en groupes naturels, appelés grappes, puis à sélectionner au hasard
-certaines grappes entières. Tous les membres des grappes choisies
-participent ensuite à l'étude.
+Une école compte 500 élèves. On attribue un numéro à chaque élève,
+puis on utilise un générateur de nombres aléatoires pour sélectionner
+50 élèves qui participeront à un sondage.
 </p>
 
-<div class="example">
-<strong>Exemple :</strong> Une école choisit au hasard trois classes
-parmi toutes les classes de l'école et interroge tous les élèves de
-ces trois classes.
-</div>
 </div>
 
 
-<div class="sampling-box">
-<h2>Échantillonnage aléatoire systématique</h2>
+<h3>Échantillonnage aléatoire stratifié</h3>
 
 <p>
-L'échantillonnage aléatoire systématique consiste à choisir un premier
-membre au hasard, puis à sélectionner les autres membres à intervalles
-réguliers dans la population.
+L'<strong>échantillonnage aléatoire stratifié</strong> consiste à
+diviser la population en différents groupes, appelés
+<strong>strates</strong>, selon une caractéristique commune.
+On sélectionne ensuite au hasard des individus dans chaque strate.
 </p>
 
-<div class="example">
-<strong>Exemple :</strong> Dans une liste de 500 élèves, on choisit
-d'abord un élève au hasard, puis on sélectionne chaque 10e élève
-dans la liste.
-</div>
+<div class="example-box">
+
+<strong>Exemple :</strong>
+
+<p>
+Une école divise ses élèves selon leur niveau scolaire :
+9e, 10e, 11e et 12e année. On sélectionne ensuite aléatoirement
+des élèves dans chacun des quatre niveaux.
+</p>
+
 </div>
 
+
+<h3>Échantillonnage aléatoire en grappes</h3>
+
+<p>
+L'<strong>échantillonnage aléatoire en grappes</strong> consiste à
+diviser la population en groupes naturels appelés
+<strong>grappes</strong>. Certaines grappes sont ensuite choisies
+au hasard et tous les individus des grappes sélectionnées participent
+à l'étude.
+</p>
+
+<div class="example-box">
+
+<strong>Exemple :</strong>
+
+<p>
+Une école choisit au hasard trois classes parmi toutes les classes
+de l'école. Tous les élèves de ces trois classes sont ensuite
+interrogés.
+</p>
+
+</div>
+
+
+<h3>Échantillonnage aléatoire systématique</h3>
+
+<p>
+L'<strong>échantillonnage aléatoire systématique</strong> consiste
+à choisir un premier individu au hasard, puis à sélectionner les
+autres individus à intervalles réguliers dans la population.
+</p>
+
+<div class="example-box">
+
+<strong>Exemple :</strong>
+
+<p>
+Dans une liste de 500 élèves, on choisit d'abord un élève au hasard,
+puis on sélectionne chaque 10e élève jusqu'à obtenir le nombre
+de participants désiré.
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ====================================== -->
+
+<!-- COMPARAISON DES MÉTHODES -->
+
+<!-- ====================================== -->
+
+<div class="content-box">
+
+<h1>Résumé des méthodes</h1>
+
+<h3>Comment les distinguer?</h3>
+
+<p>
+Les différentes méthodes d'échantillonnage permettent de sélectionner
+un échantillon à partir d'une population. Elles ne sélectionnent
+cependant pas les individus de la même façon.
+</p>
+
+<p>
+<strong>Échantillonnage volontaire :</strong>
+les personnes choisissent elles-mêmes de participer.
+</p>
+
+<p>
+<strong>Échantillonnage aléatoire simple :</strong>
+les individus sont choisis complètement au hasard.
+</p>
+
+<p>
+<strong>Échantillonnage aléatoire stratifié :</strong>
+la population est divisée en strates et des individus sont choisis
+au hasard dans chaque strate.
+</p>
+
+<p>
+<strong>Échantillonnage aléatoire en grappes :</strong>
+des groupes entiers sont choisis au hasard.
+</p>
+
+<p>
+<strong>Échantillonnage aléatoire systématique :</strong>
+un premier individu est choisi au hasard, puis les autres sont
+sélectionnés selon un intervalle régulier.
+</p>
+
+</div>
+
+
+<!-- ====================================== -->
+
+<!-- EXERCICES -->
+
+<!-- ====================================== -->
+
+<div class="content-box">
 
 <h1>Exercices</h1>
 
 <p>
 Les exercices 1.1 et 1.2 permettent de pratiquer la représentation
-des données et les méthodes d'échantillonnage.
+des données ainsi que les différentes méthodes d'échantillonnage.
 </p>
 
-<p>
+<div class="exercise-link">
+
+<p style="margin:0;">
+
 <a href="YOUR_GOOGLE_DRIVE_LINK_HERE" target="_blank">
-<i class="fa fa-file-text-o"></i>
-&nbsp; Exercices 1.1 et 1.2 - La représentation des données et l'échantillonnage
+
+Exercices 1.1 et 1.2 - La représentation des données et l'échantillonnage
+
 </a>
+
 </p>
-
-
-<h1>Sources</h1>
-
-<p>
-Les sources utilisées pour les définitions et les explications sont
-indiquées dans ma bibliographie MyBib.
-</p>
-
-<!-- Tu peux complètement modifier le contenu par dessus cette ligne -->
 
 </div>
 
-<footer class="w3-container w3-theme" style="padding:32px">
-<p style="color:white;">
+</div>
+
+
+<!-- ====================================== -->
+
+<!-- RÉFÉRENCES -->
+
+<!-- ====================================== -->
+
+<div class="content-box">
+
+<div class="reference-box">
+
+<h1>Références</h1>
+
+<p>
+Les sources utilisées pour les définitions et les explications
+présentées sur cette page sont indiquées dans ma bibliographie.
+</p>
+
+<a href="https://www.mybib.com/" target="_blank">
+Voir ma bibliographie MyBib
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer class="w3-container"
+style="padding:32px; background-color:#d47798; color:white;">
+
+<p>
 Contenu de cette page web par M. Gore (prénom: Pytha)
 </p>
+
 </footer>
 
 </div>
 
+
+<!-- ================= -->
+
+<!-- JAVASCRIPT -->
+
+<!-- ================= -->
 
 <script>
 
 // Open and close the sidebar on medium and small screens
 
 function w3_open() {
-    document.getElementById("mySidebar").style.display = "block";
-    document.getElementById("myOverlay").style.display = "block";
+
+document.getElementById("mySidebar").style.display = "block";
+
+document.getElementById("myOverlay").style.display = "block";
+
 }
 
+
 function w3_close() {
-    document.getElementById("mySidebar").style.display = "none";
-    document.getElementById("myOverlay").style.display = "none";
+
+document.getElementById("mySidebar").style.display = "none";
+
+document.getElementById("myOverlay").style.display = "none";
+
 }
 
 
 // Change style of top container on scroll
 
 window.onscroll = function() {
-    myFunction()
+myFunction()
 };
+
 
 function myFunction() {
 
-    if (
-        document.body.scrollTop > 80 ||
-        document.documentElement.scrollTop > 80
-    ) {
+if (
+document.body.scrollTop > 80 ||
+document.documentElement.scrollTop > 80
+) {
 
-        document.getElementById("myTop").classList.add(
-            "w3-card-4",
-            "w3-animate-opacity"
-        );
+document.getElementById("myTop").classList.add(
+"w3-card-4",
+"w3-animate-opacity"
+);
 
-        document.getElementById("myIntro").classList.add(
-            "w3-show-inline-block"
-        );
+document.getElementById("myIntro").classList.add(
+"w3-show-inline-block"
+);
 
-    } else {
+} else {
 
-        document.getElementById("myIntro").classList.remove(
-            "w3-show-inline-block"
-        );
+document.getElementById("myIntro").classList.remove(
+"w3-show-inline-block"
+);
 
-        document.getElementById("myTop").classList.remove(
-            "w3-card-4",
-            "w3-animate-opacity"
-        );
-    }
+document.getElementById("myTop").classList.remove(
+"w3-card-4",
+"w3-animate-opacity"
+);
+
+}
+
 }
 
 </script>
