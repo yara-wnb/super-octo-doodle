@@ -1,183 +1,517 @@
 <!DOCTYPE html>
+
 <html>
 <head>
-<title>MDM4U</title>
+
+<title>MDM4U - Module 1.3</title>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
+
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
+
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display">
+
+
 <style>
-body {font-family: "Roboto", sans-serif}
+
+body {
+font-family: "Roboto", sans-serif;
+background-color: #fff5f8;
+color: #4a3a40;
+}
+
+
+/* Navigation */
+
 .w3-bar-block .w3-bar-item {
 padding: 16px;
 font-weight: bold;
 }
-</style>
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-</head>
-<body>
-<!--Navigation bar-->
-<div id="nav-placeholder">
-
-</div>
-
-<script>
-$(function(){
-$("#nav-placeholder").load("nav.html");
-});
-</script>
-<!--end of Navigation bar-->
-
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
-
-<div class="w3-main" style="margin-left:250px;">
-
-<div id="myTop" class="w3-container w3-top w3-theme w3-large">
-<p><i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge" onclick="w3_open()"></i>
-<span id="myIntro" class="w3-hide">MDM4U</span></p>
-</div>
-
-<header class="w3-container w3-theme" style="padding:64px 32px">
-<h1 class="w3-xxxlarge">Titre du module</h1>
-</header>
-
-<div class="w3-container" style="padding:32px">
-
-<!-- Tu peux complètement modifier le contenu ci-dessous -->
-
-<h1>Entête 1</h1>
-<h2>Entête 2</h2>
-<p>Ceci est un paragraphe qui contient <a href="https://www.w3schools.com/html/html_links.asp" target="_blank">un lien</a> qui ouvre dans une nouvelle fenêtre.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Ui8o6fJjkck" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 
-<!-- Tu peux complètement modifier le contenu par dessus cette ligne -->
+/* Main headings */
 
-</div>
-
-<footer class="w3-container w3-theme" style="padding:32px">
-<p>Contenu de cette page web par M. Gore (prénom: Pytha)</p>
-</footer>
-
-</div>
-
-<script>
-// Open and close the sidebar on medium and small screens
-function w3_open() {
-document.getElementById("mySidebar").style.display = "block";
-document.getElementById("myOverlay").style.display = "block";
+h1 {
+color: #c05a7d;
+font-family: "Playfair Display", serif;
+margin-top: 40px;
 }
 
-function w3_close() {
-document.getElementById("mySidebar").style.display = "none";
-document.getElementById("myOverlay").style.display = "none";
+h2 {
+color: #c05a7d;
+font-family: "Playfair Display", serif;
+margin-top: 30px;
 }
 
-// Change style of top container on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
-document.getElementById("myIntro").classList.add("w3-show-inline-block");
-} else {
-document.getElementById("myIntro").classList.remove("w3-show-inline-block");
-document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
-}
+h3 {
+color: #d47798;
+margin-top: 30px;
 }
 
-</script>
 
-</body>
-</html> <!DOCTYPE html>
-<html>
-<head>
-<title>MDM4U</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body {font-family: "Roboto", sans-serif}
-.w3-bar-block .w3-bar-item {
-padding: 16px;
+/* Main content */
+
+.w3-container {
+line-height: 1.7;
+}
+
+
+/* White sections */
+
+.content-box {
+background-color: white;
+padding: 25px;
+margin-bottom: 25px;
+border-radius: 15px;
+box-shadow: 0 3px 12px rgba(192, 90, 125, 0.12);
+}
+
+
+/* Pink header */
+
+.pink-header {
+background-color: #e8a0b8;
+color: white;
+}
+
+
+/* Video box */
+
+.video-container {
+text-align: center;
+margin: 25px 0 35px 0;
+}
+
+.video-container iframe {
+max-width: 100%;
+border: none;
+border-radius: 10px;
+box-shadow: 0 3px 12px rgba(192, 90, 125, 0.15);
+}
+
+
+/* Bias sections */
+
+.bias-box {
+background-color: #fff0f4;
+padding: 20px;
+margin: 20px 0;
+border-left: 5px solid #d47798;
+border-radius: 10px;
+}
+
+.bias-box h2 {
+margin-top: 0;
+}
+
+.bias-box ul {
+margin-top: 10px;
+}
+
+
+/* Links */
+
+a {
+color: #c05a7d;
 font-weight: bold;
 }
-</style>
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-</head>
-<body>
-<!--Navigation bar-->
-<div id="nav-placeholder">
 
-</div>
+a:hover {
+color: #a94769;
+}
+
+</style>
+
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+</head>
+
+
+<body>
+
+
+<!-- Navigation bar -->
+
+<div id="nav-placeholder"></div>
 
 <script>
-$(function(){
-$("#nav-placeholder").load("nav.html");
-});
-</script>
-<!--end of Navigation bar-->
 
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+$(function(){
+
+$("#nav-placeholder").load("nav.html");
+
+});
+
+</script>
+
+<!-- End of Navigation bar -->
+
+
+<div class="w3-overlay w3-hide-large w3-animate-opacity"
+onclick="w3_close()"
+style="cursor:pointer"
+id="myOverlay">
+</div>
+
 
 <div class="w3-main" style="margin-left:250px;">
 
-<div id="myTop" class="w3-container w3-top w3-theme w3-large">
-<p><i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge" onclick="w3_open()"></i>
-<span id="myIntro" class="w3-hide">MDM4U</span></p>
+
+<!-- Top bar -->
+
+<div id="myTop"
+class="w3-container w3-top"
+style="background-color:#d47798; color:white;">
+
+<p>
+
+<i class="fa fa-bars w3-button w3-hide-large w3-xlarge"
+onclick="w3_open()"></i>
+
+<span id="myIntro" class="w3-hide">
+MDM4U
+</span>
+
+</p>
+
 </div>
 
-<header class="w3-container w3-theme" style="padding:64px 32px">
-<h1 class="w3-xxxlarge">Titre du module</h1>
+
+<!-- Page header -->
+
+<header class="w3-container pink-header"
+style="padding:64px 32px;">
+
+<h1 style="color:white;">
+
+Module 1.3 : Les biais
+
+</h1>
+
 </header>
 
-<div class="w3-container" style="padding:32px">
 
-<!-- Tu peux complètement modifier le contenu ci-dessous -->
-
-<h1>Entête 1</h1>
-<h2>Entête 2</h2>
-<p>Ceci est un paragraphe qui contient <a href="https://www.w3schools.com/html/html_links.asp" target="_blank">un lien</a> qui ouvre dans une nouvelle fenêtre.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Ui8o6fJjkck" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="w3-container" style="padding:32px;">
 
 
-<!-- Tu peux complètement modifier le contenu par dessus cette ligne -->
+<!-- ====================================== -->
+
+<!-- LES BIAIS -->
+
+<!-- ====================================== -->
+
+
+<div class="content-box">
+
+<h1>Les biais</h1>
+
+<p>
+Un <strong>biais</strong> se produit lorsqu'une méthode de collecte
+ou de présentation des données influence les résultats d'une étude
+et peut empêcher les résultats de représenter fidèlement la population
+à l'étude.
+</p>
+
+<p>
+Il existe différents types de biais qui peuvent influencer les
+résultats d'un sondage ou d'une enquête.
+</p>
 
 </div>
 
-<footer class="w3-container w3-theme" style="padding:32px">
-<p>Contenu de cette page web par M. Gore (prénom: Pytha)</p>
+
+<!-- ====================================== -->
+
+<!-- VIDÉO -->
+
+<!-- ====================================== -->
+
+
+<div class="content-box">
+
+<h1>Vidéo de la leçon sur les biais</h1>
+
+<p>
+Cette vidéo présente les différents types de biais et explique
+comment ils peuvent influencer les résultats d'une enquête.
+</p>
+
+
+<div class="video-container">
+
+<iframe
+width="560"
+height="315"
+src="https://www.youtube.com/embed/xm38DnpQPzE?si=xgeO6xG5kiuxaMbk"
+title="YouTube video player"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+referrerpolicy="strict-origin-when-cross-origin"
+allowfullscreen>
+</iframe>
+
+</div>
+
+</div>
+
+
+<!-- ====================================== -->
+
+<!-- RÉSUMÉ DES BIAIS -->
+
+<!-- ====================================== -->
+
+
+<div class="content-box">
+
+<h1>Résumé des différents types de biais</h1>
+
+
+<!-- BIAIS D'ÉCHANTILLONNAGE -->
+
+<div class="bias-box">
+
+<h2>Le biais d'échantillonnage</h2>
+
+<p>
+Le biais d'échantillonnage se produit lorsque l'échantillon choisi
+ne permet pas de représenter correctement la population à l'étude.
+</p>
+
+
+<h3>La taille de l'échantillon</h3>
+
+<ul>
+
+<li>
+Trop peu de répondants pour tirer des conclusions fiables.
+</li>
+
+</ul>
+
+
+<h3>Les caractéristiques de l'échantillon</h3>
+
+<ul>
+
+<li>
+L'échantillon choisi ne représente pas avec exactitude la population
+à l'étude.
+</li>
+
+</ul>
+
+</div>
+
+
+<!-- BIAIS DE SURREPRÉSENTATION -->
+
+<div class="bias-box">
+
+<h2>Le biais de surreprésentation</h2>
+
+<p>
+Il y a <strong>surreprésentation</strong> d'une catégorie de
+participants ou de participantes lorsque la méthode de sondage
+ne tient pas compte des différentes tailles des groupes.
+</p>
+
+</div>
+
+
+<!-- BIAIS DE RÉPONSE -->
+
+<div class="bias-box">
+
+<h2>Le biais de réponse</h2>
+
+<p>
+Le biais de réponse se produit lorsque les questions ou les conditions
+du sondage influencent les réponses des répondants.
+</p>
+
+
+<h3>Les questions de sondage</h3>
+
+<ul>
+
+<li>
+Mettre des caractères en gras pour influencer une réponse.
+</li>
+
+<li>
+Mauvaise formulation des questions.
+</li>
+
+<li>
+Questions fermées qui influencent les gens.
+</li>
+
+</ul>
+
+
+<h3>Autres influences sur les réponses</h3>
+
+<ul>
+
+<li>
+Le ton ou l'attitude de la personne qui fait l'entrevue.
+</li>
+
+<li>
+Le lieu et le moment de l'enquête.
+</li>
+
+<li>
+La confidentialité des résultats
+(est-ce que le répondant sera poussé à mentir ?).
+</li>
+
+</ul>
+
+</div>
+
+
+<!-- BIAIS DE NON-RÉPONDANTS -->
+
+<div class="bias-box">
+
+<h2>Le biais de non-répondants</h2>
+
+<p>
+Le biais de non-répondants se produit lorsqu'il y a un manque
+de renseignements dû à des questionnaires qui ne sont pas retournés.
+</p>
+
+</div>
+
+
+</div>
+
+
+<!-- ====================================== -->
+
+<!-- RAPPEL -->
+
+<!-- ====================================== -->
+
+
+<div class="content-box">
+
+<h1>À retenir</h1>
+
+<p>
+Lorsqu'on réalise une enquête, il est important de choisir un
+échantillon représentatif et de faire attention aux différentes
+sources de biais.
+</p>
+
+<p>
+La taille de l'échantillon, les caractéristiques des participants,
+la formulation des questions, les conditions de l'enquête et le
+nombre de personnes qui répondent peuvent tous avoir une influence
+sur les résultats.
+</p>
+
+</div>
+
+
+<!-- ====================================== -->
+
+<!-- FOOTER -->
+
+<!-- ====================================== -->
+
+
+</div>
+
+
+<footer class="w3-container"
+style="padding:32px; background-color:#d47798; color:white;">
+
+<p>
+Contenu de cette page web par M. Gore (prénom: Pytha)
+</p>
+
 </footer>
 
+
 </div>
 
+
+<!-- ================= -->
+
+<!-- JAVASCRIPT -->
+
+<!-- ================= -->
+
+
 <script>
+
 // Open and close the sidebar on medium and small screens
+
 function w3_open() {
+
 document.getElementById("mySidebar").style.display = "block";
+
 document.getElementById("myOverlay").style.display = "block";
+
 }
+
 
 function w3_close() {
+
 document.getElementById("mySidebar").style.display = "none";
+
 document.getElementById("myOverlay").style.display = "none";
+
 }
 
+
 // Change style of top container on scroll
-window.onscroll = function() {myFunction()};
+
+window.onscroll = function() {
+myFunction()
+};
+
+
 function myFunction() {
-if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
-document.getElementById("myIntro").classList.add("w3-show-inline-block");
+
+if (
+document.body.scrollTop > 80 ||
+document.documentElement.scrollTop > 80
+) {
+
+document.getElementById("myTop").classList.add(
+"w3-card-4",
+"w3-animate-opacity"
+);
+
+document.getElementById("myIntro").classList.add(
+"w3-show-inline-block"
+);
+
 } else {
-document.getElementById("myIntro").classList.remove("w3-show-inline-block");
-document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
+
+document.getElementById("myIntro").classList.remove(
+"w3-show-inline-block"
+);
+
+document.getElementById("myTop").classList.remove(
+"w3-card-4",
+"w3-animate-opacity"
+);
+
 }
+
 }
 
 </script>
 
+
 </body>
+
 </html>
