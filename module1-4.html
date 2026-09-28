@@ -1,141 +1,627 @@
 ```html
-        <!-- Exercices -->
-        <div class="content-box">
-            <h2>Exercices</h2>
+<!DOCTYPE html>
 
-            <p>
-                Les exercices suivants portent sur les biais, les sources de données
-                primaires et secondaires, ainsi que la conception de sondages.
-            </p>
+<html lang="fr">
+<head>
 
-            <!-- Exercices 1.3 -->
-            <div class="definition">
-                <strong>1.3 — Les biais</strong>
-                <p>
-                    Les exercices portent sur l'identification des différents types
-                    de biais dans les méthodes d'échantillonnage et de collecte de données.
-                </p>
-            </div>
+<title>MDM4U - Module 1.4</title>
 
-            <h3>1.3 — Identification des biais</h3>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-            <ol>
-                <li>
-                    <strong>Biais d'échantillonnage :</strong>
-                    seuls les membres d'un club de golf sont interrogés, alors que
-                    la question concerne la construction d'un chemin sur leur terrain.
-                </li>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
-                <li>
-                    <strong>Biais de réponse :</strong>
-                    certaines personnes peuvent ne pas répondre honnêtement à une
-                    question concernant leur participation à des manifestations illégales.
-                </li>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 
-                <li>
-                    <strong>Biais d'échantillonnage :</strong>
-                    les personnes interrogées à la sortie d'un match de baseball
-                    ne représentent pas nécessairement l'ensemble de la population.
-                </li>
-            </ol>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Playfair+Display">
 
 
-            <!-- Exercice 1.4 -->
-            <div class="definition">
-                <strong>1.4 — Sources de données secondaires</strong>
-                <p>
-                    Deux tableaux personnalisés ont été créés à l'aide des données
-                    de Statistique Canada.
-                </p>
-            </div>
+<style>
 
-            <h3>Tableau 1 — Âge des femmes</h3>
-
-            <p>
-                <strong>Observation :</strong>
-                La majorité des femmes sont âgées de 15 à 64 ans, représentant
-                65,0 % de la population féminine. Les femmes de 65 ans et plus
-                représentent 19,8 %, tandis que les filles de 0 à 14 ans représentent
-                15,1 %.
-            </p>
-
-            <div class="reference-box">
-                <strong>📊 Tableau personnalisé de Statistique Canada</strong>
-                <p>
-                    Ajoute ici le lien vers ton premier tableau personnalisé.
-                </p>
-
-                <a class="button"
-                   href="TON_LIEN_TABLEAU_1"
-                   target="_blank">
-                    Voir le tableau 1
-                </a>
-            </div>
+body {
+font-family: "Roboto", sans-serif;
+background-color: #fff5f8;
+color: #4a3a40;
+}
 
 
-            <h3>Tableau 2 — État matrimonial</h3>
+/* Navigation */
 
-            <p>
-                <strong>Observation :</strong>
-                La majorité de la population âgée de 15 ans et plus est mariée
-                ou vit en union libre, avec 6 769 725 personnes.
-            </p>
-
-            <div class="reference-box">
-                <strong>📊 Tableau personnalisé de Statistique Canada</strong>
-                <p>
-                    Ajoute ici le lien vers ton deuxième tableau personnalisé.
-                </p>
-
-                <a class="button"
-                   href="TON_LIEN_TABLEAU_2"
-                   target="_blank">
-                    Voir le tableau 2
-                </a>
-            </div>
+.w3-bar-block .w3-bar-item {
+padding: 16px;
+font-weight: bold;
+}
 
 
-            <!-- Exercice 1.5 -->
-            <div class="definition">
-                <strong>1.5 — Problèmes dans les questions de sondage</strong>
-                <p>
-                    Les questions de sondage peuvent contenir différents problèmes,
-                    notamment des biais d'échantillonnage, des biais de réponse ou
-                    des problèmes liés à la formulation des questions.
-                </p>
-            </div>
+/* Main headings */
 
-            <div class="reference-box">
-                <strong>📝 Questions et réponses</strong>
+h1 {
+color: #c05a7d;
+font-family: "Playfair Display", serif;
+margin-top: 40px;
+}
 
-                <p>
-                    Consulte le document de pratique pour voir les questions et
-                    identifier les problèmes associés à chacune d'elles.
-                </p>
+h2 {
+color: #c05a7d;
+font-family: "Playfair Display", serif;
+margin-top: 30px;
+}
 
-                <a class="button"
-                   href="https://drive.google.com/file/d/1nAkaDx2z5ol5QX1mOlQpK-NWRT9JYEBK/view?usp=sharing"
-                   target="_blank">
-                    Voir les questions
-                </a>
-            </div>
+h3 {
+color: #d47798;
+margin-top: 30px;
+}
 
 
-            <!-- Document complet -->
-            <div class="reference-box">
-                <strong>📚 Exercices de pratique complétés</strong>
+/* Main content */
 
-                <p>
-                    Le document complet contenant les réponses aux exercices
-                    peut être consulté ici.
-                </p>
+.w3-container {
+line-height: 1.7;
+}
 
-                <a class="button"
-                   href="https://docs.google.com/document/d/12kh4b4CVlx3XaT1kQXWRNCmY2GtxX8tUxd8yfcuP3yU/edit?usp=sharing"
-                   target="_blank">
-                    Voir les exercices
-                </a>
-            </div>
 
-        </div>
+/* White sections */
+
+.content-box {
+background-color: white;
+padding: 25px;
+margin-bottom: 25px;
+border-radius: 15px;
+box-shadow: 0 3px 12px rgba(192, 90, 125, 0.12);
+}
+
+
+/* Pink header */
+
+.pink-header {
+background-color: #e8a0b8;
+color: white;
+}
+
+
+/* Definition boxes */
+
+.definition {
+background-color: #fff0f4;
+padding: 20px;
+margin: 20px 0;
+border-left: 5px solid #d47798;
+border-radius: 10px;
+}
+
+.definition strong {
+color: #c05a7d;
+}
+
+
+/* Reference boxes */
+
+.reference-box {
+background-color: #fff0f4;
+padding: 20px;
+margin: 20px 0;
+border-left: 5px solid #d47798;
+border-radius: 10px;
+}
+
+
+/* Buttons */
+
+.button {
+display: inline-block;
+background-color: #d47798;
+color: white;
+padding: 12px 20px;
+border-radius: 10px;
+margin-top: 10px;
+text-decoration: none;
+}
+
+.button:hover {
+background-color: #c05a7d;
+color: white;
+text-decoration: none;
+}
+
+
+/* Links */
+
+a {
+color: #c05a7d;
+font-weight: bold;
+}
+
+a:hover {
+color: #a94769;
+}
+
+</style>
+
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+</head>
+
+
+<body>
+
+
+<!-- Navigation bar -->
+
+<div id="nav-placeholder"></div>
+
+<script>
+
+$(function(){
+
+$("#nav-placeholder").load("nav.html");
+
+});
+
+</script>
+
+<!-- End of Navigation bar -->
+
+
+<div class="w3-overlay w3-hide-large w3-animate-opacity"
+onclick="w3_close()"
+style="cursor:pointer"
+id="myOverlay">
+</div>
+
+
+<div class="w3-main" style="margin-left:250px;">
+
+
+<!-- Top bar -->
+
+<div id="myTop"
+class="w3-container w3-top"
+style="background-color:#d47798; color:white;">
+
+<p>
+
+<i class="fa fa-bars w3-button w3-hide-large w3-xlarge"
+onclick="w3_open()"></i>
+
+<span id="myIntro" class="w3-hide">
+MDM4U
+</span>
+
+</p>
+
+</div>
+
+
+<!-- Page header -->
+
+<header class="w3-container pink-header"
+style="padding:64px 32px;">
+
+<h1 style="color:white;">
+
+Module 1.4 : Données de sources primaires et secondaires
+
+</h1>
+
+</header>
+
+
+<div class="w3-container" style="padding:32px;">
+
+
+<!-- ====================================== -->
+
+<!-- SOURCES PRIMAIRES -->
+
+<!-- ====================================== -->
+
+
+<div class="content-box">
+
+<h1>Sources de données primaires</h1>
+
+<div class="definition">
+
+<strong>Définition :</strong>
+
+Les données primaires sont des données recueillies directement
+par une personne ou une organisation dans le but de répondre
+à une question ou à un objectif précis.
+
+</div>
+
+
+<h3>Exemples</h3>
+
+<ul>
+
+<li>Questionnaires et sondages</li>
+
+<li>Entrevues</li>
+
+<li>Observations</li>
+
+<li>Expériences</li>
+
+<li>Formulaires conçus pour recueillir des données</li>
+
+</ul>
+
+
+<p>
+
+Les données primaires sont recueillies directement auprès
+de la source. Elles sont donc adaptées spécifiquement
+au problème étudié.
+
+</p>
+
+
+<div class="reference-box">
+
+<strong>📄 Notes : conception d'un formulaire</strong>
+
+<p>
+
+Consulte les notes du cours sur la conception d'un formulaire
+pour la cueillette de données primaires.
+
+</p>
+
+
+<a class="button"
+href="https://drive.google.com/file/d/1Ciyu_CLFLwyZOQP5fX5oeX1lS73pGFS7/view?usp=sharing"
+target="_blank">
+
+Voir les notes
+
+</a>
+
+</div>
+
+</div>
+
+
+<!-- ====================================== -->
+
+<!-- SOURCES SECONDAIRES -->
+
+<!-- ====================================== -->
+
+
+<div class="content-box">
+
+<h1>Sources de données secondaires</h1>
+
+
+<div class="definition">
+
+<strong>Définition :</strong>
+
+Les données secondaires sont des données qui ont déjà été
+recueillies par une autre personne ou organisation et qui
+sont ensuite utilisées pour une nouvelle étude ou analyse.
+
+</div>
+
+
+<h3>Exemples</h3>
+
+<ul>
+
+<li>Données de Statistique Canada</li>
+
+<li>Articles scientifiques</li>
+
+<li>Rapports gouvernementaux</li>
+
+<li>Livres et publications</li>
+
+<li>Bases de données existantes</li>
+
+<li>Sites Web fiables</li>
+
+</ul>
+
+
+<p>
+
+Contrairement aux données primaires, les données secondaires
+ne sont pas recueillies directement par le chercheur pour
+son étude actuelle.
+
+</p>
+
+
+<h3>Vidéo : Statistique Canada</h3>
+
+<p>
+
+Cette vidéo présente des informations sur les données et
+les statistiques provenant de Statistique Canada.
+
+</p>
+
+
+<div style="text-align:center; margin:25px 0;">
+
+<iframe
+width="560"
+height="315"
+src="https://www.youtube.com/embed/6VVBVi0imAE"
+title="Statistique Canada"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+allowfullscreen>
+</iframe>
+
+</div>
+
+</div>
+
+
+<!-- ====================================== -->
+
+<!-- EXERCICES -->
+
+<!-- ====================================== -->
+
+
+<div class="content-box">
+
+<h1>Exercices</h1>
+
+
+<!-- 1.3 -->
+
+<h2>1.3 — Les biais</h2>
+
+
+<div class="definition">
+
+<p>
+
+<strong>Question 1 :</strong> Biais d'échantillonnage
+
+</p>
+
+<p>
+
+<strong>Question 2 :</strong> Biais de réponse
+
+</p>
+
+<p>
+
+<strong>Question 3 :</strong> Biais d'échantillonnage
+
+</p>
+
+</div>
+
+
+<!-- 1.4 -->
+
+<h2>1.4 — Sources de données secondaires</h2>
+
+
+<h3>Tableau 1 — Âge des femmes</h3>
+
+<p>
+
+<strong>Observation :</strong>
+La majorité des femmes sont âgées de 15 à 64 ans,
+représentant 65,0 % de la population féminine.
+Les femmes de 65 ans et plus représentent 19,8 %,
+tandis que les filles de 0 à 14 ans représentent 15,1 %.
+
+</p>
+
+
+<div class="reference-box">
+
+<strong>📊 Tableau personnalisé de Statistique Canada</strong>
+
+<p>
+
+Ajoute ici le lien vers ton premier tableau personnalisé.
+
+</p>
+
+
+<a class="button"
+href="TON_LIEN_TABLEAU_1"
+target="_blank">
+
+Voir le tableau 1
+
+</a>
+
+</div>
+
+
+<h3>Tableau 2 — État matrimonial</h3>
+
+<p>
+
+<strong>Observation :</strong>
+La majorité de la population âgée de 15 ans et plus est
+mariée ou vit en union libre, avec 6 769 725 personnes.
+
+</p>
+
+
+<div class="reference-box">
+
+<strong>📊 Tableau personnalisé de Statistique Canada</strong>
+
+<p>
+
+Ajoute ici le lien vers ton deuxième tableau personnalisé.
+
+</p>
+
+
+<a class="button"
+href="TON_LIEN_TABLEAU_2"
+target="_blank">
+
+Voir le tableau 2
+
+</a>
+
+</div>
+
+
+<!-- 1.5 -->
+
+<h2>1.5 — Problèmes dans les questions de sondage</h2>
+
+
+<div class="reference-box">
+
+<strong>📝 Questions de pratique</strong>
+
+<p>
+
+Consulte le document contenant les questions de sondage
+à analyser.
+
+</p>
+
+
+<a class="button"
+href="https://drive.google.com/file/d/1nAkaDx2z5ol5QX1mOlQpK-NWRT9JYEBK/view?usp=sharing"
+target="_blank">
+
+Voir les questions
+
+</a>
+
+</div>
+
+
+<div class="reference-box">
+
+<strong>📚 Exercices de pratique complétés</strong>
+
+<p>
+
+Consulte le document contenant les exercices complétés.
+
+</p>
+
+
+<a class="button"
+href="https://docs.google.com/document/d/12kh4b4CVlx3XaT1kQXWRNCmY2GtxX8tUxd8yfcuP3yU/edit?usp=sharing"
+target="_blank">
+
+Voir les exercices
+
+</a>
+
+</div>
+
+
+</div>
+
+
+<!-- ====================================== -->
+
+<!-- FOOTER -->
+
+<!-- ====================================== -->
+
+
+</div>
+
+
+<footer class="w3-container"
+style="padding:32px; background-color:#d47798; color:white;">
+
+<p>
+
+Contenu de cette page web par M. Gore (prénom: Pytha)
+
+</p>
+
+</footer>
+
+
+</div>
+
+
+<!-- ================= -->
+
+<!-- JAVASCRIPT -->
+
+<!-- ================= -->
+
+
+<script>
+
+// Open and close the sidebar on medium and small screens
+
+function w3_open() {
+
+document.getElementById("mySidebar").style.display = "block";
+
+document.getElementById("myOverlay").style.display = "block";
+
+}
+
+
+function w3_close() {
+
+document.getElementById("mySidebar").style.display = "none";
+
+document.getElementById("myOverlay").style.display = "none";
+
+}
+
+
+// Change style of top container on scroll
+
+window.onscroll = function() {
+myFunction()
+};
+
+
+function myFunction() {
+
+if (
+document.body.scrollTop > 80 ||
+document.documentElement.scrollTop > 80
+) {
+
+document.getElementById("myTop").classList.add(
+"w3-card-4",
+"w3-animate-opacity"
+);
+
+document.getElementById("myIntro").classList.add(
+"w3-show-inline-block"
+);
+
+} else {
+
+document.getElementById("myIntro").classList.remove(
+"w3-show-inline-block"
+);
+
+document.getElementById("myTop").classList.remove(
+"w3-card-4",
+"w3-animate-opacity"
+);
+
+}
+
+}
+
+</script>
+
+
+</body>
+
+</html>
 ```
