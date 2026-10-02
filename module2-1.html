@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html>
 
@@ -9,9 +10,6 @@
 
 <link rel="stylesheet"
       href="https://www.w3schools.com/w3css/4/w3.css">
-
-<link rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto">
 
 <link rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap">
@@ -26,7 +24,7 @@
 <style>
 
 /* =========================
-   GENERAL PAGE
+   PAGE
 ========================= */
 
 body {
@@ -34,6 +32,11 @@ body {
     background-color: #fcf7f3;
     color: #57433a;
 }
+
+
+/* =========================
+   MAIN CONTENT
+========================= */
 
 .w3-main {
     background-color: #fcf7f3;
@@ -47,43 +50,39 @@ body {
 
 #myTop {
     background-color: #8b6b5d !important;
-    color: #fffaf7;
+    color: white;
     z-index: 900;
 }
 
 
 /* =========================
-   MODULE HEADER
+   HEADER
 ========================= */
 
 header {
     background-color: #f3e5dc !important;
+    color: #b45e78 !important;
     position: relative;
     overflow: hidden;
     border-bottom: 1px solid #e5cfc5;
 }
 
 
-/* TITLE */
-
 header h1 {
     font-family: "Playfair Display", serif;
     color: #b45e78 !important;
     letter-spacing: 0.5px;
     position: relative;
-    z-index: 1;
-    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+    z-index: 2;
 }
 
 
 header p {
     color: #8b6b5d;
-    position: relative;
-    z-index: 1;
 }
 
 
-/* Decorative bow */
+/* Decorative symbols */
 
 header:after {
     content: "୨୧";
@@ -92,7 +91,6 @@ header:after {
     bottom: 18px;
     font-size: 58px;
     color: #c58b91;
-    opacity: 0.9;
 }
 
 
@@ -103,33 +101,11 @@ header:before {
     top: 25px;
     font-size: 25px;
     color: #c58b91;
-    opacity: 0.7;
 }
 
 
 /* =========================
-   HEADINGS
-========================= */
-
-h1 {
-    font-family: "Playfair Display", serif;
-    color: #b45e78;
-}
-
-
-h2 {
-    font-family: "Playfair Display", serif;
-    color: #a46f75;
-}
-
-
-h3 {
-    color: #8b6b5d;
-}
-
-
-/* =========================
-   INTRODUCTION
+   INTRO BOX
 ========================= */
 
 .intro-box {
@@ -145,11 +121,13 @@ h3 {
 
 .intro-box h2 {
     margin-top: 0;
+    font-family: "Playfair Display", serif;
+    color: #a46f75;
 }
 
 
 /* =========================
-   DIVIDER
+   DIVIDERS
 ========================= */
 
 .ribbon-divider {
@@ -173,7 +151,6 @@ h3 {
     margin-bottom: 32px;
     box-shadow: 0 5px 18px rgba(103, 75, 63, 0.08);
     position: relative;
-    overflow: hidden;
 }
 
 
@@ -184,12 +161,11 @@ h3 {
     right: 22px;
     color: #d09a9f;
     font-size: 22px;
-    opacity: 0.7;
 }
 
 
 /* =========================
-   DISTRIBUTION TITLES
+   GRAPH TITLES
 ========================= */
 
 .distribution-title {
@@ -202,7 +178,7 @@ h3 {
 
 
 /* =========================
-   GRAPH DESCRIPTIONS
+   DESCRIPTIONS
 ========================= */
 
 .graph-description {
@@ -220,22 +196,8 @@ h3 {
     display: block;
     margin: 0 auto;
     max-width: 100%;
-    border: 1px solid #dfc9c1 !important;
+    border: 1px solid #dfc9c1;
     border-radius: 10px;
-}
-
-
-/* =========================
-   LINKS
-========================= */
-
-a {
-    color: #a46f75;
-}
-
-
-a:hover {
-    color: #7d554d;
 }
 
 
@@ -245,12 +207,7 @@ a:hover {
 
 footer {
     background-color: #8b6b5d !important;
-    color: #fffaf7 !important;
-}
-
-
-footer p {
-    margin: 0;
+    color: white !important;
 }
 
 
@@ -310,28 +267,6 @@ $(function() {
 
 });
 
-
-function w3_open() {
-
-    var sidebar = document.getElementById("mySidebar");
-
-    if (sidebar) {
-        sidebar.classList.add("open");
-    }
-
-}
-
-
-function w3_close() {
-
-    var sidebar = document.getElementById("mySidebar");
-
-    if (sidebar) {
-        sidebar.classList.remove("open");
-    }
-
-}
-
 </script>
 
 
@@ -342,21 +277,25 @@ function w3_close() {
 <div
     class="w3-overlay w3-hide-large w3-animate-opacity"
     onclick="w3_close()"
+    style="cursor:pointer"
     id="myOverlay">
 </div>
 
 
 <!-- =========================
-     MAIN CONTENT
+     MAIN
 ========================= -->
 
 <div class="w3-main" style="margin-left:250px;">
 
 
-<!-- TOP BAR -->
+<!-- =========================
+     TOP BAR
+========================= -->
 
-<div id="myTop"
-     class="w3-container w3-top w3-large">
+<div
+    id="myTop"
+    class="w3-container w3-top w3-large">
 
     <p>
 
@@ -402,7 +341,7 @@ function w3_close() {
     style="padding:32px">
 
 
-<!-- INTRO -->
+<!-- INTRODUCTION -->
 
 <div class="intro-box">
 
@@ -548,12 +487,38 @@ function w3_close() {
 
 
 <!-- =========================
-     SCROLL EFFECT
+     JAVASCRIPT
 ========================= -->
 
 <script>
 
+
+function w3_open() {
+
+    document.getElementById("mySidebar").style.display = "block";
+
+    document.getElementById("myOverlay").style.display = "block";
+
+}
+
+
+function w3_close() {
+
+    document.getElementById("mySidebar").style.display = "none";
+
+    document.getElementById("myOverlay").style.display = "none";
+
+}
+
+
 window.onscroll = function() {
+
+    myFunction();
+
+};
+
+
+function myFunction() {
 
     if (
         document.body.scrollTop > 80 ||
@@ -561,24 +526,34 @@ window.onscroll = function() {
     ) {
 
         document.getElementById("myTop")
-            .classList.add("w3-card-4");
+            .classList.add(
+                "w3-card-4",
+                "w3-animate-opacity"
+            );
 
         document.getElementById("myIntro")
-            .classList.add("w3-show-inline-block");
+            .classList.add(
+                "w3-show-inline-block"
+            );
 
     }
 
     else {
 
         document.getElementById("myIntro")
-            .classList.remove("w3-show-inline-block");
+            .classList.remove(
+                "w3-show-inline-block"
+            );
 
         document.getElementById("myTop")
-            .classList.remove("w3-card-4");
+            .classList.remove(
+                "w3-card-4",
+                "w3-animate-opacity"
+            );
 
     }
 
-};
+}
 
 </script>
 
@@ -586,3 +561,4 @@ window.onscroll = function() {
 </body>
 
 </html>
+```
