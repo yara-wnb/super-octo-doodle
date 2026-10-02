@@ -1,183 +1,386 @@
+```html
 <!DOCTYPE html>
 <html>
 <head>
-<title>MDM4U</title>
+<title>MDM4U - Module 2.1</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body {font-family: "Roboto", sans-serif}
-.w3-bar-block .w3-bar-item {
-padding: 16px;
-font-weight: bold;
-}
-</style>
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-</head>
-<body>
-<!--Navigation bar-->
-<div id="nav-placeholder">
 
-</div>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<style>
+
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #f8f1eb;
+    color: #4a352d;
+}
+
+/* Navigation */
+.w3-bar-block .w3-bar-item {
+    padding: 16px;
+    font-weight: bold;
+}
+
+/* Main page */
+.w3-main {
+    background-color: #f8f1eb;
+}
+
+/* Top bar */
+#myTop {
+    background-color: #6f5145 !important;
+    color: #fffaf6;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #8a6758, #6f5145) !important;
+    color: #fffaf6;
+    position: relative;
+    overflow: hidden;
+}
+
+header:after {
+    content: "🎀";
+    position: absolute;
+    right: 55px;
+    bottom: 18px;
+    font-size: 48px;
+    opacity: 0.85;
+}
+
+header h1 {
+    font-family: "Playfair Display", serif;
+    letter-spacing: 1px;
+}
+
+/* Main content */
+.w3-container {
+    color: #4a352d;
+}
+
+/* Section headings */
+h1 {
+    font-family: "Playfair Display", serif;
+    color: #6f5145;
+}
+
+h2 {
+    font-family: "Playfair Display", serif;
+    color: #9b6f67;
+}
+
+h3 {
+    color: #8a6758;
+}
+
+/* Decorative divider */
+.ribbon-divider {
+    text-align: center;
+    color: #c58f91;
+    font-size: 22px;
+    margin: 12px 0 28px 0;
+    letter-spacing: 8px;
+}
+
+/* Graph sections */
+.graph-section {
+    background-color: #fffaf6;
+    border: 1px solid #ead8cf;
+    border-radius: 18px;
+    padding: 28px;
+    margin-bottom: 30px;
+    box-shadow: 0 4px 14px rgba(111, 81, 69, 0.10);
+}
+
+/* Pink heading */
+.distribution-title {
+    color: #a66f72;
+    font-family: "Playfair Display", serif;
+    font-size: 28px;
+    margin-bottom: 8px;
+}
+
+/* Small description */
+.graph-description {
+    color: #72594f;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+
+/* Footer */
+footer {
+    background-color: #6f5145 !important;
+    color: #fffaf6 !important;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* Links */
+a {
+    color: #a66f72;
+}
+
+a:hover {
+    color: #6f5145;
+}
+
+/* Soft pink accent box */
+.intro-box {
+    background-color: #f3dfdf;
+    border-left: 5px solid #c58f91;
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 30px;
+}
+
+/* Mobile */
+@media screen and (max-width: 600px) {
+    .graph-section {
+        padding: 18px;
+    }
+
+    header:after {
+        right: 20px;
+        font-size: 35px;
+    }
+}
+
+</style>
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+</head>
+
+<body>
+
+<!-- Navigation bar -->
+<div id="nav-placeholder"></div>
 
 <script>
 $(function(){
-$("#nav-placeholder").load("nav.html");
+    $("#nav-placeholder").load("nav.html");
 });
 </script>
-<!--end of Navigation bar-->
+<!-- End of Navigation bar -->
 
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+
+<div class="w3-overlay w3-hide-large w3-animate-opacity"
+onclick="w3_close()"
+style="cursor:pointer"
+id="myOverlay"></div>
+
 
 <div class="w3-main" style="margin-left:250px;">
 
-<div id="myTop" class="w3-container w3-top w3-theme w3-large">
-<p><i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge" onclick="w3_open()"></i>
-<span id="myIntro" class="w3-hide">MDM4U</span></p>
+<!-- Top bar -->
+<div id="myTop" class="w3-container w3-top w3-large">
+
+<p>
+<i class="fa fa-bars w3-button w3-hide-large w3-xlarge"
+onclick="w3_open()"></i>
+
+<span id="myIntro" class="w3-hide">
+MDM4U
+</span>
+</p>
+
 </div>
 
-<header class="w3-container w3-theme" style="padding:64px 32px">
-<h1 class="w3-xxxlarge">Titre du module</h1>
+
+<!-- Module header -->
+<header class="w3-container" style="padding:64px 32px">
+
+<h1 class="w3-xxxlarge">
+Module 2.1 — Les distributions des données
+</h1>
+
+<p>
+Histogrammes et types de distributions
+</p>
+
 </header>
 
+
+<!-- Main content -->
 <div class="w3-container" style="padding:32px">
 
-<!-- Tu peux complètement modifier le contenu ci-dessous -->
 
-<h1>Entête 1</h1>
-<h2>Entête 2</h2>
-<p>Ceci est un paragraphe qui contient <a href="https://www.w3schools.com/html/html_links.asp" target="_blank">un lien</a> qui ouvre dans une nouvelle fenêtre.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Ui8o6fJjkck" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<div class="intro-box">
 
+<h2>🎀 Les distributions des données</h2>
 
-<!-- Tu peux complètement modifier le contenu par dessus cette ligne -->
+<p>
+Dans cette activité, j’ai utilisé Desmos pour créer des histogrammes
+à partir de différentes séries de données. J’ai ensuite identifié
+le type de distribution représenté par chaque histogramme.
+</p>
 
 </div>
 
-<footer class="w3-container w3-theme" style="padding:32px">
-<p>Contenu de cette page web par M. Gore (prénom: Pytha)</p>
+
+<div class="ribbon-divider">
+୨୧ ───── 🎀 ───── ୨୧
+</div>
+
+
+<!-- GRAPH 1 -->
+
+<div class="graph-section">
+
+<h2 class="distribution-title">
+La distribution en U
+</h2>
+
+<p class="graph-description">
+Histogramme du pointage des résultats d’un jeu de patience — 9 intervalles.
+</p>
+
+<!-- COLLER LE CODE DESMOS DU GRAPHIQUE 1 ICI -->
+
+
+</div>
+
+
+<!-- GRAPH 2 -->
+
+<div class="graph-section">
+
+<h2 class="distribution-title">
+Les distributions asymétriques
+</h2>
+
+<p class="graph-description">
+Histogramme des résultats d’un jeu de solitaire — 8 intervalles.
+</p>
+
+<!-- COLLER LE CODE DESMOS DU GRAPHIQUE 2 ICI -->
+
+
+</div>
+
+
+<!-- GRAPH 3 -->
+
+<div class="graph-section">
+
+<h2 class="distribution-title">
+La distribution uniforme
+</h2>
+
+<p class="graph-description">
+Histogramme des résultats obtenus en lançant un dé plusieurs fois — 7 intervalles.
+</p>
+
+<!-- COLLER LE CODE DESMOS DU GRAPHIQUE 3 ICI -->
+
+
+</div>
+
+
+<!-- GRAPH 4 -->
+
+<div class="graph-section">
+
+<h2 class="distribution-title">
+La distribution en cloche
+</h2>
+
+<p class="graph-description">
+Histogramme de la somme obtenue en lançant deux dés plusieurs fois — 10 intervalles.
+</p>
+
+<!-- COLLER LE CODE DESMOS DU GRAPHIQUE 4 ICI -->
+
+
+</div>
+
+
+<div class="ribbon-divider">
+୨୧ ───── 🎀 ───── ୨୧
+</div>
+
+
+</div>
+
+
+<!-- Footer -->
+<footer class="w3-container" style="padding:32px">
+
+<p>
+Contenu de cette page web par M. Gore (prénom: Pytha)
+</p>
+
 </footer>
 
+
 </div>
 
+
 <script>
+
 // Open and close the sidebar on medium and small screens
+
 function w3_open() {
-document.getElementById("mySidebar").style.display = "block";
-document.getElementById("myOverlay").style.display = "block";
+    document.getElementById("mySidebar").style.display = "block";
+    document.getElementById("myOverlay").style.display = "block";
 }
 
 function w3_close() {
-document.getElementById("mySidebar").style.display = "none";
-document.getElementById("myOverlay").style.display = "none";
+    document.getElementById("mySidebar").style.display = "none";
+    document.getElementById("myOverlay").style.display = "none";
 }
+
 
 // Change style of top container on scroll
-window.onscroll = function() {myFunction()};
+
+window.onscroll = function() {
+    myFunction()
+};
+
 function myFunction() {
-if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
-document.getElementById("myIntro").classList.add("w3-show-inline-block");
-} else {
-document.getElementById("myIntro").classList.remove("w3-show-inline-block");
-document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
-}
-}
 
-</script>
+    if (
+        document.body.scrollTop > 80 ||
+        document.documentElement.scrollTop > 80
+    ) {
 
-</body>
-</html> <!DOCTYPE html>
-<html>
-<head>
-<title>MDM4U</title>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-teal.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body {font-family: "Roboto", sans-serif}
-.w3-bar-block .w3-bar-item {
-padding: 16px;
-font-weight: bold;
-}
-</style>
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
-</head>
-<body>
-<!--Navigation bar-->
-<div id="nav-placeholder">
+        document.getElementById("myTop")
+        .classList.add(
+            "w3-card-4",
+            "w3-animate-opacity"
+        );
 
-</div>
+        document.getElementById("myIntro")
+        .classList.add(
+            "w3-show-inline-block"
+        );
 
-<script>
-$(function(){
-$("#nav-placeholder").load("nav.html");
-});
-</script>
-<!--end of Navigation bar-->
+    } else {
 
-<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" id="myOverlay"></div>
+        document.getElementById("myIntro")
+        .classList.remove(
+            "w3-show-inline-block"
+        );
 
-<div class="w3-main" style="margin-left:250px;">
+        document.getElementById("myTop")
+        .classList.remove(
+            "w3-card-4",
+            "w3-animate-opacity"
+        );
 
-<div id="myTop" class="w3-container w3-top w3-theme w3-large">
-<p><i class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge" onclick="w3_open()"></i>
-<span id="myIntro" class="w3-hide">MDM4U</span></p>
-</div>
-
-<header class="w3-container w3-theme" style="padding:64px 32px">
-<h1 class="w3-xxxlarge">Titre du module</h1>
-</header>
-
-<div class="w3-container" style="padding:32px">
-
-<!-- Tu peux complètement modifier le contenu ci-dessous -->
-
-<h1>Entête 1</h1>
-<h2>Entête 2</h2>
-<p>Ceci est un paragraphe qui contient <a href="https://www.w3schools.com/html/html_links.asp" target="_blank">un lien</a> qui ouvre dans une nouvelle fenêtre.</p>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/Ui8o6fJjkck" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-
-<!-- Tu peux complètement modifier le contenu par dessus cette ligne -->
-
-</div>
-
-<footer class="w3-container w3-theme" style="padding:32px">
-<p>Contenu de cette page web par M. Gore (prénom: Pytha)</p>
-</footer>
-
-</div>
-
-<script>
-// Open and close the sidebar on medium and small screens
-function w3_open() {
-document.getElementById("mySidebar").style.display = "block";
-document.getElementById("myOverlay").style.display = "block";
-}
-
-function w3_close() {
-document.getElementById("mySidebar").style.display = "none";
-document.getElementById("myOverlay").style.display = "none";
-}
-
-// Change style of top container on scroll
-window.onscroll = function() {myFunction()};
-function myFunction() {
-if (document.body.scrollTop > 80 || document.documentElement.scrollTop > 80) {
-document.getElementById("myTop").classList.add("w3-card-4", "w3-animate-opacity");
-document.getElementById("myIntro").classList.add("w3-show-inline-block");
-} else {
-document.getElementById("myIntro").classList.remove("w3-show-inline-block");
-document.getElementById("myTop").classList.remove("w3-card-4", "w3-animate-opacity");
-}
+    }
 }
 
 </script>
+
 
 </body>
 </html>
+```
