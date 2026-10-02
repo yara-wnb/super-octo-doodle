@@ -1,5 +1,5 @@
-```html
 <!DOCTYPE html>
+
 <html>
 
 <head>
@@ -20,12 +20,11 @@
 <link rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-
 <style>
 
-/* =========================
-   PAGE
-========================= */
+/* =========================================
+   MAIN PAGE
+========================================= */
 
 body {
     font-family: "Poppins", sans-serif;
@@ -33,20 +32,15 @@ body {
     color: #57433a;
 }
 
-
-/* =========================
-   MAIN CONTENT
-========================= */
-
 .w3-main {
     background-color: #fcf7f3;
     min-height: 100vh;
 }
 
 
-/* =========================
+/* =========================================
    TOP BAR
-========================= */
+========================================= */
 
 #myTop {
     background-color: #8b6b5d !important;
@@ -55,9 +49,9 @@ body {
 }
 
 
-/* =========================
+/* =========================================
    HEADER
-========================= */
+========================================= */
 
 header {
     background-color: #f3e5dc !important;
@@ -67,7 +61,6 @@ header {
     border-bottom: 1px solid #e5cfc5;
 }
 
-
 header h1 {
     font-family: "Playfair Display", serif;
     color: #b45e78 !important;
@@ -76,13 +69,9 @@ header h1 {
     z-index: 2;
 }
 
-
 header p {
     color: #8b6b5d;
 }
-
-
-/* Decorative symbols */
 
 header:after {
     content: "୨୧";
@@ -92,7 +81,6 @@ header:after {
     font-size: 58px;
     color: #c58b91;
 }
-
 
 header:before {
     content: "♡";
@@ -104,9 +92,9 @@ header:before {
 }
 
 
-/* =========================
-   INTRO BOX
-========================= */
+/* =========================================
+   INTRODUCTION
+========================================= */
 
 .intro-box {
     background-color: #f7e8e5;
@@ -118,7 +106,6 @@ header:before {
     box-shadow: 0 3px 12px rgba(120, 82, 69, 0.06);
 }
 
-
 .intro-box h2 {
     margin-top: 0;
     font-family: "Playfair Display", serif;
@@ -126,9 +113,9 @@ header:before {
 }
 
 
-/* =========================
+/* =========================================
    DIVIDERS
-========================= */
+========================================= */
 
 .ribbon-divider {
     text-align: center;
@@ -139,9 +126,9 @@ header:before {
 }
 
 
-/* =========================
-   GRAPH CARDS
-========================= */
+/* =========================================
+   GRAPH SECTIONS
+========================================= */
 
 .graph-section {
     background-color: #fffdfb;
@@ -153,7 +140,6 @@ header:before {
     position: relative;
 }
 
-
 .graph-section:after {
     content: "୨୧";
     position: absolute;
@@ -163,11 +149,6 @@ header:before {
     font-size: 22px;
 }
 
-
-/* =========================
-   GRAPH TITLES
-========================= */
-
 .distribution-title {
     color: #a46f75;
     font-family: "Playfair Display", serif;
@@ -176,21 +157,11 @@ header:before {
     padding-right: 45px;
 }
 
-
-/* =========================
-   DESCRIPTIONS
-========================= */
-
 .graph-description {
     color: #80665b;
     font-size: 15px;
     margin-bottom: 22px;
 }
-
-
-/* =========================
-   DESMOS
-========================= */
 
 .graph-section iframe {
     display: block;
@@ -201,9 +172,9 @@ header:before {
 }
 
 
-/* =========================
+/* =========================================
    FOOTER
-========================= */
+========================================= */
 
 footer {
     background-color: #8b6b5d !important;
@@ -211,9 +182,71 @@ footer {
 }
 
 
-/* =========================
+/* =========================================
+   FORCE MODULE 2 NAVIGATION THEME
+========================================= */
+
+/* Module 2 title */
+
+#nav-placeholder .module-two-title,
+#nav-placeholder a[href="module2-1.html"] ~ * {
+    background-color: #8b6b5d !important;
+}
+
+
+/* Module 2 links */
+
+#nav-placeholder a[href="module2-1.html"],
+#nav-placeholder a[href="module2-2.html"],
+#nav-placeholder a[href="module2-3.html"],
+#nav-placeholder a[href="module2-4.html"],
+#nav-placeholder a[href="module2-5.html"],
+#nav-placeholder a[href="module2-6.html"] {
+
+    background-color: #fffdfb !important;
+
+    color: #80665b !important;
+
+    border-bottom: 1px solid #eadbd3 !important;
+
+    font-family: "Poppins", sans-serif !important;
+
+    font-weight: 500 !important;
+
+    transition: all 0.2s ease !important;
+}
+
+
+/* Module 2 link hover */
+
+#nav-placeholder a[href="module2-1.html"]:hover,
+#nav-placeholder a[href="module2-2.html"]:hover,
+#nav-placeholder a[href="module2-3.html"]:hover,
+#nav-placeholder a[href="module2-4.html"]:hover,
+#nav-placeholder a[href="module2-5.html"]:hover,
+#nav-placeholder a[href="module2-6.html"]:hover {
+
+    background-color: #f7e8e5 !important;
+
+    color: #a46f75 !important;
+
+    padding-left: 24px !important;
+}
+
+
+/* Module 2 box */
+
+#nav-placeholder #module2 {
+
+    background-color: #fffdfb !important;
+
+    border-left: 4px solid #c58b91 !important;
+}
+
+
+/* =========================================
    MOBILE
-========================= */
+========================================= */
 
 @media screen and (max-width: 992px) {
 
@@ -222,7 +255,6 @@ footer {
     }
 
 }
-
 
 @media screen and (max-width: 600px) {
 
@@ -243,36 +275,61 @@ footer {
 
 </style>
 
-
 <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
 </head>
 
-
 <body>
 
-
-<!-- =========================
+<!-- =========================================
      NAVIGATION
-========================= -->
+========================================= -->
 
 <div id="nav-placeholder"></div>
-
 
 <script>
 
 $(function() {
 
-    $("#nav-placeholder").load("nav.html");
+    $("#nav-placeholder").load("nav.html", function() {
+
+        /*
+         * Module 2 styling is applied AFTER
+         * nav.html finishes loading.
+         */
+
+        $("#nav-placeholder #module2").css({
+            "background-color": "#fffdfb",
+            "border-left": "4px solid #c58b91"
+        });
+
+        $("#nav-placeholder a[href='module2-1.html'], \
+           #nav-placeholder a[href='module2-2.html'], \
+           #nav-placeholder a[href='module2-3.html'], \
+           #nav-placeholder a[href='module2-4.html'], \
+           #nav-placeholder a[href='module2-5.html'], \
+           #nav-placeholder a[href='module2-6.html']")
+        .css({
+            "background-color": "#fffdfb",
+            "color": "#80665b",
+            "border-bottom": "1px solid #eadbd3"
+        });
+
+        $("#nav-placeholder .module-two-title").css({
+            "background-color": "#8b6b5d",
+            "color": "#fffdfb",
+            "font-family": "Playfair Display, Georgia, serif"
+        });
+
+    });
 
 });
 
 </script>
 
-
-<!-- =========================
+<!-- =========================================
      MOBILE OVERLAY
-========================= -->
+========================================= -->
 
 <div
     class="w3-overlay w3-hide-large w3-animate-opacity"
@@ -281,217 +338,215 @@ $(function() {
     id="myOverlay">
 </div>
 
-
-<!-- =========================
+<!-- =========================================
      MAIN
-========================= -->
+========================================= -->
 
 <div class="w3-main" style="margin-left:250px;">
 
-
-<!-- =========================
-     TOP BAR
-========================= -->
+<!-- TOP BAR -->
 
 <div
     id="myTop"
     class="w3-container w3-top w3-large">
 
-    <p>
+```
+<p>
 
-        <i
-            class="fa fa-bars w3-button w3-hide-large w3-xlarge"
-            onclick="w3_open()">
-        </i>
+    <i
+        class="fa fa-bars w3-button w3-hide-large w3-xlarge"
+        onclick="w3_open()">
+    </i>
 
-        <span id="myIntro" class="w3-hide">
-            MDM4U
-        </span>
+    <span id="myIntro" class="w3-hide">
+        MDM4U
+    </span>
 
-    </p>
+</p>
+```
 
 </div>
 
-
-<!-- =========================
+<!-- =========================================
      HEADER
-========================= -->
+========================================= -->
 
 <header
     class="w3-container"
     style="padding:64px 32px">
 
-    <h1 class="w3-xxxlarge">
-        Module 2.1 — Les distributions des données
-    </h1>
+```
+<h1 class="w3-xxxlarge">
+    Module 2.1 — Les distributions des données
+</h1>
 
-    <p>
-        Histogrammes et types de distributions
-    </p>
+<p>
+    Histogrammes et types de distributions
+</p>
+```
 
 </header>
 
-
-<!-- =========================
+<!-- =========================================
      CONTENT
-========================= -->
+========================================= -->
 
 <div
     class="w3-container"
     style="padding:32px">
 
-
 <!-- INTRODUCTION -->
 
 <div class="intro-box">
 
-    <h2>
-        🎀 Les distributions des données
-    </h2>
+```
+<h2>
+    🎀 Les distributions des données
+</h2>
 
-    <p>
-        Dans cette activité, j’ai utilisé Desmos pour créer des
-        histogrammes à partir de différentes séries de données.
-        J’ai ensuite identifié le type de distribution représenté
-        par chaque histogramme.
-    </p>
+<p>
+    Dans cette activité, j’ai utilisé Desmos pour créer des
+    histogrammes à partir de différentes séries de données.
+    J’ai ensuite identifié le type de distribution représenté
+    par chaque histogramme.
+</p>
+```
 
 </div>
-
 
 <div class="ribbon-divider">
     ୨୧ ───── 🎀 ───── ୨୧
 </div>
 
-
-<!-- =========================
+<!-- =========================================
      GRAPH 1
-========================= -->
+========================================= -->
 
 <div class="graph-section">
 
-    <h2 class="distribution-title">
-        La distribution en U
-    </h2>
+```
+<h2 class="distribution-title">
+    La distribution en U
+</h2>
 
-    <p class="graph-description">
-        Histogramme du pointage des résultats d’un jeu de patience — 9 intervalles.
-    </p>
+<p class="graph-description">
+    Histogramme du pointage des résultats d’un jeu de patience — 9 intervalles.
+</p>
 
-    <iframe
-        src="https://www.desmos.com/calculator/qba8biwtde?embed"
-        width="500"
-        height="500"
-        frameborder="0">
-    </iframe>
+<iframe
+    src="https://www.desmos.com/calculator/qba8biwtde?embed"
+    width="500"
+    height="500"
+    frameborder="0">
+</iframe>
+```
 
 </div>
 
-
-<!-- =========================
+<!-- =========================================
      GRAPH 2
-========================= -->
+========================================= -->
 
 <div class="graph-section">
 
-    <h2 class="distribution-title">
-        Les distributions asymétriques
-    </h2>
+```
+<h2 class="distribution-title">
+    Les distributions asymétriques
+</h2>
 
-    <p class="graph-description">
-        Histogramme des résultats d’un jeu de solitaire — 8 intervalles.
-    </p>
+<p class="graph-description">
+    Histogramme des résultats d’un jeu de solitaire — 8 intervalles.
+</p>
 
-    <iframe
-        src="https://www.desmos.com/calculator/bewjejxhjk?embed"
-        width="500"
-        height="500"
-        frameborder="0">
-    </iframe>
+<iframe
+    src="https://www.desmos.com/calculator/bewjejxhjk?embed"
+    width="500"
+    height="500"
+    frameborder="0">
+</iframe>
+```
 
 </div>
 
-
-<!-- =========================
+<!-- =========================================
      GRAPH 3
-========================= -->
+========================================= -->
 
 <div class="graph-section">
 
-    <h2 class="distribution-title">
-        La distribution uniforme
-    </h2>
+```
+<h2 class="distribution-title">
+    La distribution uniforme
+</h2>
 
-    <p class="graph-description">
-        Histogramme des résultats obtenus en lançant un dé plusieurs fois — 7 intervalles.
-    </p>
+<p class="graph-description">
+    Histogramme des résultats obtenus en lançant un dé plusieurs fois — 7 intervalles.
+</p>
 
-    <iframe
-        src="https://www.desmos.com/calculator/6ogfe9h3ha?embed"
-        width="500"
-        height="500"
-        frameborder="0">
-    </iframe>
+<iframe
+    src="https://www.desmos.com/calculator/6ogfe9h3ha?embed"
+    width="500"
+    height="500"
+    frameborder="0">
+</iframe>
+```
 
 </div>
 
-
-<!-- =========================
+<!-- =========================================
      GRAPH 4
-========================= -->
+========================================= -->
 
 <div class="graph-section">
 
-    <h2 class="distribution-title">
-        La distribution en cloche
-    </h2>
+```
+<h2 class="distribution-title">
+    La distribution en cloche
+</h2>
 
-    <p class="graph-description">
-        Histogramme de la somme obtenue en lançant deux dés plusieurs fois — 10 intervalles.
-    </p>
+<p class="graph-description">
+    Histogramme de la somme obtenue en lançant deux dés plusieurs fois — 10 intervalles.
+</p>
 
-    <iframe
-        src="https://www.desmos.com/calculator/hx7chybjlo?embed"
-        width="500"
-        height="500"
-        frameborder="0">
-    </iframe>
+<iframe
+    src="https://www.desmos.com/calculator/hx7chybjlo?embed"
+    width="500"
+    height="500"
+    frameborder="0">
+</iframe>
+```
 
 </div>
-
 
 <div class="ribbon-divider">
     ୨୧ ───── 🎀 ───── ୨୧
 </div>
 
-
 </div>
 
-
-<!-- =========================
+<!-- =========================================
      FOOTER
-========================= -->
+========================================= -->
 
 <footer
     class="w3-container"
     style="padding:32px">
 
-    <p>
-        Contenu de cette page web par M. Gore (prénom: Pytha)
-    </p>
+```
+<p>
+    Contenu de cette page web par M. Gore (prénom: Pytha)
+</p>
+```
 
 </footer>
 
-
 </div>
 
-
-<!-- =========================
+<!-- =========================================
      JAVASCRIPT
-========================= -->
+========================================= -->
 
 <script>
-
 
 function w3_open() {
 
@@ -557,8 +612,6 @@ function myFunction() {
 
 </script>
 
-
 </body>
 
 </html>
-```
