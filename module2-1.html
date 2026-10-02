@@ -1,190 +1,588 @@
-<nav id="mySidebar" class="custom-sidebar">
+<!DOCTYPE html>
+<html>
 
-    <!-- LOGO -->
-    <a href="index.html" class="sidebar-logo">
-        <img src="http://mmebernatchez.ca/wp-content/uploads/2021/01/logo-1.png">
-    </a>
+<head>
 
+<title>MDM4U - Module 2.1</title>
 
-    <!-- MOBILE CLOSE -->
-    <a href="javascript:void(0)"
-       onclick="w3_close()"
-       class="mobile-close">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-        ✕ Close
+<link rel="stylesheet"
+      href="https://www.w3schools.com/w3css/4/w3.css">
 
-    </a>
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto">
 
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap">
 
-    <!-- MODULE 1 -->
-    <div class="nav-module">
+<link rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
 
-        <div class="module-title">
-            Module 1
-        </div>
-
-        <a href="module1-1.html" class="nav-link">1.1</a>
-        <a href="module1-2.html" class="nav-link">1.2</a>
-        <a href="module1-3.html" class="nav-link">1.3</a>
-        <a href="module1-4.html" class="nav-link">1.4</a>
-
-    </div>
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
-    <!-- MODULE 2 -->
-    <div class="nav-module">
+<style>
 
-        <div class="module-title">
-            Module 2
-        </div>
+/* =========================
+   GENERAL PAGE
+========================= */
 
-        <a href="module2-1.html" class="nav-link">2.1</a>
-        <a href="module2-2.html" class="nav-link">2.2</a>
-        <a href="module2-3.html" class="nav-link">2.3</a>
-        <a href="module2-4.html" class="nav-link">2.4</a>
-        <a href="module2-5.html" class="nav-link">2.5</a>
-        <a href="module2-6.html" class="nav-link">2.6</a>
+body {
+    font-family: "Poppins", sans-serif;
+    background-color: #fcf7f3;
+    color: #57433a;
+}
 
-    </div>
-
-
-    <!-- MODULE 3 -->
-    <div class="nav-module">
-
-        <div class="module-title">
-            Module 3
-        </div>
-
-        <a href="module3-1.html" class="nav-link">3.1</a>
-        <a href="module3-2.html" class="nav-link">3.2</a>
-        <a href="module3-3.html" class="nav-link">3.3</a>
-        <a href="module3-4.html" class="nav-link">3.4</a>
-
-    </div>
+.w3-main {
+    background-color: #fcf7f3;
+    min-height: 100vh;
+}
 
 
-    <!-- MODULE 4 -->
-    <div class="nav-module">
+/* =========================
+   TOP BAR
+========================= */
 
-        <div class="module-title">
-            Module 4
-        </div>
-
-        <a href="module4-1.html" class="nav-link">4.1</a>
-        <a href="module4-2.html" class="nav-link">4.2</a>
-        <a href="module4-3.html" class="nav-link">4.3</a>
-        <a href="module4-4.html" class="nav-link">4.4</a>
-
-    </div>
+#myTop {
+    background-color: #8b6b5d !important;
+    color: #fffaf7;
+    z-index: 900;
+}
 
 
-    <!-- MODULE 5 -->
-    <div class="nav-module">
+/* =========================
+   MODULE HEADER
+========================= */
 
-        <div class="module-title">
-            Module 5
-        </div>
-
-        <a href="module5-1.html" class="nav-link">5.1</a>
-        <a href="module5-2.html" class="nav-link">5.2</a>
-        <a href="module5-3.html" class="nav-link">5.3</a>
-        <a href="module5-4.html" class="nav-link">5.4</a>
-        <a href="module5-5.html" class="nav-link">5.5</a>
-        <a href="module5-6.html" class="nav-link">5.6</a>
-
-    </div>
+header {
+    background-color: #f3e5dc !important;
+    position: relative;
+    overflow: hidden;
+    border-bottom: 1px solid #e5cfc5;
+}
 
 
-    <style>
+/* TITLE */
 
-        .custom-sidebar {
-            position: fixed;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 250px;
-            background-color: #fff5f8;
-            z-index: 1000;
-            overflow-y: auto;
-            box-shadow: 3px 0 15px rgba(192, 90, 125, 0.10);
-            font-family: "Poppins", sans-serif;
-        }
+header h1 {
+    font-family: "Playfair Display", serif;
+    color: #b45e78 !important;
+    letter-spacing: 0.5px;
+    position: relative;
+    z-index: 1;
+    text-shadow: 0 1px 0 rgba(255,255,255,0.5);
+}
 
 
-        .sidebar-logo {
-            display: block;
-            background-color: #ffffff;
-            padding: 20px;
-            text-align: center;
-            border-bottom: 1px solid #f3d5df;
-        }
+header p {
+    color: #8b6b5d;
+    position: relative;
+    z-index: 1;
+}
 
 
-        .sidebar-logo img {
-            width: 80%;
-            display: block;
-            margin: auto;
-        }
+/* Decorative bow */
+
+header:after {
+    content: "୨୧";
+    position: absolute;
+    right: 65px;
+    bottom: 18px;
+    font-size: 58px;
+    color: #c58b91;
+    opacity: 0.9;
+}
 
 
-        .mobile-close {
-            display: none;
-            padding: 15px 20px;
-            color: #c05a7d;
-            font-weight: bold;
-            text-decoration: none;
-        }
+header:before {
+    content: "♡";
+    position: absolute;
+    right: 130px;
+    top: 25px;
+    font-size: 25px;
+    color: #c58b91;
+    opacity: 0.7;
+}
 
 
-        .nav-module {
-            margin-bottom: 8px;
-        }
+/* =========================
+   HEADINGS
+========================= */
+
+h1 {
+    font-family: "Playfair Display", serif;
+    color: #b45e78;
+}
 
 
-        .module-title {
-            background-color: #d8899e;
-            color: white;
-            font-weight: 600;
-            padding: 13px 16px;
-            letter-spacing: 0.3px;
-        }
+h2 {
+    font-family: "Playfair Display", serif;
+    color: #a46f75;
+}
 
 
-        .nav-link {
-            display: block;
-            text-decoration: none;
-            color: #59474d !important;
-            background-color: #fff5f8;
-            padding: 11px 20px;
-            border-bottom: 1px solid #f8e1e8;
-            font-size: 14px;
-            transition: all 0.2s ease;
-        }
+h3 {
+    color: #8b6b5d;
+}
 
 
-        .nav-link:hover {
-            background-color: #f8dce5 !important;
-            color: #b45e78 !important;
-            padding-left: 27px;
-        }
+/* =========================
+   INTRODUCTION
+========================= */
+
+.intro-box {
+    background-color: #f7e8e5;
+    border: 1px solid #ead2ce;
+    border-left: 5px solid #c58b91;
+    border-radius: 16px;
+    padding: 22px 25px;
+    margin-bottom: 32px;
+    box-shadow: 0 3px 12px rgba(120, 82, 69, 0.06);
+}
 
 
-        @media screen and (max-width: 992px) {
+.intro-box h2 {
+    margin-top: 0;
+}
 
-            .custom-sidebar {
-                display: none;
-            }
 
-            .custom-sidebar.open {
-                display: block;
-            }
+/* =========================
+   DIVIDER
+========================= */
 
-            .mobile-close {
-                display: block;
-            }
+.ribbon-divider {
+    text-align: center;
+    color: #c58b91;
+    font-size: 20px;
+    margin: 18px 0 30px 0;
+    letter-spacing: 5px;
+}
 
-        }
 
-    </style>
+/* =========================
+   GRAPH CARDS
+========================= */
 
-</nav>
+.graph-section {
+    background-color: #fffdfb;
+    border: 1px solid #eadbd3;
+    border-radius: 20px;
+    padding: 30px;
+    margin-bottom: 32px;
+    box-shadow: 0 5px 18px rgba(103, 75, 63, 0.08);
+    position: relative;
+    overflow: hidden;
+}
+
+
+.graph-section:after {
+    content: "୨୧";
+    position: absolute;
+    top: 15px;
+    right: 22px;
+    color: #d09a9f;
+    font-size: 22px;
+    opacity: 0.7;
+}
+
+
+/* =========================
+   DISTRIBUTION TITLES
+========================= */
+
+.distribution-title {
+    color: #a46f75;
+    font-family: "Playfair Display", serif;
+    font-size: 29px;
+    margin-bottom: 8px;
+    padding-right: 45px;
+}
+
+
+/* =========================
+   GRAPH DESCRIPTIONS
+========================= */
+
+.graph-description {
+    color: #80665b;
+    font-size: 15px;
+    margin-bottom: 22px;
+}
+
+
+/* =========================
+   DESMOS
+========================= */
+
+.graph-section iframe {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    border: 1px solid #dfc9c1 !important;
+    border-radius: 10px;
+}
+
+
+/* =========================
+   LINKS
+========================= */
+
+a {
+    color: #a46f75;
+}
+
+
+a:hover {
+    color: #7d554d;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background-color: #8b6b5d !important;
+    color: #fffaf7 !important;
+}
+
+
+footer p {
+    margin: 0;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media screen and (max-width: 992px) {
+
+    .w3-main {
+        margin-left: 0 !important;
+    }
+
+}
+
+
+@media screen and (max-width: 600px) {
+
+    .graph-section {
+        padding: 20px;
+    }
+
+    header:after {
+        right: 20px;
+        font-size: 40px;
+    }
+
+    header:before {
+        right: 75px;
+    }
+
+}
+
+</style>
+
+
+<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVIGATION
+========================= -->
+
+<div id="nav-placeholder"></div>
+
+
+<script>
+
+$(function() {
+
+    $("#nav-placeholder").load("nav.html");
+
+});
+
+
+function w3_open() {
+
+    var sidebar = document.getElementById("mySidebar");
+
+    if (sidebar) {
+        sidebar.classList.add("open");
+    }
+
+}
+
+
+function w3_close() {
+
+    var sidebar = document.getElementById("mySidebar");
+
+    if (sidebar) {
+        sidebar.classList.remove("open");
+    }
+
+}
+
+</script>
+
+
+<!-- =========================
+     MOBILE OVERLAY
+========================= -->
+
+<div
+    class="w3-overlay w3-hide-large w3-animate-opacity"
+    onclick="w3_close()"
+    id="myOverlay">
+</div>
+
+
+<!-- =========================
+     MAIN CONTENT
+========================= -->
+
+<div class="w3-main" style="margin-left:250px;">
+
+
+<!-- TOP BAR -->
+
+<div id="myTop"
+     class="w3-container w3-top w3-large">
+
+    <p>
+
+        <i
+            class="fa fa-bars w3-button w3-hide-large w3-xlarge"
+            onclick="w3_open()">
+        </i>
+
+        <span id="myIntro" class="w3-hide">
+            MDM4U
+        </span>
+
+    </p>
+
+</div>
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
+<header
+    class="w3-container"
+    style="padding:64px 32px">
+
+    <h1 class="w3-xxxlarge">
+        Module 2.1 — Les distributions des données
+    </h1>
+
+    <p>
+        Histogrammes et types de distributions
+    </p>
+
+</header>
+
+
+<!-- =========================
+     CONTENT
+========================= -->
+
+<div
+    class="w3-container"
+    style="padding:32px">
+
+
+<!-- INTRO -->
+
+<div class="intro-box">
+
+    <h2>
+        🎀 Les distributions des données
+    </h2>
+
+    <p>
+        Dans cette activité, j’ai utilisé Desmos pour créer des
+        histogrammes à partir de différentes séries de données.
+        J’ai ensuite identifié le type de distribution représenté
+        par chaque histogramme.
+    </p>
+
+</div>
+
+
+<div class="ribbon-divider">
+    ୨୧ ───── 🎀 ───── ୨୧
+</div>
+
+
+<!-- =========================
+     GRAPH 1
+========================= -->
+
+<div class="graph-section">
+
+    <h2 class="distribution-title">
+        La distribution en U
+    </h2>
+
+    <p class="graph-description">
+        Histogramme du pointage des résultats d’un jeu de patience — 9 intervalles.
+    </p>
+
+    <iframe
+        src="https://www.desmos.com/calculator/qba8biwtde?embed"
+        width="500"
+        height="500"
+        frameborder="0">
+    </iframe>
+
+</div>
+
+
+<!-- =========================
+     GRAPH 2
+========================= -->
+
+<div class="graph-section">
+
+    <h2 class="distribution-title">
+        Les distributions asymétriques
+    </h2>
+
+    <p class="graph-description">
+        Histogramme des résultats d’un jeu de solitaire — 8 intervalles.
+    </p>
+
+    <iframe
+        src="https://www.desmos.com/calculator/bewjejxhjk?embed"
+        width="500"
+        height="500"
+        frameborder="0">
+    </iframe>
+
+</div>
+
+
+<!-- =========================
+     GRAPH 3
+========================= -->
+
+<div class="graph-section">
+
+    <h2 class="distribution-title">
+        La distribution uniforme
+    </h2>
+
+    <p class="graph-description">
+        Histogramme des résultats obtenus en lançant un dé plusieurs fois — 7 intervalles.
+    </p>
+
+    <iframe
+        src="https://www.desmos.com/calculator/6ogfe9h3ha?embed"
+        width="500"
+        height="500"
+        frameborder="0">
+    </iframe>
+
+</div>
+
+
+<!-- =========================
+     GRAPH 4
+========================= -->
+
+<div class="graph-section">
+
+    <h2 class="distribution-title">
+        La distribution en cloche
+    </h2>
+
+    <p class="graph-description">
+        Histogramme de la somme obtenue en lançant deux dés plusieurs fois — 10 intervalles.
+    </p>
+
+    <iframe
+        src="https://www.desmos.com/calculator/hx7chybjlo?embed"
+        width="500"
+        height="500"
+        frameborder="0">
+    </iframe>
+
+</div>
+
+
+<div class="ribbon-divider">
+    ୨୧ ───── 🎀 ───── ୨୧
+</div>
+
+
+</div>
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer
+    class="w3-container"
+    style="padding:32px">
+
+    <p>
+        Contenu de cette page web par M. Gore (prénom: Pytha)
+    </p>
+
+</footer>
+
+
+</div>
+
+
+<!-- =========================
+     SCROLL EFFECT
+========================= -->
+
+<script>
+
+window.onscroll = function() {
+
+    if (
+        document.body.scrollTop > 80 ||
+        document.documentElement.scrollTop > 80
+    ) {
+
+        document.getElementById("myTop")
+            .classList.add("w3-card-4");
+
+        document.getElementById("myIntro")
+            .classList.add("w3-show-inline-block");
+
+    }
+
+    else {
+
+        document.getElementById("myIntro")
+            .classList.remove("w3-show-inline-block");
+
+        document.getElementById("myTop")
+            .classList.remove("w3-card-4");
+
+    }
+
+};
+
+</script>
+
+
+</body>
+
+</html>
