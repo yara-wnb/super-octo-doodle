@@ -1,243 +1,1327 @@
 ```html
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 
 <head>
+    <meta charset="UTF-8">
+    <title>2.2 — Les mesures de tendance centrale | MDM4U</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>MDM4U</title>
+    <!-- Original framework -->
+    <link rel="stylesheet"
+          href="https://www.w3schools.com/w3css/4/w3.css">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
 
-<link rel="stylesheet"
-      href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet"
-      href="https://www.w3schools.com/lib/w3-theme-teal.css">
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
-<link rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto">
+    <!-- Mathematical notation -->
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [['\\(', '\\)']],
+                displayMath: [['\\[', '\\]']]
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+            }
+        };
+    </script>
+    <script defer
+            src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+    </script>
 
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        :root {
+            --cream: #f8f3ed;
+            --paper: #fffdf9;
+            --pink: #d5a5a0;
+            --pink-light: #f0dedb;
+            --pink-dark: #9f6666;
+            --brown: #70564d;
+            --brown-dark: #493a35;
+            --taupe: #a99183;
+            --line: #e8d9d0;
+            --muted: #81736c;
+        }
 
+        * {
+            box-sizing: border-box;
+        }
 
-<style>
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 90px;
+        }
 
-body {
-    font-family: "Roboto", sans-serif
-}
+        body {
+            font-family: "Roboto", sans-serif;
+            background: var(--cream);
+            color: var(--brown-dark);
+            line-height: 1.8;
+        }
 
-.w3-bar-block .w3-bar-item {
-    padding: 16px;
-    font-weight: bold;
-}
+        .w3-main {
+            margin-left: 250px;
+        }
 
-</style>
+        .w3-bar-block .w3-bar-item {
+            padding: 16px;
+            font-weight: bold;
+        }
 
+        /* Top navigation */
 
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+        .topbar {
+            background: rgba(248, 243, 237, 0.96);
+            color: var(--brown-dark);
+            border-bottom: 1px solid var(--line);
+            z-index: 5;
+        }
 
+        .menu-button {
+            background: var(--pink-light) !important;
+            color: var(--brown-dark) !important;
+            border-radius: 8px;
+        }
+
+        /* Hero */
+
+        .hero {
+            position: relative;
+            overflow: hidden;
+            padding: 70px 42px 62px;
+            background:
+                radial-gradient(circle at 88% 15%,
+                    rgba(255,255,255,0.65), transparent 28%),
+                linear-gradient(125deg, #ead0cc, #d9b3ad 55%, #c49a8d);
+            color: var(--brown-dark);
+        }
+
+        .hero::after {
+            content: "Σ";
+            position: absolute;
+            right: 7%;
+            top: 2px;
+            font-size: 190px;
+            font-weight: 300;
+            color: rgba(255,255,255,0.28);
+            line-height: 1.5;
+            pointer-events: none;
+        }
+
+        .eyebrow {
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-size: 11px;
+            font-weight: 700;
+            color: #76554f;
+        }
+
+        .hero h1 {
+            font-size: clamp(32px, 4vw, 49px);
+            line-height: 1.2;
+            max-width: 750px;
+            font-weight: 500;
+            margin: 16px 0;
+        }
+
+        .hero p {
+            max-width: 630px;
+            font-size: 16px;
+        }
+
+        .hero-tag {
+            display: inline-block;
+            background: rgba(255,253,249,0.65);
+            border: 1px solid rgba(112,86,77,0.16);
+            padding: 6px 13px;
+            border-radius: 30px;
+            margin: 8px 5px 0 0;
+            font-size: 12px;
+        }
+
+        /* Main layout */
+
+        .content {
+            max-width: 1180px;
+            margin: auto;
+            padding: 38px 32px 70px;
+        }
+
+        .section {
+            margin-bottom: 48px;
+        }
+
+        .section-heading {
+            font-size: 25px;
+            font-weight: 500;
+            color: var(--brown-dark);
+            margin: 0 0 8px;
+        }
+
+        .section-intro {
+            color: var(--muted);
+            margin: 0 0 22px;
+            max-width: 800px;
+        }
+
+        .small-label {
+            color: var(--pink-dark);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 10px;
+            font-weight: 700;
+        }
+
+        .card {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 15px;
+            padding: 25px;
+            height: 100%;
+            box-shadow: 0 5px 20px rgba(91,65,54,0.035);
+        }
+
+        .card h3 {
+            color: var(--brown);
+            font-size: 19px;
+            font-weight: 500;
+            margin-top: 7px;
+        }
+
+        .card p:last-child {
+            margin-bottom: 0;
+        }
+
+        .three-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 17px;
+        }
+
+        .two-grid {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            background: var(--pink-light);
+            color: var(--pink-dark);
+            font-size: 16px;
+            font-weight: 700;
+        }
+
+        .formula {
+            background: #f5e9e5;
+            border: 1px solid #ead5cf;
+            border-radius: 11px;
+            padding: 17px 12px;
+            margin: 16px 0;
+            text-align: center;
+            overflow-x: auto;
+            color: var(--brown-dark);
+        }
+
+        .formula .MathJax {
+            font-size: 110% !important;
+        }
+
+        .formula-caption {
+            font-size: 12px;
+            color: var(--muted);
+            margin-top: 8px;
+        }
+
+        .example {
+            background: #faf5ef;
+            border-left: 3px solid var(--pink);
+            padding: 15px 18px;
+            border-radius: 0 10px 10px 0;
+            margin-top: 17px;
+        }
+
+        .example-title {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            font-weight: 700;
+            color: var(--pink-dark);
+        }
+
+        .result {
+            display: inline-block;
+            background: var(--brown);
+            color: white;
+            padding: 3px 12px;
+            border-radius: 6px;
+            font-weight: 700;
+        }
+
+        .definition {
+            background: var(--paper);
+            border: 1px solid var(--line);
+            padding: 20px 23px;
+            border-radius: 13px;
+            margin-bottom: 18px;
+        }
+
+        .definition strong {
+            color: var(--pink-dark);
+        }
+
+        .formula-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .formula-list li {
+            padding: 11px 0;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .formula-list li:last-child {
+            border-bottom: none;
+        }
+
+        /* Tables */
+
+        .table-wrap {
+            overflow-x: auto;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            background: var(--paper);
+        }
+
+        .data-table {
+            border-collapse: collapse;
+            width: 100%;
+            min-width: 350px;
+        }
+
+        .data-table th {
+            background: #ead4cf;
+            color: var(--brown-dark);
+            font-weight: 700;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 12px 15px;
+            text-align: center;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .data-table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        .data-table tbody tr:hover {
+            background: #faf3ef;
+        }
+
+        /* Notes and reminders */
+
+        .note {
+            padding: 18px 20px;
+            border-radius: 12px;
+            background: #efe5da;
+            border: 1px solid #e2d2c4;
+            margin: 18px 0;
+        }
+
+        .note strong {
+            color: var(--brown);
+        }
+
+        .pink-note {
+            background: #f5e4e1;
+            border-color: #e9ceca;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            margin: 15px 0;
+        }
+
+        .step-number {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 29px;
+            height: 29px;
+            border-radius: 50%;
+            background: var(--pink-light);
+            color: var(--pink-dark);
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .step p {
+            margin: 0;
+        }
+
+        /* Jump links */
+
+        .jump-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 9px;
+            margin-bottom: 40px;
+        }
+
+        .jump-links a {
+            text-decoration: none;
+            border: 1px solid var(--line);
+            background: var(--paper);
+            color: var(--brown);
+            padding: 8px 13px;
+            border-radius: 30px;
+            font-size: 12px;
+            transition: 0.2s;
+        }
+
+        .jump-links a:hover {
+            background: var(--pink-light);
+            border-color: var(--pink);
+        }
+
+        /* Resource links */
+
+        .resource {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            padding: 19px;
+            margin-bottom: 12px;
+            border: 1px solid var(--line);
+            background: var(--paper);
+            border-radius: 12px;
+            text-decoration: none;
+            color: var(--brown-dark);
+            transition: 0.2s;
+        }
+
+        .resource:hover {
+            background: #f5e9e5;
+            border-color: var(--pink);
+        }
+
+        .resource i {
+            color: var(--pink-dark);
+            font-size: 21px;
+            margin-top: 3px;
+        }
+
+        .resource strong {
+            display: block;
+            color: var(--brown);
+        }
+
+        .resource span {
+            display: block;
+            font-size: 13px;
+            color: var(--muted);
+        }
+
+        .resource-copy {
+            flex: 1;
+        }
+
+        /* Footer */
+
+        .footer {
+            background: #70564d;
+            color: #f8eee8;
+            padding: 28px 32px;
+        }
+
+        .footer p {
+            margin: 4px 0;
+            font-size: 12px;
+        }
+
+        .back-top {
+            float: right;
+            color: #fff5ef;
+            text-decoration: none;
+        }
+
+        @media (max-width: 1100px) {
+            .w3-main {
+                margin-left: 0;
+            }
+
+            .three-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .two-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero {
+                padding: 65px 25px 45px;
+            }
+
+            .content {
+                padding: 30px 20px 50px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero::after {
+                font-size: 115px;
+                right: 3%;
+                top: 10px;
+            }
+
+            .hero h1 {
+                font-size: 34px;
+            }
+
+            .card {
+                padding: 19px;
+            }
+
+            .section-heading {
+                font-size: 22px;
+            }
+        }
+    </style>
 </head>
 
-
-<body>
-
-
-<!--Navigation bar-->
-
-<div id="nav-placeholder">
-</div>
-
-
-<script>
-
-$(function(){
-    $("#nav-placeholder").load("nav.html");
-});
-
-</script>
-
-<!--end of Navigation bar-->
-
-
-<div
-    class="w3-overlay w3-hide-large w3-animate-opacity"
-    onclick="w3_close()"
-    style="cursor:pointer"
-    id="myOverlay">
-</div>
-
-
-<div class="w3-main" style="margin-left:250px;">
-
-
-<div
-    id="myTop"
-    class="w3-container w3-top w3-theme w3-large">
-
-    <p>
-
-        <i
-            class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge"
-            onclick="w3_open()">
-        </i>
-
-        <span id="myIntro" class="w3-hide">
-            MDM4U
-        </span>
-
-    </p>
-
-</div>
-
-
-<header
-    class="w3-container w3-theme"
-    style="padding:64px 32px">
-
-    <h1 class="w3-xxxlarge">
-        Titre du module
-    </h1>
-
-</header>
-
-
-<div
-    class="w3-container"
-    style="padding:32px">
-
-
-<!-- Tu peux complètement modifier le contenu ci-dessous -->
-
-
-<h1>
-    Entête 1
-</h1>
-
-
-<h2>
-    Entête 2
-</h2>
-
-
-<p>
-
-    Ceci est un paragraphe qui contient
-
-    <a
-        href="https://www.w3schools.com/html/html_links.asp"
-        target="_blank">
-
-        un lien
-
-    </a>
-
-    qui ouvre dans une nouvelle fenêtre.
-
-</p>
-
-
-<iframe
-    width="560"
-    height="315"
-    src="https://www.youtube.com/embed/Ui8o6fJjkck"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen>
-</iframe>
-
-
-<!-- Tu peux complètement modifier le contenu par dessus cette ligne -->
-
-
-</div>
-
-
-<footer
-    class="w3-container w3-theme"
-    style="padding:32px">
-
-    <p>
-        Contenu de cette page web par M. Gore (prénom: Pytha)
-    </p>
-
-</footer>
-
-
-</div>
-
-
-<script>
-
-
-// Open and close the sidebar on medium and small screens
-
-function w3_open() {
-
-    document.getElementById("mySidebar").style.display = "block";
-
-    document.getElementById("myOverlay").style.display = "block";
-
-}
-
-
-function w3_close() {
-
-    document.getElementById("mySidebar").style.display = "none";
-
-    document.getElementById("myOverlay").style.display = "none";
-
-}
-
-
-// Change style of top container on scroll
-
-window.onscroll = function() {
-    myFunction()
-};
-
-
-function myFunction() {
-
-    if (
-        document.body.scrollTop > 80 ||
-        document.documentElement.scrollTop > 80
-    ) {
-
-        document.getElementById("myTop")
-            .classList.add(
-                "w3-card-4",
-                "w3-animate-opacity"
-            );
-
-        document.getElementById("myIntro")
-            .classList.add(
-                "w3-show-inline-block"
-            );
-
-    }
-
-    else {
-
-        document.getElementById("myIntro")
-            .classList.remove(
-                "w3-show-inline-block"
-            );
-
-        document.getElementById("myTop")
-            .classList.remove(
-                "w3-card-4",
-                "w3-animate-opacity"
-            );
-
-    }
-
-}
-
-</script>
-
+<body id="top">
+
+    <!-- Existing navigation -->
+    <div id="nav-placeholder"></div>
+
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("nav.html");
+        });
+    </script>
+
+    <!-- Mobile overlay -->
+    <div class="w3-overlay w3-hide-large w3-animate-opacity"
+         onclick="w3_close()"
+         style="cursor:pointer; display:none;"
+         id="myOverlay"></div>
+
+    <main class="w3-main">
+
+        <!-- Top bar -->
+        <div id="myTop"
+             class="w3-container w3-top topbar w3-large">
+
+            <p style="margin:8px 0;">
+                <i class="fa fa-bars w3-button w3-hide-large w3-xlarge menu-button"
+                   onclick="w3_open()"
+                   aria-label="Ouvrir le menu"></i>
+
+                <span id="myIntro" class="w3-hide">
+                    MDM4U · MODULE 2.2
+                </span>
+            </p>
+        </div>
+
+        <!-- Hero -->
+        <header class="hero">
+            <div class="eyebrow">MDM4U · Statistiques</div>
+
+            <h1>Les mesures de tendance centrale</h1>
+
+            <p>
+                Comment résumer un ensemble de données à l'aide d'une
+                valeur représentative ? Découvre les trois mesures
+                principales, leurs formules et les situations dans
+                lesquelles chacune est la plus utile.
+            </p>
+
+            <div>
+                <span class="hero-tag">02.2 · Notes de cours</span>
+                <span class="hero-tag">Formules essentielles</span>
+                <span class="hero-tag">Exemples résolus</span>
+            </div>
+        </header>
+
+        <div class="content">
+
+            <!-- Navigation within page -->
+            <nav class="jump-links" aria-label="Navigation du module">
+                <a href="#intro">Introduction</a>
+                <a href="#moyenne">Moyenne</a>
+                <a href="#ponderee">Moyenne pondérée</a>
+                <a href="#groupees">Données groupées</a>
+                <a href="#mediane">Médiane</a>
+                <a href="#mode">Mode</a>
+                <a href="#comparaison">Comparaison</a>
+                <a href="#ressources">Ressources</a>
+            </nav>
+
+            <!-- Introduction -->
+            <section id="intro" class="section">
+                <div class="small-label">01 · Les bases</div>
+                <h2 class="section-heading">Qu'est-ce qu'une mesure de tendance centrale ?</h2>
+
+                <p class="section-intro">
+                    Une mesure de tendance centrale est une valeur qui
+                    représente le centre ou la tendance générale d'un
+                    ensemble de données. Elle permet de résumer les
+                    observations et de faciliter leur interprétation.
+                </p>
+
+                <div class="three-grid">
+
+                    <article class="card">
+                        <div class="number">01</div>
+                        <h3>La moyenne arithmétique</h3>
+                        <p>
+                            La somme de toutes les valeurs divisée par
+                            le nombre total d'observations.
+                        </p>
+                        <div class="formula">
+                            \(\displaystyle \bar{x}=\frac{\sum x_i}{n}\)
+                        </div>
+                        <p class="formula-caption">
+                            Elle tient compte de toutes les valeurs.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="number">02</div>
+                        <h3>La médiane</h3>
+                        <p>
+                            La valeur centrale d'une série de données
+                            classées en ordre croissant ou décroissant.
+                        </p>
+                        <div class="formula">
+                            Valeur(s) centrale(s)
+                        </div>
+                        <p class="formula-caption">
+                            Elle résiste mieux aux valeurs extrêmes.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <div class="number">03</div>
+                        <h3>Le mode</h3>
+                        <p>
+                            La valeur ou la catégorie qui apparaît
+                            le plus souvent dans un ensemble de données.
+                        </p>
+                        <div class="formula">
+                            Fréquence maximale
+                        </div>
+                        <p class="formula-caption">
+                            Il identifie l'observation la plus fréquente.
+                        </p>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- Arithmetic mean -->
+            <section id="moyenne" class="section">
+                <div class="small-label">02 · Première mesure</div>
+                <h2 class="section-heading">La moyenne arithmétique</h2>
+
+                <p class="section-intro">
+                    La moyenne arithmétique s'obtient en additionnant
+                    toutes les observations et en divisant la somme
+                    par le nombre total d'observations.
+                </p>
+
+                <div class="two-grid">
+
+                    <article class="card">
+                        <h3>Formule générale</h3>
+
+                        <div class="formula">
+                            \[
+                            \boxed{
+                            \bar{x}=\frac{\sum_{i=1}^{n}x_i}{n}
+                            }
+                            \]
+                        </div>
+
+                        <ul class="formula-list">
+                            <li>\(\bar{x}\) : moyenne de l'échantillon</li>
+                            <li>\(x_i\) : valeur de la \(i^\text{e}\) observation</li>
+                            <li>\(n\) : nombre total d'observations</li>
+                            <li>\(\sum\) : symbole de sommation, qui signifie qu'on additionne les valeurs</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Exemple résolu</h3>
+
+                        <p>
+                            Trouvons la moyenne des données suivantes :
+                        </p>
+
+                        <div class="formula">
+                            \(4,\ 6,\ 8,\ 10,\ 12\)
+                        </div>
+
+                        <p><strong>Étape 1 :</strong> Additionner les valeurs.</p>
+
+                        <div class="formula">
+                            \[
+                            \sum_{i=1}^{5}x_i
+                            =4+6+8+10+12=40
+                            \]
+                        </div>
+
+                        <p><strong>Étape 2 :</strong> Diviser par \(n=5\).</p>
+
+                        <div class="formula">
+                            \[
+                            \bar{x}=\frac{40}{5}=\boxed{8}
+                            \]
+                        </div>
+
+                        <p>La moyenne de cet ensemble est <span class="result">8</span>.</p>
+                    </article>
+
+                </div>
+
+                <div class="note">
+                    <strong>À retenir :</strong>
+                    la moyenne est sensible aux valeurs extrêmes,
+                    car chaque observation contribue à la somme.
+                </div>
+            </section>
+
+            <!-- Weighted mean -->
+            <section id="ponderee" class="section">
+                <div class="small-label">03 · Moyenne avec fréquences</div>
+                <h2 class="section-heading">La moyenne pondérée</h2>
+
+                <p class="section-intro">
+                    La moyenne pondérée est utilisée lorsqu'une valeur
+                    apparaît plusieurs fois ou lorsque les valeurs ont
+                    des poids différents. Chaque valeur contribue à la
+                    moyenne selon son poids.
+                </p>
+
+                <div class="two-grid">
+
+                    <article class="card">
+                        <h3>Formule générale</h3>
+
+                        <div class="formula">
+                            \[
+                            \boxed{
+                            \bar{x}=
+                            \frac{\sum_{i=1}^{k}x_i f_i}
+                            {\sum_{i=1}^{k}f_i}
+                            }
+                            \]
+                        </div>
+
+                        <ul class="formula-list">
+                            <li>\(x_i\) : valeur observée</li>
+                            <li>\(f_i\) : fréquence ou poids de la valeur</li>
+                            <li>\(k\) : nombre de valeurs distinctes</li>
+                            <li>\(\sum f_i\) : fréquence totale</li>
+                        </ul>
+                    </article>
+
+                    <article class="card">
+                        <h3>Exemple résolu</h3>
+
+                        <p>
+                            Un élève obtient les notes ci-dessous,
+                            chacune avec une fréquence différente.
+                        </p>
+
+                        <div class="table-wrap">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Note \(x_i\)</th>
+                                        <th>Fréquence \(f_i\)</th>
+                                        <th>\(x_i f_i\)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>60</td><td>2</td><td>120</td></tr>
+                                    <tr><td>70</td><td>3</td><td>210</td></tr>
+                                    <tr><td>80</td><td>1</td><td>80</td></tr>
+                                    <tr>
+                                        <td><strong>Total</strong></td>
+                                        <td><strong>6</strong></td>
+                                        <td><strong>410</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="formula">
+                            \[
+                            \bar{x}=\frac{410}{6}
+                            \approx\boxed{68,33}
+                            \]
+                        </div>
+
+                        <p>
+                            La moyenne pondérée est d'environ
+                            <span class="result">68,33</span>.
+                        </p>
+                    </article>
+
+                </div>
+
+                <div class="note pink-note">
+                    <strong>Attention :</strong>
+                    il faut multiplier chaque valeur par sa fréquence,
+                    puis diviser par la somme des fréquences.
+                    Ne divise pas simplement par le nombre de lignes
+                    du tableau.
+                </div>
+            </section>
+
+            <!-- Grouped data -->
+            <section id="groupees" class="section">
+                <div class="small-label">04 · Intervalles de classes</div>
+                <h2 class="section-heading">La moyenne de données groupées</h2>
+
+                <p class="section-intro">
+                    Lorsque les observations sont regroupées en
+                    intervalles, les valeurs individuelles ne sont
+                    généralement pas disponibles. On utilise donc le
+                    centre de chaque intervalle pour estimer la moyenne.
+                </p>
+
+                <div class="card">
+                    <h3>Étape 1 — Calculer le centre de chaque intervalle</h3>
+
+                    <div class="formula">
+                        \[
+                        \boxed{
+                        m_i=
+                        \frac{\text{borne inférieure}+
+                        \text{borne supérieure}}{2}
+                        }
+                        \]
+                    </div>
+
+                    <h3>Étape 2 — Calculer la moyenne estimée</h3>
+
+                    <div class="formula">
+                        \[
+                        \boxed{
+                        \bar{x}\approx
+                        \frac{\sum_{i=1}^{k}m_i f_i}
+                        {\sum_{i=1}^{k}f_i}
+                        }
+                        \]
+                    </div>
+
+                    <p>
+                        \(m_i\) représente le centre de l'intervalle,
+                        \(f_i\) sa fréquence et \(k\) le nombre
+                        d'intervalles.
+                    </p>
+
+                    <div class="example">
+                        <div class="example-title">Exemple résolu</div>
+
+                        <p>
+                            On étudie les temps de déplacement de
+                            10 élèves.
+                        </p>
+
+                        <div class="table-wrap">
+                            <table class="data-table">
+                                <thead>
+                                    <tr>
+                                        <th>Intervalle (min)</th>
+                                        <th>Centre \(m_i\)</th>
+                                        <th>Fréquence \(f_i\)</th>
+                                        <th>\(m_i f_i\)</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>0–10</td><td>5</td><td>2</td><td>10</td></tr>
+                                    <tr><td>10–20</td><td>15</td><td>5</td><td>75</td></tr>
+                                    <tr><td>20–30</td><td>25</td><td>3</td><td>75</td></tr>
+                                    <tr>
+                                        <td><strong>Total</strong></td>
+                                        <td>—</td>
+                                        <td><strong>10</strong></td>
+                                        <td><strong>160</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="formula">
+                            \[
+                            \bar{x}\approx\frac{160}{10}
+                            =\boxed{16\text{ minutes}}
+                            \]
+                        </div>
+
+                        <p>
+                            Le temps moyen estimé est de 16 minutes.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="note">
+                    <strong>Pourquoi une approximation ?</strong>
+                    On suppose que les observations d'un intervalle
+                    peuvent être représentées par son centre. La
+                    moyenne estimée peut donc différer de la moyenne
+                    calculée à partir des données individuelles.
+                </div>
+            </section>
+
+            <!-- Median -->
+            <section id="mediane" class="section">
+                <div class="small-label">05 · Deuxième mesure</div>
+                <h2 class="section-heading">La médiane</h2>
+
+                <p class="section-intro">
+                    La médiane est la valeur qui se trouve au centre
+                    d'une série de données ordonnées. Elle sépare les
+                    observations en deux groupes : environ 50 % des
+                    valeurs sont inférieures ou égales à la médiane,
+                    et environ 50 % sont supérieures ou égales.
+                </p>
+
+                <div class="two-grid">
+
+                    <article class="card">
+                        <h3>Cas 1 — Nombre impair de données</h3>
+
+                        <p>
+                            Après avoir classé les valeurs, la position
+                            de la médiane est :
+                        </p>
+
+                        <div class="formula">
+                            \[
+                            \boxed{P_{\mathrm{Med}}=\frac{n+1}{2}}
+                            \]
+                        </div>
+
+                        <div class="example">
+                            <div class="example-title">Exemple</div>
+
+                            <p>
+                                Données ordonnées :
+                                \(3,\ 5,\ 7,\ 9,\ 11\)
+                            </p>
+
+                            <p>
+                                \[
+                                P_{\mathrm{Med}}=\frac{5+1}{2}=3
+                                \]
+                            </p>
+
+                            <p>
+                                La troisième valeur est 7.
+                            </p>
+
+                            <span class="result">Médiane = 7</span>
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <h3>Cas 2 — Nombre pair de données</h3>
+
+                        <p>
+                            On calcule la moyenne des deux valeurs
+                            centrales, situées aux positions
+                            \(n/2\) et \(n/2+1\).
+                        </p>
+
+                        <div class="formula">
+                            \[
+                            \boxed{
+                            \mathrm{Med}=
+                            \frac{x_{n/2}+x_{n/2+1}}{2}
+                            }
+                            \]
+                        </div>
+
+                        <div class="example">
+                            <div class="example-title">Exemple</div>
+
+                            <p>
+                                Données ordonnées :
+                                \(2,\ 4,\ 6,\ 8,\ 10,\ 12\)
+                            </p>
+
+                            <p>
+                                Les valeurs centrales sont 6 et 8.
+                            </p>
+
+                            <p>
+                                \[
+                                \mathrm{Med}=\frac{6+8}{2}=7
+                                \]
+                            </p>
+
+                            <span class="result">Médiane = 7</span>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="note pink-note">
+                    <strong>Règle essentielle :</strong>
+                    toujours classer les données avant de déterminer
+                    la médiane. Pour un nombre pair de valeurs, la
+                    médiane n'est pas nécessairement une valeur
+                    présente dans la série.
+                </div>
+            </section>
+
+            <!-- Mode -->
+            <section id="mode" class="section">
+                <div class="small-label">06 · Troisième mesure</div>
+                <h2 class="section-heading">Le mode</h2>
+
+                <p class="section-intro">
+                    Le mode est la valeur ou la catégorie qui possède
+                    la fréquence la plus élevée. Contrairement à la
+                    moyenne et à la médiane, il peut également être
+                    utilisé avec des données qualitatives.
+                </p>
+
+                <div class="two-grid">
+
+                    <article class="card">
+                        <h3>Exemple résolu</h3>
+
+                        <p>
+                            Considérons les données suivantes :
+                        </p>
+
+                        <div class="formula">
+                            \(2,\ 3,\ 3,\ 5,\ 7,\ 3,\ 8\)
+                        </div>
+
+                        <p>
+                            La valeur 3 apparaît trois fois, tandis
+                            que les autres valeurs apparaissent une
+                            seule fois.
+                        </p>
+
+                        <div class="formula">
+                            \[
+                            \boxed{\mathrm{Mode}=3}
+                            \]
+                        </div>
+                    </article>
+
+                    <article class="card">
+                        <h3>Les différents types de mode</h3>
+
+                        <ul class="formula-list">
+                            <li>
+                                <strong>Amodal :</strong>
+                                aucune valeur ne se distingue par une
+                                fréquence plus élevée.
+                            </li>
+                            <li>
+                                <strong>Unimodal :</strong>
+                                un seul mode.
+                            </li>
+                            <li>
+                                <strong>Bimodal :</strong>
+                                deux modes.
+                            </li>
+                            <li>
+                                <strong>Multimodal :</strong>
+                                plus de deux modes.
+                            </li>
+                        </ul>
+
+                        <div class="example">
+                            <p>
+                                Exemple bimodal :
+                                \(1,\ 1,\ 2,\ 3,\ 3,\ 4\)
+                            </p>
+                            <p>
+                                Les deux modes sont 1 et 3.
+                            </p>
+                        </div>
+                    </article>
+
+                </div>
+
+                <div class="note">
+                    <strong>À retenir :</strong>
+                    le mode n'est pas toujours unique. Il est aussi
+                    possible qu'aucune valeur ne soit plus fréquente
+                    que les autres.
+                </div>
+            </section>
+
+            <!-- Comparison -->
+            <section id="comparaison" class="section">
+                <div class="small-label">07 · Synthèse</div>
+                <h2 class="section-heading">Comparer les trois mesures</h2>
+
+                <p class="section-intro">
+                    Le choix de la mesure dépend de la distribution
+                    des données et de la question statistique posée.
+                </p>
+
+                <div class="table-wrap">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Mesure</th>
+                                <th>Comment la calculer ?</th>
+                                <th>Avantage</th>
+                                <th>Limite</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><strong>Moyenne</strong></td>
+                                <td>Somme divisée par le nombre de données</td>
+                                <td>Utilise toutes les valeurs</td>
+                                <td>Sensible aux valeurs extrêmes</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Médiane</strong></td>
+                                <td>Valeur centrale après le classement</td>
+                                <td>Résiste aux valeurs extrêmes</td>
+                                <td>N'utilise pas directement l'écart entre toutes les valeurs</td>
+                            </tr>
+                            <tr>
+                                <td><strong>Mode</strong></td>
+                                <td>Valeur la plus fréquente</td>
+                                <td>Convient aussi aux données catégorielles</td>
+                                <td>Peut y avoir plusieurs modes ou aucun mode distinct</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <div class="two-grid" style="margin-top:20px;">
+
+                    <article class="card">
+                        <h3>Quand utiliser la moyenne ?</h3>
+                        <p>
+                            Lorsqu'on veut tenir compte de toutes les
+                            observations et qu'il n'y a pas de valeurs
+                            extrêmes qui déforment fortement le résultat.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Quand utiliser la médiane ?</h3>
+                        <p>
+                            Lorsqu'il y a des valeurs extrêmes ou une
+                            distribution asymétrique, par exemple pour
+                            représenter des revenus ou des prix immobiliers.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Quand utiliser le mode ?</h3>
+                        <p>
+                            Lorsqu'on veut connaître la valeur la plus
+                            fréquente, comme la pointure la plus populaire
+                            ou la catégorie la plus choisie.
+                        </p>
+                    </article>
+
+                    <article class="card">
+                        <h3>Pourquoi comparer les mesures ?</h3>
+                        <p>
+                            Plusieurs mesures peuvent décrire le même
+                            ensemble de données sous des angles différents.
+                            Les comparer donne une meilleure compréhension
+                            de la distribution.
+                        </p>
+                    </article>
+
+                </div>
+            </section>
+
+            <!-- Resources -->
+            <section id="ressources" class="section">
+                <div class="small-label">08 · Pour aller plus loin</div>
+                <h2 class="section-heading">Ressources et travaux</h2>
+
+                <p class="section-intro">
+                    Les ressources ci-dessous permettent de revoir les
+                    explications et de retrouver le travail du module.
+                </p>
+
+                <a class="resource"
+                   href="https://www.youtube.com/watch?v=9ZTnarPj0CM"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <i class="fa fa-play-circle"></i>
+                    <div class="resource-copy">
+                        <strong>La moyenne arithmétique</strong>
+                        <span>Vidéo explicative et vérification avec Google Sheets.</span>
+                    </div>
+                    <i class="fa fa-external-link"></i>
+                </a>
+
+                <a class="resource"
+                   href="https://www.youtube.com/watch?v=-Q2Mlz74VeY"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <i class="fa fa-play-circle"></i>
+                    <div class="resource-copy">
+                        <strong>La moyenne pondérée</strong>
+                        <span>Calcul de la moyenne pondérée et vérification technologique.</span>
+                    </div>
+                    <i class="fa fa-external-link"></i>
+                </a>
+
+                <a class="resource"
+                   href="https://www.youtube.com/watch?v=jo-8_prL6JE"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <i class="fa fa-play-circle"></i>
+                    <div class="resource-copy">
+                        <strong>La médiane</strong>
+                        <span>Revoir les étapes pour déterminer la valeur centrale.</span>
+                    </div>
+                    <i class="fa fa-external-link"></i>
+                </a>
+
+                <a class="resource"
+                   href="https://www.youtube.com/watch?v=_vnaTPYN3Ao"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <i class="fa fa-play-circle"></i>
+                    <div class="resource-copy">
+                        <strong>Le mode</strong>
+                        <span>Revoir comment trouver la valeur la plus fréquente.</span>
+                    </div>
+                    <i class="fa fa-external-link"></i>
+                </a>
+
+                <a class="resource"
+                   href="https://docs.google.com/document/d/16nPhWNVpsaJIFDGsdsZHh4dxOOD9coaikM4WQqdX9Ww/edit?usp=sharing"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <i class="fa fa-file-text-o"></i>
+                    <div class="resource-copy">
+                        <strong>Exercices 2.2 — Travail complété</strong>
+                        <span>Accéder au document contenant les exercices terminés.</span>
+                    </div>
+                    <i class="fa fa-external-link"></i>
+                </a>
+
+                <div class="note pink-note">
+                    <strong>Vérifications technologiques :</strong>
+                    les vérifications avec Google Sheets doivent être
+                    accessibles dans le document ou par les liens que
+                    tu as utilisés pour les exercices. Si tu disposes
+                    d'un lien distinct vers ton fichier Sheets, ajoute-le
+                    ici pour faciliter la consultation.
+                </div>
+            </section>
+
+            <!-- Conclusion -->
+            <section class="section">
+                <div class="card" style="background:#f0e1dc;">
+                    <div class="small-label">En résumé</div>
+                    <h2 class="section-heading">Une valeur, trois perspectives</h2>
+                    <p>
+                        La moyenne tient compte de toutes les valeurs,
+                        la médiane identifie le centre des données
+                        ordonnées et le mode révèle la valeur la plus
+                        fréquente. Bien choisir sa mesure permet de
+                        présenter une analyse statistique plus pertinente.
+                    </p>
+                </div>
+            </section>
+
+        </div>
+
+        <footer class="footer">
+            <a class="back-top" href="#top">
+                Retour en haut ↑
+            </a>
+            <p><strong>MDM4U · Module 2.2</strong></p>
+            <p>Les mesures de tendance centrale</p>
+            <p>Contenu de cette page web par M. Gore (prénom : Pytha)</p>
+        </footer>
+
+    </main>
+
+    <script>
+        // Open and close the existing sidebar from nav.html.
+
+        function w3_open() {
+            var sidebar = document.getElementById("mySidebar");
+            var overlay = document.getElementById("myOverlay");
+
+            if (sidebar) {
+                sidebar.style.display = "block";
+            }
+
+            if (overlay) {
+                overlay.style.display = "block";
+            }
+        }
+
+        function w3_close() {
+            var sidebar = document.getElementById("mySidebar");
+            var overlay = document.getElementById("myOverlay");
+
+            if (sidebar) {
+                sidebar.style.display = "none";
+            }
+
+            if (overlay) {
+                overlay.style.display = "none";
+            }
+        }
+
+        // Update the top bar as the user scrolls.
+
+        window.onscroll = function () {
+            var topbar = document.getElementById("myTop");
+            var intro = document.getElementById("myIntro");
+
+            if (!topbar || !intro) return;
+
+            if (
+                document.body.scrollTop > 80 ||
+                document.documentElement.scrollTop > 80
+            ) {
+                topbar.classList.add("w3-card-4");
+                intro.classList.remove("w3-hide");
+                intro.classList.add("w3-show-inline-block");
+            } else {
+                topbar.classList.remove("w3-card-4");
+                intro.classList.remove("w3-show-inline-block");
+                intro.classList.add("w3-hide");
+            }
+        };
+    </script>
 
 </body>
-
 </html>
 ```
