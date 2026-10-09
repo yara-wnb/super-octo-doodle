@@ -1,572 +1,794 @@
+```html
 <!DOCTYPE html>
-
-<html>
+<html lang="fr">
 
 <head>
+    <title>MDM4U - Module 2.1</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>MDM4U - Module 2.1</title>
+    <!-- W3.CSS -->
+    <link rel="stylesheet"
+          href="https://www.w3schools.com/w3css/4/w3.css">
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Google Fonts -->
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap">
 
-<link rel="stylesheet"
-      href="https://www.w3schools.com/w3css/4/w3.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap">
+    <style>
+        /* =========================================
+           COLOUR PALETTE — MODULE 2.2 THEME
+        ========================================= */
 
-<link rel="stylesheet"
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap">
+        :root {
+            --cream: #f8f3ed;
+            --paper: #fffdf9;
+            --pink: #d5a5a0;
+            --pink-light: #f0dedb;
+            --pink-dark: #9f6666;
+            --brown: #70564d;
+            --brown-dark: #493a35;
+            --taupe: #a99183;
+            --line: #e8d9d0;
+            --muted: #81736c;
+        }
 
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        /* =========================================
+           GENERAL PAGE
+        ========================================= */
 
-<style>
+        html {
+            scroll-behavior: smooth;
+        }
 
-/* =========================================
-   MAIN PAGE
-========================================= */
+        body {
+            font-family: "Roboto", sans-serif;
+            background-color: var(--cream);
+            color: var(--brown-dark);
+            line-height: 1.7;
+        }
 
-body {
-    font-family: "Poppins", sans-serif;
-    background-color: #fcf7f3;
-    color: #57433a;
-}
+        .w3-main {
+            background-color: var(--cream);
+            min-height: 100vh;
+        }
 
-.w3-main {
-    background-color: #fcf7f3;
-    min-height: 100vh;
-}
+        h1, h2, h3 {
+            line-height: 1.3;
+        }
 
+        /* =========================================
+           TOP BAR
+        ========================================= */
 
-/* =========================================
-   TOP BAR
-========================================= */
+        #myTop {
+            background-color: var(--brown) !important;
+            color: var(--paper) !important;
+            z-index: 900;
+            letter-spacing: 0.3px;
+        }
 
-#myTop {
-    background-color: #8b6b5d !important;
-    color: white;
-    z-index: 900;
-}
+        #myTop p {
+            margin: 8px 0;
+        }
 
+        #myTop .w3-button {
+            color: var(--paper) !important;
+            background-color: transparent !important;
+        }
 
-/* =========================================
-   HEADER
-========================================= */
+        #myTop .w3-button:hover {
+            color: var(--pink-light) !important;
+        }
 
-header {
-    background-color: #f3e5dc !important;
-    color: #b45e78 !important;
-    position: relative;
-    overflow: hidden;
-    border-bottom: 1px solid #e5cfc5;
-}
+        /* =========================================
+           HEADER / HERO SECTION
+        ========================================= */
 
-header h1 {
-    font-family: "Playfair Display", serif;
-    color: #b45e78 !important;
-    letter-spacing: 0.5px;
-    position: relative;
-    z-index: 2;
-}
+        .page-header {
+            background-color: var(--pink-light);
+            color: var(--brown-dark);
+            padding: 70px 32px 58px;
+            position: relative;
+            overflow: hidden;
+            border-bottom: 1px solid var(--line);
+        }
 
-header p {
-    color: #8b6b5d;
-}
+        .page-header:before {
+            content: "୨୧";
+            position: absolute;
+            right: 55px;
+            bottom: 12px;
+            font-size: 65px;
+            color: var(--pink);
+            opacity: 0.75;
+        }
 
-header:after {
-    content: "୨୧";
-    position: absolute;
-    right: 65px;
-    bottom: 18px;
-    font-size: 58px;
-    color: #c58b91;
-}
+        .page-header:after {
+            content: "♡";
+            position: absolute;
+            right: 125px;
+            top: 30px;
+            font-size: 30px;
+            color: var(--pink-dark);
+            opacity: 0.65;
+        }
 
-header:before {
-    content: "♡";
-    position: absolute;
-    right: 130px;
-    top: 25px;
-    font-size: 25px;
-    color: #c58b91;
-}
+        .header-content {
+            position: relative;
+            z-index: 2;
+            max-width: 1050px;
+        }
 
+        .module-label {
+            display: inline-block;
+            background-color: var(--paper);
+            color: var(--pink-dark);
+            border: 1px solid var(--line);
+            border-radius: 30px;
+            padding: 5px 15px;
+            margin-bottom: 15px;
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+        }
 
-/* =========================================
-   INTRO
-========================================= */
+        .page-header h1 {
+            color: var(--brown-dark);
+            font-size: 42px;
+            font-weight: 700;
+            margin: 0 0 14px;
+            max-width: 850px;
+        }
 
-.intro-box {
-    background-color: #f7e8e5;
-    border: 1px solid #ead2ce;
-    border-left: 5px solid #c58b91;
-    border-radius: 16px;
-    padding: 22px 25px;
-    margin-bottom: 32px;
-    box-shadow: 0 3px 12px rgba(120, 82, 69, 0.06);
-}
+        .page-header p {
+            color: var(--brown);
+            font-size: 17px;
+            margin: 0;
+            max-width: 700px;
+        }
 
-.intro-box h2 {
-    margin-top: 0;
-    font-family: "Playfair Display", serif;
-    color: #a46f75;
-}
+        /* =========================================
+           MAIN CONTENT
+        ========================================= */
 
+        .content-container {
+            max-width: 1150px;
+            margin: 0 auto;
+            padding: 35px 28px 45px;
+        }
 
-/* =========================================
-   DIVIDER
-========================================= */
+        /* =========================================
+           INTRODUCTION CARD
+        ========================================= */
 
-.ribbon-divider {
-    text-align: center;
-    color: #c58b91;
-    font-size: 20px;
-    margin: 18px 0 30px 0;
-    letter-spacing: 5px;
-}
+        .intro-box {
+            background-color: var(--paper);
+            border: 1px solid var(--line);
+            border-left: 5px solid var(--pink);
+            border-radius: 15px;
+            padding: 25px 28px;
+            margin-bottom: 30px;
+            box-shadow: 0 4px 14px rgba(73, 58, 53, 0.045);
+        }
 
+        .intro-box h2 {
+            color: var(--pink-dark);
+            font-size: 25px;
+            font-weight: 700;
+            margin: 0 0 12px;
+        }
 
-/* =========================================
-   GRAPH SECTIONS
-========================================= */
+        .intro-box p {
+            color: var(--brown);
+            margin-bottom: 0;
+        }
 
-.graph-section {
-    background-color: #fffdfb;
-    border: 1px solid #eadbd3;
-    border-radius: 20px;
-    padding: 30px;
-    margin-bottom: 32px;
-    box-shadow: 0 5px 18px rgba(103, 75, 63, 0.08);
-    position: relative;
-}
+        .intro-icon {
+            color: var(--pink-dark);
+            margin-right: 8px;
+        }
 
-.graph-section:after {
-    content: "୨୧";
-    position: absolute;
-    top: 15px;
-    right: 22px;
-    color: #d09a9f;
-    font-size: 22px;
-}
+        /* =========================================
+           SECTION DIVIDER
+        ========================================= */
 
-.distribution-title {
-    color: #a46f75;
-    font-family: "Playfair Display", serif;
-    font-size: 29px;
-    margin-bottom: 8px;
-    padding-right: 45px;
-}
+        .ribbon-divider {
+            text-align: center;
+            color: var(--pink-dark);
+            font-size: 18px;
+            letter-spacing: 5px;
+            margin: 24px 0 32px;
+        }
 
-.graph-description {
-    color: #80665b;
-    font-size: 15px;
-    margin-bottom: 22px;
-}
+        /* =========================================
+           GRAPH CARDS
+        ========================================= */
 
-.graph-section iframe {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
-    border: 1px solid #dfc9c1;
-    border-radius: 10px;
-}
+        .graph-section {
+            background-color: var(--paper);
+            border: 1px solid var(--line);
+            border-radius: 17px;
+            padding: 28px;
+            margin-bottom: 28px;
+            box-shadow: 0 5px 18px rgba(73, 58, 53, 0.055);
+            overflow: hidden;
+        }
 
+        .graph-heading {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+            margin-bottom: 10px;
+        }
 
-/* =========================================
-   FOOTER
-========================================= */
+        .graph-number {
+            display: flex;
+            flex-shrink: 0;
+            align-items: center;
+            justify-content: center;
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            background-color: var(--pink-light);
+            color: var(--pink-dark);
+            font-weight: 700;
+            font-size: 16px;
+        }
 
-footer {
-    background-color: #8b6b5d !important;
-    color: white !important;
-}
+        .distribution-title {
+            color: var(--brown-dark);
+            font-size: 25px;
+            font-weight: 700;
+            margin: 3px 0 5px;
+        }
 
+        .graph-description {
+            color: var(--muted);
+            font-size: 15px;
+            margin: 0 0 22px;
+        }
 
-/* =========================================
-   MODULE 2 NAVIGATION
-========================================= */
+        .graph-tag {
+            display: inline-block;
+            background-color: var(--cream);
+            border: 1px solid var(--line);
+            border-radius: 20px;
+            padding: 4px 11px;
+            color: var(--brown);
+            font-size: 12px;
+            margin: 0 0 18px;
+        }
 
-#nav-placeholder .module-two {
-    background-color: #fcf7f3 !important;
-    border-left: 4px solid #c58b91 !important;
-    border-right: 1px solid #eadbd3 !important;
-    border-bottom: 1px solid #eadbd3 !important;
-}
+        .graph-frame {
+            background-color: #ffffff;
+            border: 1px solid var(--line);
+            border-radius: 12px;
+            padding: 10px;
+            overflow: hidden;
+        }
 
-#nav-placeholder .module-two-title {
-    background-color: #8b6b5d !important;
-    color: #fffdfb !important;
-    font-family: "Playfair Display", Georgia, serif !important;
-    font-weight: 600 !important;
-}
+        .graph-section iframe {
+            display: block;
+            width: 100%;
+            max-width: 100%;
+            height: 480px;
+            border: 0;
+            border-radius: 7px;
+            background-color: #ffffff;
+        }
 
-#nav-placeholder .module-two-link {
-    background-color: #fffdfb !important;
-    color: #80665b !important;
-    border-bottom: 1px solid #eadbd3 !important;
-    font-family: "Poppins", sans-serif !important;
-}
+        /* =========================================
+           BOTTOM NOTE
+        ========================================= */
 
-#nav-placeholder .module-two-link:hover {
-    background-color: #f7e8e5 !important;
-    color: #a46f75 !important;
-}
+        .closing-box {
+            background-color: var(--pink-light);
+            border: 1px solid var(--line);
+            border-radius: 15px;
+            padding: 22px 25px;
+            margin-top: 34px;
+        }
 
+        .closing-box h3 {
+            color: var(--pink-dark);
+            font-size: 21px;
+            font-weight: 700;
+            margin: 0 0 8px;
+        }
 
-/* =========================================
-   MOBILE
-========================================= */
+        .closing-box p {
+            color: var(--brown);
+            margin: 0;
+        }
 
-@media screen and (max-width: 992px) {
+        /* =========================================
+           FOOTER
+        ========================================= */
 
-    #mySidebar {
-        display: none;
-    }
+        footer {
+            background-color: var(--brown) !important;
+            color: var(--paper) !important;
+            padding: 28px 32px;
+            margin-top: 15px;
+        }
 
-    .w3-main {
-        margin-left: 0 !important;
-    }
+        footer p {
+            margin: 0;
+            font-size: 13px;
+            opacity: 0.95;
+        }
 
-}
+        /* =========================================
+           SIDEBAR NAVIGATION THEME
+        ========================================= */
 
-@media screen and (max-width: 600px) {
+        #nav-placeholder .module-two {
+            background-color: var(--cream) !important;
+            border-left: 4px solid var(--pink) !important;
+            border-right: 1px solid var(--line) !important;
+            border-bottom: 1px solid var(--line) !important;
+        }
 
-    .graph-section {
-        padding: 20px;
-    }
+        #nav-placeholder .module-two-title {
+            background-color: var(--brown) !important;
+            color: var(--paper) !important;
+            font-family: "Roboto", sans-serif !important;
+            font-weight: 700 !important;
+        }
 
-    header:after {
-        right: 20px;
-        font-size: 40px;
-    }
+        #nav-placeholder .module-two-link {
+            background-color: var(--paper) !important;
+            color: var(--brown) !important;
+            border-bottom: 1px solid var(--line) !important;
+            font-family: "Roboto", sans-serif !important;
+        }
 
-    header:before {
-        right: 75px;
-    }
+        #nav-placeholder .module-two-link:hover {
+            background-color: var(--pink-light) !important;
+            color: var(--pink-dark) !important;
+        }
 
-}
+        /* =========================================
+           MOBILE RESPONSIVENESS
+        ========================================= */
 
-</style>
+        @media screen and (max-width: 992px) {
+            #mySidebar {
+                display: none;
+            }
 
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+            .w3-main {
+                margin-left: 0 !important;
+            }
 
+            .page-header {
+                padding: 55px 25px 45px;
+            }
+
+            .page-header h1 {
+                font-size: 34px;
+            }
+
+            .content-container {
+                padding: 25px 20px 35px;
+            }
+        }
+
+        @media screen and (max-width: 600px) {
+            .page-header {
+                padding: 48px 20px 38px;
+            }
+
+            .page-header h1 {
+                font-size: 29px;
+            }
+
+            .page-header p {
+                font-size: 15px;
+            }
+
+            .page-header:before {
+                right: 12px;
+                font-size: 42px;
+            }
+
+            .page-header:after {
+                right: 65px;
+                top: 18px;
+                font-size: 23px;
+            }
+
+            .intro-box {
+                padding: 20px;
+            }
+
+            .intro-box h2 {
+                font-size: 22px;
+            }
+
+            .graph-section {
+                padding: 18px;
+                border-radius: 14px;
+            }
+
+            .distribution-title {
+                font-size: 21px;
+            }
+
+            .graph-heading {
+                gap: 11px;
+            }
+
+            .graph-number {
+                width: 36px;
+                height: 36px;
+                border-radius: 10px;
+            }
+
+            .graph-section iframe {
+                height: 400px;
+            }
+
+            .graph-frame {
+                padding: 5px;
+            }
+
+            .ribbon-divider {
+                font-size: 15px;
+                letter-spacing: 3px;
+            }
+
+            footer {
+                padding: 24px 20px;
+            }
+        }
+    </style>
+
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 </head>
 
 <body>
 
-<!-- =========================================
-     NAVIGATION
-========================================= -->
+    <!-- =========================================
+         NAVIGATION
+    ========================================= -->
 
-<div id="nav-placeholder"></div>
+    <div id="nav-placeholder"></div>
 
-<script>
-
-$(function() {
-
-    $("#nav-placeholder").load("nav.html", function() {
-
-        $("#nav-placeholder .module-two").css({
-            "background-color": "#fcf7f3",
-            "border-left": "4px solid #c58b91"
+    <script>
+        $(function () {
+            $("#nav-placeholder").load("nav.html");
         });
+    </script>
 
-        $("#nav-placeholder .module-two-title").css({
-            "background-color": "#8b6b5d",
-            "color": "#fffdfb",
-            "font-family": "Playfair Display, Georgia, serif"
-        });
+    <!-- MOBILE SIDEBAR OVERLAY -->
 
-        $("#nav-placeholder .module-two-link").css({
-            "background-color": "#fffdfb",
-            "color": "#80665b",
-            "border-bottom": "1px solid #eadbd3"
-        });
+    <div class="w3-overlay"
+         onclick="w3_close()"
+         style="cursor:pointer"
+         id="myOverlay">
+    </div>
 
-    });
+    <!-- =========================================
+         MAIN PAGE
+    ========================================= -->
+
+    <div class="w3-main" style="margin-left:250px;">
+
+        <!-- TOP BAR -->
+
+        <div id="myTop" class="w3-container w3-top w3-large">
+            <p>
+                <i class="fa fa-bars w3-button w3-hide-large w3-xlarge"
+                   onclick="w3_open()"
+                   aria-label="Ouvrir le menu"></i>
 
-});
+                <span id="myIntro" class="w3-hide">
+                    MDM4U
+                </span>
+            </p>
+        </div>
 
-</script>
+        <!-- =========================================
+             HEADER
+        ========================================= -->
 
-<!-- =========================================
-     MAIN
-========================================= -->
+        <header class="page-header">
+            <div class="header-content">
 
-<div class="w3-main" style="margin-left:250px;">
+                <span class="module-label">
+                    MDM4U · Module 2
+                </span>
 
-<!-- TOP BAR -->
-
-<div
-    id="myTop"
-    class="w3-container w3-top w3-large">
-
-```
-<p>
-
-    <i
-        class="fa fa-bars w3-button w3-hide-large w3-xlarge"
-        onclick="w3_open()">
-    </i>
-
-    <span id="myIntro" class="w3-hide">
-        MDM4U
-    </span>
-
-</p>
-```
-
-</div>
-
-<!-- =========================================
-     HEADER
-========================================= -->
-
-<header
-    class="w3-container"
-    style="padding:64px 32px">
-
-```
-<h1 class="w3-xxxlarge">
-    Module 2.1 — Les distributions des données
-</h1>
-
-<p>
-    Histogrammes et types de distributions
-</p>
-```
-
-</header>
-
-<!-- =========================================
-     CONTENT
-========================================= -->
-
-<div
-    class="w3-container"
-    style="padding:32px">
-
-<!-- INTRODUCTION -->
-
-<div class="intro-box">
-
-```
-<h2>
-    🎀 Les distributions des données
-</h2>
-
-<p>
-    Dans cette activité, j’ai utilisé Desmos pour créer des
-    histogrammes à partir de différentes séries de données.
-    J’ai ensuite identifié le type de distribution représenté
-    par chaque histogramme.
-</p>
-```
-
-</div>
-
-<div class="ribbon-divider">
-    ୨୧ ───── 🎀 ───── ୨୧
-</div>
-
-<!-- =========================================
-     GRAPH 1
-========================================= -->
-
-<div class="graph-section">
-
-```
-<h2 class="distribution-title">
-    La distribution en U
-</h2>
-
-<p class="graph-description">
-    Histogramme du pointage des résultats d’un jeu de patience — 9 intervalles.
-</p>
-
-<iframe
-    src="https://www.desmos.com/calculator/qba8biwtde?embed"
-    width="500"
-    height="500"
-    frameborder="0">
-</iframe>
-```
-
-</div>
-
-<!-- =========================================
-     GRAPH 2
-========================================= -->
-
-<div class="graph-section">
-
-```
-<h2 class="distribution-title">
-    Les distributions asymétriques
-</h2>
-
-<p class="graph-description">
-    Histogramme des résultats d’un jeu de solitaire — 8 intervalles.
-</p>
-
-<iframe
-    src="https://www.desmos.com/calculator/bewjejxhjk?embed"
-    width="500"
-    height="500"
-    frameborder="0">
-</iframe>
-```
-
-</div>
-
-<!-- =========================================
-     GRAPH 3
-========================================= -->
-
-<div class="graph-section">
-
-```
-<h2 class="distribution-title">
-    La distribution uniforme
-</h2>
-
-<p class="graph-description">
-    Histogramme des résultats obtenus en lançant un dé plusieurs fois — 7 intervalles.
-</p>
-
-<iframe
-    src="https://www.desmos.com/calculator/6ogfe9h3ha?embed"
-    width="500"
-    height="500"
-    frameborder="0">
-</iframe>
-```
-
-</div>
-
-<!-- =========================================
-     GRAPH 4
-========================================= -->
-
-<div class="graph-section">
-
-```
-<h2 class="distribution-title">
-    La distribution en cloche
-</h2>
-
-<p class="graph-description">
-    Histogramme de la somme obtenue en lançant deux dés plusieurs fois — 10 intervalles.
-</p>
-
-<iframe
-    src="https://www.desmos.com/calculator/hx7chybjlo?embed"
-    width="500"
-    height="500"
-    frameborder="0">
-</iframe>
-```
-
-</div>
-
-<div class="ribbon-divider">
-    ୨୧ ───── 🎀 ───── ୨୧
-</div>
-
-</div>
-
-<!-- =========================================
-     FOOTER
-========================================= -->
-
-<footer
-    class="w3-container"
-    style="padding:32px">
-
-```
-<p>
-    Contenu de cette page web par M. Gore (prénom: Pytha)
-</p>
-```
-
-</footer>
-
-</div>
-
-<!-- =========================================
-     JAVASCRIPT
-========================================= -->
-
-<script>
-
-function w3_open() {
-
-    var sidebar = document.getElementById("mySidebar");
-
-    if (sidebar) {
-        sidebar.style.display = "block";
-    }
-
-}
-
-
-function w3_close() {
-
-    var sidebar = document.getElementById("mySidebar");
-
-    if (sidebar) {
-        sidebar.style.display = "none";
-    }
-
-}
-
-
-window.onscroll = function() {
-
-    myFunction();
-
-};
-
-
-function myFunction() {
-
-    if (
-        document.body.scrollTop > 80 ||
-        document.documentElement.scrollTop > 80
-    ) {
-
-        document.getElementById("myTop")
-            .classList.add(
-                "w3-card-4",
-                "w3-animate-opacity"
-            );
-
-        document.getElementById("myIntro")
-            .classList.add(
-                "w3-show-inline-block"
-            );
-
-    }
-
-    else {
-
-        document.getElementById("myIntro")
-            .classList.remove(
-                "w3-show-inline-block"
-            );
-
-        document.getElementById("myTop")
-            .classList.remove(
-                "w3-card-4",
-                "w3-animate-opacity"
-            );
-
-    }
-
-}
-
-</script>
+                <h1>
+                    Module 2.1 — Les distributions des données
+                </h1>
+
+                <p>
+                    Explorer les histogrammes et reconnaître les
+                    différents types de distributions statistiques.
+                </p>
+
+            </div>
+        </header>
+
+        <!-- =========================================
+             CONTENT
+        ========================================= -->
+
+        <main class="content-container">
+
+            <!-- INTRODUCTION -->
+
+            <section class="intro-box">
+
+                <h2>
+                    <i class="fa fa-bar-chart intro-icon"></i>
+                    Les distributions des données
+                </h2>
+
+                <p>
+                    Dans cette activité, j’ai utilisé Desmos pour créer
+                    des histogrammes à partir de différentes séries de
+                    données. J’ai ensuite identifié le type de
+                    distribution représenté par chaque histogramme.
+                    Chaque graphique permet d’observer la façon dont
+                    les données sont réparties.
+                </p>
+
+            </section>
+
+            <div class="ribbon-divider">
+                ୨୧ ───────── ♡ ───────── ୨୧
+            </div>
+
+            <!-- =========================================
+                 GRAPH 1 — U-SHAPED DISTRIBUTION
+            ========================================= -->
+
+            <section class="graph-section">
+
+                <div class="graph-heading">
+                    <div class="graph-number">01</div>
+
+                    <div>
+                        <h2 class="distribution-title">
+                            La distribution en U
+                        </h2>
+
+                        <p class="graph-description">
+                            Histogramme du pointage des résultats d’un
+                            jeu de patience — 9 intervalles.
+                        </p>
+                    </div>
+                </div>
+
+                <span class="graph-tag">
+                    <i class="fa fa-bar-chart"></i>
+                    Distribution en U
+                </span>
+
+                <div class="graph-frame">
+                    <iframe
+                        src="https://www.desmos.com/calculator/qba8biwtde?embed"
+                        title="Histogramme de la distribution en U"
+                        loading="lazy">
+                    </iframe>
+                </div>
+
+            </section>
+
+            <!-- =========================================
+                 GRAPH 2 — SKEWED DISTRIBUTIONS
+            ========================================= -->
+
+            <section class="graph-section">
+
+                <div class="graph-heading">
+                    <div class="graph-number">02</div>
+
+                    <div>
+                        <h2 class="distribution-title">
+                            Les distributions asymétriques
+                        </h2>
+
+                        <p class="graph-description">
+                            Histogramme des résultats d’un jeu de
+                            solitaire — 8 intervalles.
+                        </p>
+                    </div>
+                </div>
+
+                <span class="graph-tag">
+                    <i class="fa fa-line-chart"></i>
+                    Distribution asymétrique
+                </span>
+
+                <div class="graph-frame">
+                    <iframe
+                        src="https://www.desmos.com/calculator/bewjejxhjk?embed"
+                        title="Histogramme des distributions asymétriques"
+                        loading="lazy">
+                    </iframe>
+                </div>
+
+            </section>
+
+            <!-- =========================================
+                 GRAPH 3 — UNIFORM DISTRIBUTION
+            ========================================= -->
+
+            <section class="graph-section">
+
+                <div class="graph-heading">
+                    <div class="graph-number">03</div>
+
+                    <div>
+                        <h2 class="distribution-title">
+                            La distribution uniforme
+                        </h2>
+
+                        <p class="graph-description">
+                            Histogramme des résultats obtenus en
+                            lançant un dé plusieurs fois — 7 intervalles.
+                        </p>
+                    </div>
+                </div>
+
+                <span class="graph-tag">
+                    <i class="fa fa-align-justify"></i>
+                    Distribution uniforme
+                </span>
+
+                <div class="graph-frame">
+                    <iframe
+                        src="https://www.desmos.com/calculator/6ogfe9h3ha?embed"
+                        title="Histogramme de la distribution uniforme"
+                        loading="lazy">
+                    </iframe>
+                </div>
+
+            </section>
+
+            <!-- =========================================
+                 GRAPH 4 — BELL-SHAPED DISTRIBUTION
+            ========================================= -->
+
+            <section class="graph-section">
+
+                <div class="graph-heading">
+                    <div class="graph-number">04</div>
+
+                    <div>
+                        <h2 class="distribution-title">
+                            La distribution en cloche
+                        </h2>
+
+                        <p class="graph-description">
+                            Histogramme de la somme obtenue en lançant
+                            deux dés plusieurs fois — 10 intervalles.
+                        </p>
+                    </div>
+                </div>
+
+                <span class="graph-tag">
+                    <i class="fa fa-area-chart"></i>
+                    Distribution en cloche
+                </span>
+
+                <div class="graph-frame">
+                    <iframe
+                        src="https://www.desmos.com/calculator/hx7chybjlo?embed"
+                        title="Histogramme de la distribution en cloche"
+                        loading="lazy">
+                    </iframe>
+                </div>
+
+            </section>
+
+            <!-- CLOSING NOTE -->
+
+            <div class="ribbon-divider">
+                ୨୧ ───────── ♡ ───────── ୨୧
+            </div>
+
+            <section class="closing-box">
+
+                <h3>
+                    <i class="fa fa-book"></i>
+                    À retenir
+                </h3>
+
+                <p>
+                    La forme d’un histogramme permet de décrire la
+                    répartition des données et de reconnaître des
+                    tendances dans une série statistique. Les
+                    distributions peuvent notamment être en U,
+                    asymétriques, uniformes ou en cloche.
+                </p>
+
+            </section>
+
+        </main>
+
+        <!-- =========================================
+             FOOTER
+        ========================================= -->
+
+        <footer class="w3-container">
+            <p>
+                Contenu de cette page web par M. Gore (prénom: Pytha)
+            </p>
+        </footer>
+
+    </div>
+
+    <!-- =========================================
+         JAVASCRIPT
+    ========================================= -->
+
+    <script>
+        function w3_open() {
+            var sidebar = document.getElementById("mySidebar");
+            var overlay = document.getElementById("myOverlay");
+
+            if (sidebar) {
+                sidebar.style.display = "block";
+            }
+
+            if (overlay) {
+                overlay.style.display = "block";
+            }
+        }
+
+        function w3_close() {
+            var sidebar = document.getElementById("mySidebar");
+            var overlay = document.getElementById("myOverlay");
+
+            if (sidebar) {
+                sidebar.style.display = "none";
+            }
+
+            if (overlay) {
+                overlay.style.display = "none";
+            }
+        }
+
+        window.onscroll = function () {
+            myFunction();
+        };
+
+        function myFunction() {
+            var topBar = document.getElementById("myTop");
+            var intro = document.getElementById("myIntro");
+
+            if (
+                document.body.scrollTop > 80 ||
+                document.documentElement.scrollTop > 80
+            ) {
+                topBar.classList.add(
+                    "w3-card-4",
+                    "w3-animate-opacity"
+                );
+
+                intro.classList.add("w3-show-inline-block");
+            } else {
+                intro.classList.remove("w3-show-inline-block");
+
+                topBar.classList.remove(
+                    "w3-card-4",
+                    "w3-animate-opacity"
+                );
+            }
+        }
+    </script>
 
 </body>
-
 </html>
+```
