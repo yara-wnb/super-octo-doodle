@@ -1,8 +1,12 @@
 
 <!DOCTYPE html>
 <html lang="fr">
-  
-  <!-- MathJax : permet d'afficher les formules mathématiques LaTeX -->
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2.2 — Les mesures de tendance centrale | MDM4U</title>
+
+  <!-- MathJax : affichage des formules mathématiques -->
   <script>
     window.MathJax = {
       tex: {
@@ -10,23 +14,15 @@
         displayMath: [['\\[', '\\]']]
       },
       options: {
-        skipHtmlTags: [
-          'script', 'noscript', 'style', 'textarea', 'pre', 'code'
-        ]
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
       }
     };
   </script>
-
   <script
     id="MathJax-script"
     async
     src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
   </script>
-  
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>2.2 — Les mesures de tendance centrale | MDM4U</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -527,32 +523,14 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>2</td>
-                    <td>3</td>
-                    <td>6</td>
-                  </tr>
-                  <tr>
-                    <td>4</td>
-                    <td>2</td>
-                    <td>8</td>
-                  </tr>
-                  <tr>
-                    <td>6</td>
-                    <td>5</td>
-                    <td>30</td>
-                  </tr>
-                  <tr>
-                    <td><strong>Total</strong></td>
-                    <td><strong>10</strong></td>
-                    <td><strong>44</strong></td>
-                  </tr>
+                  <tr><td>2</td><td>3</td><td>6</td></tr>
+                  <tr><td>4</td><td>2</td><td>8</td></tr>
+                  <tr><td>6</td><td>5</td><td>30</td></tr>
+                  <tr><td><strong>Total</strong></td><td><strong>10</strong></td><td><strong>44</strong></td></tr>
                 </tbody>
               </table>
             </div>
-            <p>
-              La somme des fréquences est 10 et la somme des produits est 44.
-            </p>
+            <p>La somme des fréquences est 10 et la somme des produits est 44.</p>
             <p>\(\bar{x}=\frac{44}{10}=4,4\)</p>
             <p>La moyenne est de <strong>4,4</strong>.</p>
           </div>
@@ -715,6 +693,7 @@
           </div>
         </section>
 
+        <!-- SECTION RESSOURCES : LIENS CORRIGÉS -->
         <section class="section" id="ressources">
           <div class="section-heading">
             <span class="section-number">08</span>
@@ -722,36 +701,38 @@
           </div>
 
           <p>
-            Voici les ressources associées à cette leçon, y compris mon travail écrit
-            et mes vérifications technologiques.
+            Voici les ressources associées à cette leçon, y compris le travail écrit,
+            les exercices et les vérifications technologiques.
           </p>
 
           <div class="resource-list">
 
-            <!-- Remplacer le lien ci-dessous par le lien exact du document si nécessaire. -->
+            <!-- Google Doc : travail écrit et exercices -->
             <a
               class="resource"
-              href="https://docs.google.com/document/"
+              href="https://docs.google.com/document/d/16nPhWNVpsaJIFDGsdsZHh4dxOOD9coaikM4WQqdX9Ww/edit?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
             >
               <i class="fa fa-file-text-o" aria-hidden="true"></i>
               <div class="resource-copy">
-                <strong>Travail écrit — 2.2 Les mesures de tendance centrale</strong>
-                <span>Consulter le travail écrit et les calculs réalisés à la main.</span>
+                <strong>Travail écrit et exercices — 2.2 Les mesures de tendance centrale</strong>
+                <span>Cliquer ici pour ouvrir le document Google Docs.</span>
               </div>
               <i class="fa fa-external-link" aria-hidden="true"></i>
             </a>
 
+            <!-- Google Sheets : vérifications technologiques -->
             <a
               class="resource"
-              href="https://docs.google.com/document/d/16nPhWNVpsaJIFDGsdsZHh4dxOOD9coaikM4WQqdX9Ww/edit?usp=sharing"
+              href="https://docs.google.com/spreadsheets/d/1IKSwq8mSI2SlPCbH9tdI-UH38Jx-kVpXL6MK6MISnKA/edit?usp=sharing"
+              target="_blank"
               rel="noopener noreferrer"
             >
               <i class="fa fa-file-excel-o" aria-hidden="true"></i>
               <div class="resource-copy">
                 <strong>Vérifications technologiques — Google Sheets</strong>
-                <span>Ouvrir le tableur utilisé pour vérifier les calculs de la leçon 2.2.</span>
+                <span>Cliquer ici pour ouvrir le tableur Google Sheets et vérifier les calculs.</span>
               </div>
               <i class="fa fa-external-link" aria-hidden="true"></i>
             </a>
@@ -760,8 +741,8 @@
 
           <div class="note">
             <strong>À vérifier avant de remettre le travail :</strong>
-            assure-toi que les liens Google Docs et Google Sheets fonctionnent et que
-            les paramètres de partage permettent à ton enseignante de consulter les fichiers.
+            assure-toi que les paramètres de partage permettent à ton enseignante
+            de consulter les fichiers Google Docs et Google Sheets.
           </div>
         </section>
 
@@ -799,6 +780,7 @@
     </main>
   </div>
 
+  <!-- Chargement de la navigation existante -->
   <script>
     fetch("nav.html")
       .then(function(response) {
