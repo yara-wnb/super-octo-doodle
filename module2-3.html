@@ -1,243 +1,958 @@
-```html
 <!DOCTYPE html>
-<html>
-
+<html lang="fr">
 <head>
+  <meta charset="UTF-8">
+  <title>2.3 — Les mesures de dispersion | MDM4U</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
 
-<title>MDM4U</title>
+  <script>
+    MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    :root {
+      --cream: #f8f3ed;
+      --paper: #fffdf9;
+      --pink: #d5a5a0;
+      --pink-light: #f0dedb;
+      --pink-dark: #9f6666;
+      --brown: #70564d;
+      --brown-dark: #493a35;
+      --taupe: #a99183;
+      --line: #e8d9d0;
+      --muted: #81736c;
+    }
 
-<link rel="stylesheet"
-      href="https://www.w3schools.com/w3css/4/w3.css">
+    * { box-sizing: border-box; }
 
-<link rel="stylesheet"
-      href="https://www.w3schools.com/lib/w3-theme-teal.css">
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
 
-<link rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto">
+    body {
+      font-family: "Roboto", sans-serif;
+      background: var(--cream);
+      color: var(--brown-dark);
+      line-height: 1.8;
+    }
 
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    .w3-main { margin-left: 250px; }
 
+    .w3-bar-block .w3-bar-item {
+      padding: 16px;
+      font-weight: bold;
+    }
 
-<style>
+    .topbar {
+      background: rgba(248,243,237,.96);
+      color: var(--brown-dark);
+      border-bottom: 1px solid var(--line);
+      z-index: 5;
+    }
 
-body {
-    font-family: "Roboto", sans-serif
-}
+    .menu-button {
+      background: var(--pink-light) !important;
+      color: var(--brown-dark) !important;
+      border-radius: 8px;
+    }
 
-.w3-bar-block .w3-bar-item {
-    padding: 16px;
-    font-weight: bold;
-}
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 70px 42px 62px;
+      background:
+        radial-gradient(circle at 88% 15%, rgba(255,255,255,.65), transparent 28%),
+        linear-gradient(125deg, #ead0cc, #d9b3ad 55%, #c49a8d);
+      color: var(--brown-dark);
+    }
 
-</style>
+    .hero::after {
+      content: "σ";
+      position: absolute;
+      right: 7%;
+      top: 2px;
+      font-size: 210px;
+      font-weight: 300;
+      color: rgba(255,255,255,.28);
+      line-height: 1.5;
+      pointer-events: none;
+    }
 
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 11px;
+      font-weight: 700;
+      color: #76554f;
+    }
 
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    .hero h1 {
+      font-size: clamp(32px, 4vw, 49px);
+      line-height: 1.2;
+      max-width: 750px;
+      font-weight: 500;
+      margin: 16px 0;
+    }
 
+    .hero p {
+      max-width: 680px;
+      font-size: 16px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      background: rgba(255,253,249,.65);
+      border: 1px solid rgba(112,86,77,.16);
+      padding: 6px 13px;
+      border-radius: 30px;
+      margin: 8px 5px 0 0;
+      font-size: 12px;
+    }
+
+    .content {
+      max-width: 1180px;
+      margin: auto;
+      padding: 38px 32px 70px;
+    }
+
+    .section { margin-bottom: 48px; }
+
+    .section-heading {
+      font-size: 25px;
+      font-weight: 500;
+      color: var(--brown-dark);
+      margin: 0 0 8px;
+    }
+
+    .section-intro {
+      color: var(--muted);
+      margin: 0 0 22px;
+      max-width: 850px;
+    }
+
+    .small-label {
+      color: var(--pink-dark);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 10px;
+      font-weight: 700;
+    }
+
+    .card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 15px;
+      padding: 25px;
+      height: auto;
+      min-width: 0;
+      box-shadow: 0 5px 20px rgba(91,65,54,.035);
+    }
+
+    .card h3 {
+      color: var(--brown);
+      font-size: 19px;
+      font-weight: 500;
+      margin-top: 7px;
+    }
+
+    .card p:last-child { margin-bottom: 0; }
+
+    .three-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 17px;
+    }
+
+    .two-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .number {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 38px;
+      height: 38px;
+      border-radius: 12px;
+      background: var(--pink-light);
+      color: var(--pink-dark);
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .formula {
+      background: #f5e9e5;
+      border: 1px solid #ead5cf;
+      border-radius: 11px;
+      padding: 17px 12px;
+      margin: 16px 0;
+      text-align: center;
+      overflow-x: auto;
+      color: var(--brown-dark);
+    }
+
+    .formula .MathJax { font-size: 110% !important; }
+
+    .formula-caption {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    .example {
+      background: #faf5ef;
+      border-left: 3px solid var(--pink);
+      padding: 15px 18px;
+      border-radius: 0 10px 10px 0;
+      margin-top: 17px;
+    }
+
+    .example-title {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      font-weight: 700;
+      color: var(--pink-dark);
+    }
+
+    .result {
+      display: inline-block;
+      background: var(--brown);
+      color: white;
+      padding: 3px 12px;
+      border-radius: 6px;
+      font-weight: 700;
+    }
+
+    .definition {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 20px 23px;
+      border-radius: 13px;
+      margin-bottom: 18px;
+    }
+
+    .definition strong { color: var(--pink-dark); }
+
+    .formula-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .formula-list li {
+      padding: 11px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .formula-list li:last-child { border-bottom: none; }
+
+    .table-wrap {
+      display: block;
+      position: relative;
+      width: 100%;
+      height: auto;
+      overflow-x: auto;
+      overflow-y: hidden;
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      background: var(--paper);
+      margin: 12px 0;
+    }
+
+    .data-table {
+      border-collapse: collapse;
+      width: 100%;
+      min-width: 350px;
+    }
+
+    .data-table th {
+      background: #ead4cf;
+      color: var(--brown-dark);
+      font-weight: 700;
+    }
+
+    .data-table th,
+    .data-table td {
+      padding: 12px 15px;
+      text-align: center;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .data-table tbody tr:last-child td { border-bottom: none; }
+    .data-table tbody tr:hover { background: #faf3ef; }
+
+    .note {
+      position: relative;
+      display: flow-root;
+      height: auto;
+      clear: both;
+      padding: 18px 20px;
+      border-radius: 12px;
+      background: #efe5da;
+      border: 1px solid #e2d2c4;
+      margin: 18px 0;
+    }
+
+    .note strong { color: var(--brown); }
+
+    .pink-note {
+      background: #f5e4e1;
+      border-color: #e9ceca;
+    }
+
+    .step {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      margin: 15px 0;
+    }
+
+    .step-number {
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 29px;
+      height: 29px;
+      border-radius: 50%;
+      background: var(--pink-light);
+      color: var(--pink-dark);
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .step p { margin: 0; }
+
+    .jump-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-bottom: 40px;
+    }
+
+    .jump-links a {
+      text-decoration: none;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      color: var(--brown);
+      padding: 8px 13px;
+      border-radius: 30px;
+      font-size: 12px;
+      transition: .2s;
+    }
+
+    .jump-links a:hover {
+      background: var(--pink-light);
+      border-color: var(--pink);
+    }
+
+    .resource {
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+      padding: 19px;
+      margin-bottom: 12px;
+      border: 1px solid var(--line);
+      background: var(--paper);
+      border-radius: 12px;
+      text-decoration: none;
+      color: var(--brown-dark);
+      transition: .2s;
+    }
+
+    .resource:hover {
+      background: #f5e9e5;
+      border-color: var(--pink);
+    }
+
+    .resource i {
+      color: var(--pink-dark);
+      font-size: 21px;
+      margin-top: 3px;
+    }
+
+    .resource strong {
+      display: block;
+      color: var(--brown);
+    }
+
+    .resource span {
+      display: block;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .resource-copy { flex: 1; }
+
+    .footer {
+      background: #70564d;
+      color: #f8eee8;
+      padding: 28px 32px;
+    }
+
+    .footer p {
+      margin: 4px 0;
+      font-size: 12px;
+    }
+
+    .back-top {
+      float: right;
+      color: #fff5ef;
+      text-decoration: none;
+    }
+
+    @media (max-width: 1100px) {
+      .w3-main { margin-left: 0; }
+      .three-grid, .two-grid { grid-template-columns: 1fr; }
+      .hero { padding: 65px 25px 45px; }
+      .content { padding: 30px 20px 50px; }
+    }
+
+    @media (max-width: 600px) {
+      .hero::after {
+        font-size: 115px;
+        right: 3%;
+        top: 10px;
+      }
+
+      .hero h1 { font-size: 34px; }
+      .card { padding: 19px; }
+      .section-heading { font-size: 22px; }
+    }
+  </style>
 </head>
 
-
-<body>
-
-
-<!--Navigation bar-->
-
-<div id="nav-placeholder">
-</div>
-
-
-<script>
-
-$(function(){
-    $("#nav-placeholder").load("nav.html");
-});
-
-</script>
-
-<!--end of Navigation bar-->
-
-
-<div
-    class="w3-overlay w3-hide-large w3-animate-opacity"
-    onclick="w3_close()"
-    style="cursor:pointer"
-    id="myOverlay">
-</div>
-
-
-<div class="w3-main" style="margin-left:250px;">
-
-
-<div
-    id="myTop"
-    class="w3-container w3-top w3-theme w3-large">
-
-    <p>
-
-        <i
-            class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge"
-            onclick="w3_open()">
-        </i>
-
-        <span id="myIntro" class="w3-hide">
-            MDM4U
-        </span>
-
-    </p>
-
-</div>
-
-
-<header
-    class="w3-container w3-theme"
-    style="padding:64px 32px">
-
-    <h1 class="w3-xxxlarge">
-        Titre du module
-    </h1>
-
-</header>
-
-
-<div
-    class="w3-container"
-    style="padding:32px">
-
-
-<!-- Tu peux complètement modifier le contenu ci-dessous -->
-
-
-<h1>
-    Entête 1
-</h1>
-
-
-<h2>
-    Entête 2
-</h2>
-
-
-<p>
-
-    Ceci est un paragraphe qui contient
-
-    <a
-        href="https://www.w3schools.com/html/html_links.asp"
-        target="_blank">
-
-        un lien
-
-    </a>
-
-    qui ouvre dans une nouvelle fenêtre.
-
-</p>
-
-
-<iframe
-    width="560"
-    height="315"
-    src="https://www.youtube.com/embed/Ui8o6fJjkck"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen>
-</iframe>
-
-
-<!-- Tu peux complètement modifier le contenu par dessus cette ligne -->
-
-
-</div>
-
-
-<footer
-    class="w3-container w3-theme"
-    style="padding:32px">
-
-    <p>
-        Contenu de cette page web par M. Gore (prénom: Pytha)
-    </p>
-
-</footer>
-
-
-</div>
-
-
-<script>
-
-
-// Open and close the sidebar on medium and small screens
-
-function w3_open() {
-
-    document.getElementById("mySidebar").style.display = "block";
-
-    document.getElementById("myOverlay").style.display = "block";
-
-}
-
-
-function w3_close() {
-
-    document.getElementById("mySidebar").style.display = "none";
-
-    document.getElementById("myOverlay").style.display = "none";
-
-}
-
-
-// Change style of top container on scroll
-
-window.onscroll = function() {
-    myFunction()
-};
-
-
-function myFunction() {
-
-    if (
-        document.body.scrollTop > 80 ||
-        document.documentElement.scrollTop > 80
-    ) {
-
-        document.getElementById("myTop")
-            .classList.add(
-                "w3-card-4",
-                "w3-animate-opacity"
-            );
-
-        document.getElementById("myIntro")
-            .classList.add(
-                "w3-show-inline-block"
-            );
-
+<body id="top">
+
+  <div id="nav-placeholder"></div>
+  <script>
+    $(function () {
+      $("#nav-placeholder").load("nav.html");
+    });
+  </script>
+
+  <div class="w3-overlay w3-hide-large w3-animate-opacity"
+       onclick="w3_close()"
+       style="cursor:pointer;display:none"
+       id="myOverlay"></div>
+
+  <main class="w3-main">
+
+    <div id="myTop" class="w3-container w3-top topbar w3-large">
+      <p style="margin:8px 0">
+        <i class="fa fa-bars w3-button w3-hide-large w3-xlarge menu-button"
+           onclick="w3_open()"
+           aria-label="Ouvrir le menu"></i>
+        <span id="myIntro" class="w3-hide">MDM4U · MODULE 2.3</span>
+      </p>
+    </div>
+
+    <header class="hero">
+      <div class="eyebrow">MDM4U · Statistiques</div>
+      <h1>Les mesures de dispersion</h1>
+      <p>
+        Comment savoir si les données d'un ensemble sont rapprochées
+        ou très éloignées les unes des autres ? Les mesures de dispersion
+        décrivent l'étalement des données et complètent les mesures
+        de tendance centrale.
+      </p>
+      <div>
+        <span class="hero-tag">02.3 · Notes de cours</span>
+        <span class="hero-tag">Formules essentielles</span>
+        <span class="hero-tag">Exemples résolus</span>
+      </div>
+    </header>
+
+    <div class="content">
+
+      <nav class="jump-links" aria-label="Navigation du module">
+        <a href="#intro">Introduction</a>
+        <a href="#etendue">Étendue</a>
+        <a href="#quartiles">Quartiles</a>
+        <a href="#eiq">Écart interquartile</a>
+        <a href="#ecart-type">Écart type</a>
+        <a href="#calcul">Calculer l'écart type</a>
+        <a href="#exercices">Exercices 2.3</a>
+      </nav>
+
+      <section id="intro" class="section">
+        <div class="small-label">01 · Les bases</div>
+        <h2 class="section-heading">À quoi servent les mesures de dispersion ?</h2>
+
+        <p class="section-intro">
+          Les mesures de dispersion indiquent à quel point les valeurs
+          d'un ensemble de données sont dispersées autour du centre
+          ou réparties entre elles. Deux ensembles peuvent avoir la
+          même moyenne, mais un étalement très différent.
+        </p>
+
+        <div class="two-grid">
+          <article class="card">
+            <div class="number">01</div>
+            <h3>Faible dispersion</h3>
+            <p>Les valeurs sont rapprochées les unes des autres. L'ensemble est relativement homogène.</p>
+            <div class="formula">\(8,\ 9,\ 10,\ 10,\ 11,\ 12\)</div>
+            <p class="formula-caption">Les données sont regroupées près du centre.</p>
+          </article>
+
+          <article class="card">
+            <div class="number">02</div>
+            <h3>Forte dispersion</h3>
+            <p>Les valeurs sont plus éloignées les unes des autres. L'ensemble est plus étalé.</p>
+            <div class="formula">\(1,\ 5,\ 8,\ 12,\ 15,\ 19\)</div>
+            <p class="formula-caption">Les données couvrent une plus grande plage de valeurs.</p>
+          </article>
+        </div>
+
+        <div class="note pink-note">
+          <strong>À retenir :</strong> une mesure de tendance centrale décrit
+          une valeur représentative, tandis qu'une mesure de dispersion
+          décrit à quel point les données varient. Pour bien comprendre
+          un ensemble de données, il est utile d'examiner les deux.
+        </div>
+      </section>
+
+      <section id="methodes" class="section">
+        <div class="small-label">02 · Les méthodes</div>
+        <h2 class="section-heading">Les méthodes de mesure de dispersion</h2>
+
+        <p class="section-intro">
+          Les principales méthodes étudiées dans cette leçon sont
+          l'étendue, les quartiles, l'écart interquartile et l'écart type.
+          Chacune donne une information différente sur la répartition
+          des données.
+        </p>
+
+        <div class="three-grid">
+          <article class="card">
+            <div class="number">01</div>
+            <h3>L'étendue</h3>
+            <p>Mesure la différence entre la plus grande et la plus petite valeur.</p>
+            <div class="formula">\(E=x_{\max}-x_{\min}\)</div>
+          </article>
+
+          <article class="card">
+            <div class="number">02</div>
+            <h3>Les quartiles</h3>
+            <p>Divisent les données ordonnées en quatre parties approximativement égales.</p>
+            <div class="formula">\(Q_1,\ Q_2,\ Q_3\)</div>
+          </article>
+
+          <article class="card">
+            <div class="number">03</div>
+            <h3>L'écart type</h3>
+            <p>Mesure à quel point les données s'éloignent généralement de la moyenne.</p>
+            <div class="formula">\(\sigma\)</div>
+          </article>
+        </div>
+      </section>
+
+      <section id="etendue" class="section">
+        <div class="small-label">03 · La plage des données</div>
+        <h2 class="section-heading">L'étendue</h2>
+
+        <div class="definition">
+          <strong>Définition :</strong> l'étendue est la différence entre
+          la valeur maximale et la valeur minimale d'un ensemble de données.
+          Elle indique la largeur totale de la plage couverte par les valeurs.
+        </div>
+
+        <div class="two-grid">
+          <article class="card">
+            <h3>Formule</h3>
+            <div class="formula">
+              \[
+                \boxed{E=x_{\max}-x_{\min}}
+              \]
+            </div>
+            <p>\(x_{\max}\) représente la plus grande valeur et \(x_{\min}\) la plus petite valeur.</p>
+          </article>
+
+          <article class="card">
+            <h3>Exemple résolu</h3>
+            <p>Voici un ensemble de données classées en ordre croissant :</p>
+            <div class="formula">\(4,\ 7,\ 9,\ 12,\ 15,\ 18\)</div>
+            <p>La valeur maximale est 18 et la valeur minimale est 4.</p>
+            <div class="formula">
+              \[
+                E=18-4=\boxed{14}
+              \]
+            </div>
+            <p>L'étendue de cet ensemble est <span class="result">14</span>.</p>
+          </article>
+        </div>
+
+        <div class="note pink-note">
+          <strong>Limite de l'étendue :</strong> elle dépend uniquement
+          des deux valeurs extrêmes. Une seule valeur très grande ou
+          très petite peut donc modifier considérablement l'étendue.
+        </div>
+      </section>
+
+      <section id="quartiles" class="section">
+        <div class="small-label">04 · Diviser les données</div>
+        <h2 class="section-heading">Les quartiles</h2>
+
+        <div class="definition">
+          <strong>Définition :</strong> les quartiles sont trois valeurs
+          qui divisent un ensemble de données ordonnées en quatre parties
+          contenant chacune environ 25 % des observations. Il faut classer
+          les données en ordre croissant avant de les déterminer.
+        </div>
+
+        <div class="three-grid">
+          <article class="card">
+            <div class="number">Q₁</div>
+            <h3>Premier quartile</h3>
+            <p>Le premier quartile est la médiane de la moitié inférieure des données. Environ 25 % des valeurs se trouvent en dessous de Q₁.</p>
+          </article>
+
+          <article class="card">
+            <div class="number">Q₂</div>
+            <h3>Deuxième quartile</h3>
+            <p>Le deuxième quartile est la médiane de l'ensemble de données. Environ 50 % des valeurs se trouvent de chaque côté.</p>
+          </article>
+
+          <article class="card">
+            <div class="number">Q₃</div>
+            <h3>Troisième quartile</h3>
+            <p>Le troisième quartile est la médiane de la moitié supérieure des données. Environ 75 % des valeurs se trouvent en dessous de Q₃.</p>
+          </article>
+        </div>
+
+        <article class="card" style="margin-top:18px">
+          <h3>Exemple : trouver les quartiles</h3>
+          <p>Considérons les données déjà classées en ordre croissant :</p>
+          <div class="formula">\(2,\ 4,\ 5,\ 7,\ 8,\ 10,\ 12,\ 14,\ 16\)</div>
+
+          <p>
+            La médiane de l'ensemble est 8, donc \(Q_2=8\).
+            La moitié inférieure est \(2,4,5,7\), dont la médiane
+            est \((4+5)/2=4,5\). La moitié supérieure est
+            \(10,12,14,16\), dont la médiane est \((12+14)/2=13\).
+          </p>
+
+          <div class="formula">
+            \[
+              Q_1=4,5\qquad Q_2=8\qquad Q_3=13
+            \]
+          </div>
+
+          <p>Les quartiles sont donc <span class="result">4,5 ; 8 ; 13</span>.</p>
+        </article>
+
+        <div class="note pink-note">
+          <strong>Important :</strong> selon la technologie utilisée,
+          certaines conventions peuvent donner des résultats légèrement
+          différents pour les quartiles. Pour tes exercices, suis la
+          méthode enseignée en classe ou celle demandée par ton enseignant.
+        </div>
+      </section>
+
+      <section id="eiq" class="section">
+        <div class="small-label">05 · Dispersion centrale</div>
+        <h2 class="section-heading">L'écart interquartile</h2>
+
+        <div class="definition">
+          <strong>Définition :</strong> l'écart interquartile (EIQ) est
+          la différence entre le troisième quartile et le premier quartile.
+          Il mesure l'étalement des 50 % de données situées au centre
+          et est moins influencé par les valeurs extrêmes que l'étendue.
+        </div>
+
+        <div class="two-grid">
+          <article class="card">
+            <h3>Formule</h3>
+            <div class="formula">
+              \[
+                \boxed{EIQ=Q_3-Q_1}
+              \]
+            </div>
+            <p>On soustrait le premier quartile du troisième quartile.</p>
+          </article>
+
+          <article class="card">
+            <h3>Exemple résolu</h3>
+            <p>En reprenant les quartiles précédents, \(Q_1=4,5\) et \(Q_3=13\).</p>
+            <div class="formula">
+              \[
+                EIQ=13-4,5=\boxed{8,5}
+              \]
+            </div>
+            <p>L'écart interquartile est de <span class="result">8,5</span>.</p>
+          </article>
+        </div>
+
+        <div class="note">
+          <strong>Interprétation :</strong> les 50 % centraux des données
+          s'étendent sur une plage de 8,5 unités entre Q₁ et Q₃.
+          Un EIQ plus grand indique généralement une plus grande dispersion
+          dans la moitié centrale des données.
+        </div>
+      </section>
+
+      <section id="ecart-type" class="section">
+        <div class="small-label">06 · Mesure de dispersion</div>
+        <h2 class="section-heading">L'écart type</h2>
+
+        <div class="definition">
+          <strong>Définition :</strong> l'écart type mesure à quel point
+          les valeurs s'écartent généralement de la moyenne. Un petit
+          écart type signifie que les valeurs sont plutôt proches de la
+          moyenne ; un grand écart type signifie qu'elles sont plus dispersées.
+        </div>
+
+        <div class="two-grid">
+          <article class="card">
+            <h3>Formule pour une population</h3>
+            <div class="formula">
+              \[
+                \boxed{\sigma=\sqrt{\frac{\sum (x_i-\mu)^2}{N}}}
+              \]
+            </div>
+
+            <ul class="formula-list">
+              <li>\(x_i\) : chaque donnée</li>
+              <li>\(\mu\) : moyenne de la population</li>
+              <li>\(N\) : nombre total de données</li>
+              <li>\(\sum\) : additionner toutes les quantités indiquées</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Comment l'interpréter ?</h3>
+            <p>
+              L'écart type est exprimé dans la même unité que les données
+              originales. Par exemple, si les données représentent des
+              années d'espérance de vie, l'écart type est lui aussi exprimé en années.
+            </p>
+
+            <div class="example">
+              <div class="example-title">À retenir</div>
+              <p>
+                Un écart type de 2 ans indique une dispersion plus faible
+                qu'un écart type de 10 ans, si les ensembles sont mesurés
+                dans la même unité et sont comparables.
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <div class="note pink-note">
+          <strong>Attention :</strong> la formule ci-dessus correspond
+          à un écart type de population. Pour un échantillon, certains
+          cours utilisent
+          \(s=\sqrt{\frac{\sum(x_i-\bar{x})^2}{n-1}}\).
+          Dans les exercices, choisis la convention demandée par le cours
+          ou par la calculatrice.
+        </div>
+      </section>
+
+      <section id="calcul" class="section">
+        <div class="small-label">07 · Méthode étape par étape</div>
+        <h2 class="section-heading">Comment calculer l'écart type ?</h2>
+
+        <p class="section-intro">
+          Pour comprendre le calcul, voici les étapes à suivre avec
+          un petit ensemble de données. La calculatrice ou un outil
+          comme Desmos ou Google Sheets peut ensuite vérifier le résultat.
+        </p>
+
+        <article class="card">
+          <h3>Exemple complet : \(2,\ 4,\ 6\)</h3>
+
+          <div class="step">
+            <span class="step-number">1</span>
+            <div>
+              <p><strong>Calculer la moyenne.</strong> Additionner les valeurs puis diviser par leur nombre.</p>
+              <div class="formula">
+                \[
+                  \mu=\frac{2+4+6}{3}=4
+                \]
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <span class="step-number">2</span>
+            <div>
+              <p><strong>Soustraire la moyenne de chaque valeur.</strong> Ces différences sont les écarts à la moyenne.</p>
+              <div class="formula">
+                \[
+                  2-4=-2,\quad 4-4=0,\quad 6-4=2
+                \]
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <span class="step-number">3</span>
+            <div>
+              <p><strong>Élever chaque écart au carré.</strong> Cela rend les écarts positifs et donne plus de poids aux écarts importants.</p>
+              <div class="formula">
+                \[
+                  (-2)^2=4,\quad 0^2=0,\quad 2^2=4
+                \]
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <span class="step-number">4</span>
+            <div>
+              <p><strong>Calculer la moyenne des écarts au carré.</strong> Pour la formule de population, on divise leur somme par le nombre de données.</p>
+              <div class="formula">
+                \[
+                  \frac{4+0+4}{3}=\frac{8}{3}\approx2,67
+                \]
+              </div>
+            </div>
+          </div>
+
+          <div class="step">
+            <span class="step-number">5</span>
+            <div>
+              <p><strong>Calculer la racine carrée.</strong> La racine carrée ramène le résultat à l'unité de départ.</p>
+              <div class="formula">
+                \[
+                  \sigma=\sqrt{\frac{8}{3}}\approx\boxed{1,63}
+                \]
+              </div>
+            </div>
+          </div>
+
+          <p>
+            Pour cet ensemble, l'écart type de population est d'environ
+            <span class="result">1,63</span>.
+          </p>
+        </article>
+
+        <div class="note">
+          <strong>Résumé des étapes :</strong> moyenne → écarts à la moyenne
+          → carrés des écarts → moyenne des carrés → racine carrée.
+        </div>
+      </section>
+
+      <section id="comparaison" class="section">
+        <div class="small-label">08 · Faire le bon choix</div>
+        <h2 class="section-heading">Comparer les mesures de dispersion</h2>
+
+        <div class="table-wrap">
+          <table class="data-table">
+            <thead>
+              <tr>
+                <th>Mesure</th>
+                <th>Ce qu'elle indique</th>
+                <th>Point à retenir</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Étendue</strong></td>
+                <td>Distance entre la plus petite et la plus grande valeur</td>
+                <td>Sensible aux valeurs extrêmes</td>
+              </tr>
+              <tr>
+                <td><strong>Quartiles</strong></td>
+                <td>Positions qui divisent les données ordonnées en quatre parties</td>
+                <td>Décrivent la répartition des données</td>
+              </tr>
+              <tr>
+                <td><strong>Écart interquartile</strong></td>
+                <td>Étendue des 50 % de données centrales</td>
+                <td>Moins influencé par les valeurs extrêmes</td>
+              </tr>
+              <tr>
+                <td><strong>Écart type</strong></td>
+                <td>Dispersion des valeurs autour de la moyenne</td>
+                <td>Tient compte de toutes les données</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="exercices" class="section">
+        <div class="small-label">09 · Mise en pratique</div>
+        <h2 class="section-heading">Exercices 2.3</h2>
+
+        <p class="section-intro">
+          J'ai terminé les exercices sur les mesures de dispersion.
+          Le document de travail permet de consulter les données,
+          les calculs et les réponses associés à cette leçon.
+        </p>
+
+        <a class="resource"
+           href="https://docs.google.com/document/d/1zpNybmgrwUqLkYm8WXmqoocw1D0J19B3/edit?usp=sharing"
+           target="_blank"
+           rel="noopener noreferrer">
+          <i class="fa fa-file-text-o" aria-hidden="true"></i>
+          <div class="resource-copy">
+            <strong>Exercices 2.3 — Travail complété</strong>
+            <span>Ouvrir le document Google Docs contenant les exercices terminés.</span>
+          </div>
+          <i class="fa fa-external-link" aria-hidden="true"></i>
+        </a>
+      </section>
+
+      <section class="section">
+        <div class="card" style="background:#f0e1dc">
+          <div class="small-label">En résumé</div>
+          <h2 class="section-heading">Comprendre l'étalement des données</h2>
+          <p>
+            L'étendue mesure la plage totale des valeurs, les quartiles
+            décrivent comment les données ordonnées se répartissent,
+            l'écart interquartile mesure l'étalement de la moitié centrale
+            et l'écart type indique à quel point les valeurs s'éloignent
+            de la moyenne. Ensemble, ces mesures donnent une image plus
+            complète d'un ensemble de données.
+          </p>
+        </div>
+      </section>
+
+    </div>
+
+    <footer class="footer">
+      <a href="#top" class="back-top">
+        <i class="fa fa-arrow-up"></i> Retour en haut
+      </a>
+      <p><strong>MDM4U · Statistiques</strong></p>
+      <p>Module 2.3 — Les mesures de dispersion</p>
+    </footer>
+
+  </main>
+
+  <script>
+    function w3_open() {
+      var s = document.getElementById("mySidebar");
+      var o = document.getElementById("myOverlay");
+      if (s) { s.style.display = "block"; }
+      if (o) { o.style.display = "block"; }
     }
 
-    else {
-
-        document.getElementById("myIntro")
-            .classList.remove(
-                "w3-show-inline-block"
-            );
-
-        document.getElementById("myTop")
-            .classList.remove(
-                "w3-card-4",
-                "w3-animate-opacity"
-            );
-
+    function w3_close() {
+      var s = document.getElementById("mySidebar");
+      var o = document.getElementById("myOverlay");
+      if (s) { s.style.display = "none"; }
+      if (o) { o.style.display = "none"; }
     }
-
-}
-
-</script>
-
+  </script>
 
 </body>
-
 </html>
-```
