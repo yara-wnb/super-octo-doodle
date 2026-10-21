@@ -1,243 +1,692 @@
-```html
+
 <!DOCTYPE html>
-<html>
-
+<html lang="fr">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>2.4 — La distribution normale | MDM4U</title>
 
-<title>MDM4U</title>
+  <!-- MathJax : affichage des formules mathématiques -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['\\(', '\\)']],
+        displayMath: [['\\[', '\\]']]
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
-<link rel="stylesheet"
-      href="https://www.w3schools.com/w3css/4/w3.css">
+  <style>
+    :root {
+      --cream: #fffaf5;
+      --cream-dark: #f6eee6;
+      --pink: #e7a5b4;
+      --pink-light: #f9e5ea;
+      --pink-dark: #b96780;
+      --text: #45363b;
+      --muted: #8b777e;
+      --white: #ffffff;
+      --border: #f0dce2;
+      --shadow: 0 8px 25px rgba(130, 75, 94, 0.08);
+    }
 
-<link rel="stylesheet"
-      href="https://www.w3schools.com/lib/w3-theme-teal.css">
+    * {
+      box-sizing: border-box;
+      scroll-behavior: smooth;
+    }
 
-<link rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto">
+    body {
+      margin: 0;
+      background: var(--cream);
+      color: var(--text);
+      font-family: "DM Sans", sans-serif;
+      line-height: 1.75;
+    }
 
-<link rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    a { color: var(--pink-dark); }
 
+    .layout {
+      display: flex;
+      min-height: 100vh;
+    }
 
-<style>
+    #sidebar {
+      flex: 0 0 260px;
+      width: 260px;
+      min-height: 100vh;
+      background: var(--white);
+      border-right: 1px solid var(--border);
+      padding: 28px 18px;
+    }
 
-body {
-    font-family: "Roboto", sans-serif
-}
+    .main {
+      flex: 1;
+      min-width: 0;
+      padding: 48px clamp(22px, 6vw, 88px);
+    }
 
-.w3-bar-block .w3-bar-item {
-    padding: 16px;
-    font-weight: bold;
-}
+    .content {
+      max-width: 900px;
+      margin: 0 auto;
+    }
 
-</style>
+    .eyebrow {
+      color: var(--pink-dark);
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
 
+    h1, h2, h3 {
+      font-family: "Playfair Display", serif;
+      line-height: 1.3;
+    }
 
-<script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    h1 {
+      font-size: clamp(2.2rem, 5vw, 3.6rem);
+      margin: 10px 0 16px;
+    }
 
+    h2 {
+      font-size: 1.8rem;
+      margin-top: 0;
+    }
+
+    h3 {
+      font-size: 1.25rem;
+      margin-bottom: 8px;
+    }
+
+    p { margin: 10px 0 16px; }
+
+    .intro {
+      max-width: 720px;
+      font-size: 1.08rem;
+      color: var(--muted);
+    }
+
+    .hero {
+      padding: 36px;
+      background: linear-gradient(135deg, #fbe8ed, #fff5ee);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      margin-bottom: 38px;
+    }
+
+    .hero-tag {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 30px;
+      background: var(--white);
+      color: var(--pink-dark);
+      font-size: 0.8rem;
+      font-weight: 700;
+    }
+
+    .section {
+      margin: 42px 0;
+      scroll-margin-top: 24px;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 18px;
+    }
+
+    .section-number {
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      width: 42px;
+      height: 42px;
+      border-radius: 14px;
+      background: var(--pink-light);
+      color: var(--pink-dark);
+      font-weight: 700;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin: 20px 0;
+    }
+
+    .card {
+      padding: 22px;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      background: var(--white);
+      box-shadow: var(--shadow);
+    }
+
+    .card h3 { margin-top: 0; }
+
+    .formula {
+      overflow-x: auto;
+      padding: 18px;
+      margin: 18px 0;
+      border-radius: 14px;
+      background: var(--pink-light);
+      color: #704555;
+      text-align: center;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    .formula small {
+      display: block;
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 0.85rem;
+      font-weight: 400;
+    }
+
+    .example {
+      background: #fff;
+      border-left: 4px solid var(--pink);
+      padding: 18px 22px;
+      border-radius: 0 14px 14px 0;
+      margin: 18px 0;
+    }
+
+    .example-title {
+      color: var(--pink-dark);
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+
+    .note {
+      background: #fff5e9;
+      border: 1px solid #f1dfc7;
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin: 18px 0;
+    }
+
+    .note strong { color: #956b3f; }
+
+    .resource-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 20px;
+    }
+
+    .resource {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 18px 20px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      background: var(--white);
+      text-decoration: none;
+      color: var(--text);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .resource:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow);
+    }
+
+    .resource > .fa:first-child {
+      flex-shrink: 0;
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: var(--pink-light);
+      color: var(--pink-dark);
+      font-size: 1.3rem;
+      text-align: center;
+      line-height: 46px;
+    }
+
+    .resource-copy {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .resource-copy strong {
+      display: block;
+      margin-bottom: 3px;
+    }
+
+    .resource-copy span {
+      display: block;
+      color: var(--muted);
+      font-size: 0.9rem;
+      overflow-wrap: anywhere;
+    }
+
+    .resource > .fa-external-link {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .conclusion {
+      padding: 28px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #fbe8ed, #fff5ee);
+      border: 1px solid var(--border);
+    }
+
+    .page-footer {
+      margin-top: 52px;
+      padding-top: 20px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 0.85rem;
+      text-align: center;
+    }
+
+    .back-top {
+      display: inline-block;
+      margin-top: 16px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .normal-image {
+      display: block;
+      width: 100%;
+      max-width: 720px;
+      height: auto;
+      margin: 20px auto 10px;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: white;
+    }
+
+    .video-wrap {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      overflow: hidden;
+      border-radius: 18px;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      background: #fff;
+    }
+
+    .video-wrap iframe {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    .button-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--pink-light);
+      color: var(--pink-dark);
+      border-radius: 30px;
+      padding: 9px 15px;
+      text-decoration: none;
+      font-weight: 700;
+      margin-top: 5px;
+    }
+
+    .button-link:hover { background: #f5d6df; }
+
+    @media (max-width: 800px) {
+      .layout { display: block; }
+
+      #sidebar {
+        width: 100%;
+        min-height: auto;
+        padding: 12px 18px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .main { padding: 28px 18px; }
+      .hero { padding: 25px; }
+    }
+  </style>
 </head>
 
-
-<body>
-
-
-<!--Navigation bar-->
-
-<div id="nav-placeholder">
-</div>
-
-
-<script>
-
-$(function(){
-    $("#nav-placeholder").load("nav.html");
-});
-
-</script>
-
-<!--end of Navigation bar-->
-
-
-<div
-    class="w3-overlay w3-hide-large w3-animate-opacity"
-    onclick="w3_close()"
-    style="cursor:pointer"
-    id="myOverlay">
-</div>
-
-
-<div class="w3-main" style="margin-left:250px;">
-
-
-<div
-    id="myTop"
-    class="w3-container w3-top w3-theme w3-large">
-
-    <p>
-
-        <i
-            class="fa fa-bars w3-button w3-teal w3-hide-large w3-xlarge"
-            onclick="w3_open()">
-        </i>
-
-        <span id="myIntro" class="w3-hide">
-            MDM4U
-        </span>
-
-    </p>
-
-</div>
-
-
-<header
-    class="w3-container w3-theme"
-    style="padding:64px 32px">
-
-    <h1 class="w3-xxxlarge">
-        Titre du module
-    </h1>
-
-</header>
-
-
-<div
-    class="w3-container"
-    style="padding:32px">
-
-
-<!-- Tu peux complètement modifier le contenu ci-dessous -->
-
-
-<h1>
-    Entête 1
-</h1>
-
-
-<h2>
-    Entête 2
-</h2>
-
-
-<p>
-
-    Ceci est un paragraphe qui contient
-
-    <a
-        href="https://www.w3schools.com/html/html_links.asp"
-        target="_blank">
-
-        un lien
-
-    </a>
-
-    qui ouvre dans une nouvelle fenêtre.
-
-</p>
-
-
-<iframe
-    width="560"
-    height="315"
-    src="https://www.youtube.com/embed/Ui8o6fJjkck"
-    frameborder="0"
-    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-    allowfullscreen>
-</iframe>
-
-
-<!-- Tu peux complètement modifier le contenu par dessus cette ligne -->
-
-
-</div>
-
-
-<footer
-    class="w3-container w3-theme"
-    style="padding:32px">
-
-    <p>
-        Contenu de cette page web par M. Gore (prénom: Pytha)
-    </p>
-
-</footer>
-
-
-</div>
-
-
-<script>
-
-
-// Open and close the sidebar on medium and small screens
-
-function w3_open() {
-
-    document.getElementById("mySidebar").style.display = "block";
-
-    document.getElementById("myOverlay").style.display = "block";
-
-}
-
-
-function w3_close() {
-
-    document.getElementById("mySidebar").style.display = "none";
-
-    document.getElementById("myOverlay").style.display = "none";
-
-}
-
-
-// Change style of top container on scroll
-
-window.onscroll = function() {
-    myFunction()
-};
-
-
-function myFunction() {
-
-    if (
-        document.body.scrollTop > 80 ||
-        document.documentElement.scrollTop > 80
-    ) {
-
-        document.getElementById("myTop")
-            .classList.add(
-                "w3-card-4",
-                "w3-animate-opacity"
-            );
-
-        document.getElementById("myIntro")
-            .classList.add(
-                "w3-show-inline-block"
-            );
-
-    }
-
-    else {
-
-        document.getElementById("myIntro")
-            .classList.remove(
-                "w3-show-inline-block"
-            );
-
-        document.getElementById("myTop")
-            .classList.remove(
-                "w3-card-4",
-                "w3-animate-opacity"
-            );
-
-    }
-
-}
-
-</script>
-
-
+<body id="top">
+  <div class="layout">
+
+    <aside id="sidebar" aria-label="Navigation principale">
+      <p>Chargement de la navigation...</p>
+    </aside>
+
+    <main class="main">
+      <div class="content">
+
+        <header class="hero">
+          <span class="hero-tag">MDM4U · Statistiques</span>
+          <p class="eyebrow">Module 2 · Leçon 2.4</p>
+          <h1>La distribution normale</h1>
+          <p class="intro">
+            Une distribution normale est une distribution de données en forme de cloche,
+            symétrique autour de la moyenne. Dans cette leçon, je présente la distribution
+            normale, l'écart réduit et les travaux associés aux exercices 2.4 et 2.4B.
+          </p>
+        </header>
+
+        <section class="section" id="objectifs">
+          <div class="section-heading">
+            <span class="section-number">01</span>
+            <h2>Objectifs d'apprentissage</h2>
+          </div>
+
+          <p>À la fin de cette leçon, je peux :</p>
+
+          <div class="card-grid">
+            <article class="card">
+              <h3><i class="fa fa-line-chart" aria-hidden="true"></i> Reconnaître</h3>
+              <p>Reconnaître les caractéristiques d'une distribution normale et comprendre sa forme de cloche.</p>
+            </article>
+
+            <article class="card">
+              <h3><i class="fa fa-calculator" aria-hidden="true"></i> Calculer</h3>
+              <p>Utiliser la moyenne et l'écart-type pour interpréter la position d'une valeur dans une distribution.</p>
+            </article>
+
+            <article class="card">
+              <h3><i class="fa fa-book" aria-hidden="true"></i> Appliquer</h3>
+              <p>Utiliser l'écart réduit et les outils technologiques pour résoudre des problèmes statistiques.</p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section" id="distribution">
+          <div class="section-heading">
+            <span class="section-number">02</span>
+            <h2>La distribution normale</h2>
+          </div>
+
+          <p>
+            Une distribution normale est généralement représentée par une courbe en forme de cloche.
+            La moyenne, la médiane et le mode se trouvent au centre lorsque la distribution est parfaitement normale.
+            La plupart des valeurs se situent près de la moyenne, tandis que moins de valeurs se trouvent très loin du centre.
+          </p>
+
+          <img
+            class="normal-image"
+            src="https://matheguru.com/images/normalverteilung_68-95-99.png"
+            alt="Courbe de distribution normale montrant les proportions de données à un, deux et trois écarts-types de la moyenne"
+            loading="lazy"
+          >
+
+          <p style="text-align:center;color:var(--muted);font-size:.9rem;">
+            Source de l'image :
+            <a href="https://matheguru.com/images/normalverteilung_68-95-99.png" target="_blank" rel="noopener noreferrer">
+              MatheGuru — distribution normale
+            </a>.
+          </p>
+
+          <div class="card-grid">
+            <article class="card">
+              <h3>Environ 68 %</h3>
+              <p>Environ 68 % des données se trouvent à moins d'un écart-type de la moyenne, soit entre \(\mu-\sigma\) et \(\mu+\sigma\).</p>
+            </article>
+
+            <article class="card">
+              <h3>Environ 95 %</h3>
+              <p>Environ 95 % des données se trouvent à moins de deux écarts-types de la moyenne.</p>
+            </article>
+
+            <article class="card">
+              <h3>Environ 99,7 %</h3>
+              <p>Environ 99,7 % des données se trouvent à moins de trois écarts-types de la moyenne.</p>
+            </article>
+          </div>
+
+          <div class="note">
+            <strong>À retenir :</strong> ces proportions correspondent à la règle empirique 68–95–99,7.
+            Elles s'appliquent approximativement aux distributions normales.
+          </div>
+        </section>
+
+        <section class="section" id="ecart-reduit">
+          <div class="section-heading">
+            <span class="section-number">03</span>
+            <h2>L'écart réduit (score z)</h2>
+          </div>
+
+          <p>
+            L'écart réduit, aussi appelé score z, indique à combien d'écarts-types une valeur se trouve
+            au-dessus ou au-dessous de la moyenne. Il permet de comparer la position de différentes valeurs,
+            même lorsque les ensembles de données n'ont pas la même moyenne ou le même écart-type.
+          </p>
+
+          <div class="formula">
+            \(\displaystyle z=\frac{x-\mu}{\sigma}\)
+            <small>\(x\) = valeur observée, \(\mu\) = moyenne et \(\sigma\) = écart-type de la population.</small>
+          </div>
+
+          <div class="card-grid">
+            <article class="card">
+              <h3>Score z positif</h3>
+              <p>La valeur est au-dessus de la moyenne.</p>
+            </article>
+
+            <article class="card">
+              <h3>Score z égal à zéro</h3>
+              <p>La valeur est égale à la moyenne.</p>
+            </article>
+
+            <article class="card">
+              <h3>Score z négatif</h3>
+              <p>La valeur est au-dessous de la moyenne.</p>
+            </article>
+          </div>
+
+          <div class="example">
+            <div class="example-title">Exemple</div>
+            <p>Supposons qu'un test a une moyenne de 70 et un écart-type de 10. Une personne obtient 85.</p>
+            <p>\(\displaystyle z=\frac{85-70}{10}=\frac{15}{10}=1,5\)</p>
+            <p>Le résultat de 85 se trouve donc à 1,5 écart-type au-dessus de la moyenne.</p>
+          </div>
+
+          <h3>Vidéo explicative</h3>
+          <p>Cette vidéo présente l'écart réduit et aide à comprendre comment interpréter le score z.</p>
+
+          <div class="video-wrap">
+            <iframe
+              src="https://www.youtube.com/embed/LtMXxPmhMJg"
+              title="Vidéo explicative sur l'écart réduit"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allowfullscreen>
+            </iframe>
+          </div>
+
+          <p>
+            <a class="button-link" href="https://www.youtube.com/watch?v=LtMXxPmhMJg" target="_blank" rel="noopener noreferrer">
+              <i class="fa fa-youtube-play" aria-hidden="true"></i> Ouvrir la vidéo sur YouTube
+            </a>
+          </p>
+        </section>
+
+        <section class="section" id="partie1">
+          <div class="section-heading">
+            <span class="section-number">04</span>
+            <h2>Exercices 2.4 — Partie 1</h2>
+          </div>
+
+          <p>
+            Cette partie comprend les exercices sur la distribution normale et l'utilisation de la technologie.
+            Les réponses et les calculs sont accessibles dans le document ci-dessous.
+          </p>
+
+          <div class="resource-list">
+            <a class="resource" href="https://docs.google.com/document/d/1GARlgA_vpzfg4qknKiXM9JoV20XEFgDGUFL6CRSB87M/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
+              <i class="fa fa-file-text-o" aria-hidden="true"></i>
+              <div class="resource-copy">
+                <strong>Exercices 2.4 — Partie 1</strong>
+                <span>Ouvrir le document Google Docs contenant les réponses.</span>
+              </div>
+              <i class="fa fa-external-link" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <h3>Travail fait à la main</h3>
+          <p>Les scans ou photos du travail papier-crayon sont regroupés dans les liens suivants.</p>
+
+          <div class="resource-list">
+            <a class="resource" href="https://drive.google.com/file/d/1SNvwzrBw_9oCfrDXSzMQ2JDpAxD5J0Ce/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+              <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+              <div class="resource-copy">
+                <strong>Travail manuscrit — document 1</strong>
+                <span>Ouvrir le premier scan sur Google Drive.</span>
+              </div>
+              <i class="fa fa-external-link" aria-hidden="true"></i>
+            </a>
+
+            <a class="resource" href="https://drive.google.com/file/d/1DE_8roIRkQTK05043nEebkNejFYTsP_g/view?usp=drive_link" target="_blank" rel="noopener noreferrer">
+              <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+              <div class="resource-copy">
+                <strong>Travail manuscrit — document 2</strong>
+                <span>Ouvrir le deuxième scan sur Google Drive.</span>
+              </div>
+              <i class="fa fa-external-link" aria-hidden="true"></i>
+            </a>
+
+            <a class="resource" href="https://drive.google.com/file/d/12tRjWsApD6lIs_F4RfC5kWBBNtCr9yu3/view?usp=sharing" target="_blank" rel="noopener noreferrer">
+              <i class="fa fa-file-pdf-o" aria-hidden="true"></i>
+              <div class="resource-copy">
+                <strong>Travail manuscrit — document 3</strong>
+                <span>Ouvrir le troisième scan sur Google Drive.</span>
+              </div>
+              <i class="fa fa-external-link" aria-hidden="true"></i>
+            </a>
+          </div>
+
+          <div class="note">
+            <strong>Petit rappel :</strong> vérifie que les liens Drive sont accessibles à ton enseignant.
+            Si les scans représentent plusieurs pages d'un même travail, tu peux aussi les présenter dans l'ordre des questions.
+          </div>
+        </section>
+
+        <section class="section" id="partie2b">
+          <div class="section-heading">
+            <span class="section-number">05</span>
+            <h2>Exercices 2.4B</h2>
+          </div>
+
+          <p>
+            Voici le document qui contient les réponses aux exercices 2.4B. Il permet de consulter les démarches,
+            les calculs et les interprétations associés à cette partie.
+          </p>
+
+          <div class="resource-list">
+            <a class="resource" href="https://docs.google.com/document/d/1yVYAa-_u1R2Wcwq_fSyW_GIJHD3mo_QfPk99tPJJ4j8/edit?usp=sharing" target="_blank" rel="noopener noreferrer">
+              <i class="fa fa-file-text-o" aria-hidden="true"></i>
+              <div class="resource-copy">
+                <strong>Exercices 2.4B — réponses</strong>
+                <span>Ouvrir le document Google Docs.</span>
+              </div>
+              <i class="fa fa-external-link" aria-hidden="true"></i>
+            </a>
+          </div>
+        </section>
+
+        <section class="section" id="ressources">
+          <div class="section-heading">
+            <span class="section-number">06</span>
+            <h2>Ressources utiles</h2>
+          </div>
+
+          <p>Ces ressources m'aident à réviser les notions du module et à vérifier mes réponses.</p>
+
+          <div class="resource-list">
+            <a class="resource" href="https://drive.google.com/file/d/1i96RvRYcdpm8U3uEDC9J-RqFFtf-M_0x/view" target="_blank" rel="noopener noreferrer">
+              <i class="fa fa-book" aria-hidden="true"></i>
+              <div class="resource-copy">
+                <strong>Ressource du cours</strong>
+                <span>Ouvrir le document de référence partagé sur Google Drive.</span>
+              </div>
+              <i class="fa fa-external-link" aria-hidden="true"></i>
+            </a>
+
+            <a class="resource" href="https://www.desmos.com/calculator/jdgiqvxwum?lang=fr" target="_blank" rel="noopener noreferrer">
+              <i class="fa fa-line-chart" aria-hidden="true"></i>
+              <div class="resource-copy">
+                <strong>Calculatrice Desmos — en français</strong>
+                <span>Utiliser l'outil interactif pour explorer les données et les calculs.</span>
+              </div>
+              <i class="fa fa-external-link" aria-hidden="true"></i>
+            </a>
+
+            <a class="resource" href="https://matheguru.com/images/normalverteilung_68-95-99.png" target="_blank" rel="noopener noreferrer">
+              <i class="fa fa-picture-o" aria-hidden="true"></i>
+              <div class="resource-copy">
+                <strong>Image de la distribution normale</strong>
+                <span>Consulter l'image et sa règle empirique 68–95–99,7.</span>
+              </div>
+              <i class="fa fa-external-link" aria-hidden="true"></i>
+            </a>
+          </div>
+        </section>
+
+        <section class="section" id="conclusion">
+          <div class="section-heading">
+            <span class="section-number">07</span>
+            <h2>Conclusion</h2>
+          </div>
+
+          <div class="conclusion">
+            <p>
+              La distribution normale permet de décrire des données réparties autour d'une moyenne selon une courbe symétrique.
+              La règle 68–95–99,7 aide à estimer la proportion de données situées à un, deux ou trois écarts-types de la moyenne.
+            </p>
+            <p>
+              L'écart réduit indique la distance entre une valeur et la moyenne en unités d'écart-type. En combinant ces notions
+              avec les exercices et les outils technologiques, il est possible de mieux interpréter et comparer des résultats statistiques.
+            </p>
+          </div>
+        </section>
+
+        <footer class="page-footer">
+          <p>MDM4U · Mathématiques de la gestion des données · Leçon 2.4</p>
+          <a class="back-top" href="#top">
+            <i class="fa fa-arrow-up" aria-hidden="true"></i> Retour en haut
+          </a>
+        </footer>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- Chargement de la navigation existante -->
+  <script>
+    fetch("nav.html")
+      .then(function(response) {
+        if (!response.ok) {
+          throw new Error("Le fichier nav.html est introuvable.");
+        }
+        return response.text();
+      })
+      .then(function(html) {
+        document.getElementById("sidebar").innerHTML = html;
+      })
+      .catch(function() {
+        document.getElementById("sidebar").innerHTML =
+          '<p>Navigation indisponible. <a href="index.html">Retour à l’accueil</a></p>';
+      });
+  </script>
 </body>
-
 </html>
-```
